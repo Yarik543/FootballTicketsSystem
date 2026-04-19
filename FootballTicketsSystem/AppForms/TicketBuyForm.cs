@@ -43,7 +43,7 @@ namespace FootballTicketsSystem.AppForms
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Padding = new Padding(0, 15, 20, 50); // Слева, Сверху, Справа, Снизу
+            flowLayoutPanel1.Padding = new Padding(20, 15, 20, 50); // Слева, Сверху, Справа, Снизу
 
             // Тестовые данные: 15 рядов по 10 мест
             int totalRows = 15;
@@ -76,6 +76,8 @@ namespace FootballTicketsSystem.AppForms
                 rowPanel.Controls.Add(lblRowNumber);
 
                 // Добавляем кнопки мест
+                int middleSeat = seatsPerRow / 2; // Разделение ровно пополам (после 5-го)
+
                 for (int seat = 1; seat <= seatsPerRow; seat++)
                 {
                     var btnSeat = new Guna2Button
@@ -110,7 +112,18 @@ namespace FootballTicketsSystem.AppForms
                     }
 
                     rowPanel.Controls.Add(btnSeat);
+                    // 👇 ВОТ ЭТО СОЗДАЁТ ПРОХОД ПОСЕРЕДИНЕ 👇
+                    if (seat == middleSeat)
+                    {
+                        var aisleSpacer = new Panel
+                        {
+                            Width = 40, // ← Меняй это число, чтобы сделать проход шире или уже
+                            Height = 40,
+                            BackColor = Color.Transparent
+                        };
+                        rowPanel.Controls.Add(aisleSpacer);
                 }
+            }
 
                 flowLayoutPanel1.Controls.Add(rowPanel);
             }

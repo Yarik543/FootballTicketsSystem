@@ -22,5 +22,11 @@ namespace FootballTicketsSystem.AppForms
             this.Close();
             DialogResult = DialogResult.OK;
         }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            AdminUsersForm adminUsersForm = new AdminUsersForm();
+            DialogResult adminResult = adminUsersForm.ShowDialog();
+        }
     }
 }

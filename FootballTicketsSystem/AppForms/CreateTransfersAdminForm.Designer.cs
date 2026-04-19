@@ -34,6 +34,7 @@
             System.Windows.Forms.Label matchDateLabel;
             System.Windows.Forms.Label stadiumIdLabel;
             System.Windows.Forms.Label ratingMatchLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateTransfersAdminForm));
             this.btnSaveTransfer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -624,9 +625,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureProfil);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateTransfersAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CreateTransfersAdminForm";
+            this.Text = "Добавление | редактирование трансфера";
             this.Load += new System.EventHandler(this.CreateTransfersAdminForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

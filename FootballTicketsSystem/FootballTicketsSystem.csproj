@@ -209,6 +209,18 @@
     <Compile Include="AppControls\TransfersControl.Designer.cs">
       <DependentUpon>TransfersControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppControls\UsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppControls\UsersControl.Designer.cs">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\AdminUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\AdminUsersForm.Designer.cs">
+      <DependentUpon>AdminUsersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\CalendarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +331,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppControls\TransfersControl.resx">
       <DependentUpon>TransfersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppControls\UsersControl.resx">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\AdminUsersForm.resx">
+      <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\CalendarForm.resx">
       <DependentUpon>CalendarForm.cs</DependentUpon>
