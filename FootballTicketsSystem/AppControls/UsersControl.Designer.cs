@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.gunaPanelMatch = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnTopBalance = new Guna.UI2.WinForms.Guna2Button();
+            this.labelPhone = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
             this.btnDeleteUser = new Guna.UI2.WinForms.Guna2Button();
             this.labelUserName = new System.Windows.Forms.Label();
             this.pictureBoxProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.labelPhone = new System.Windows.Forms.Label();
-            this.btnTopBalance = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPanelMatch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfil)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,46 @@
             this.gunaPanelMatch.Name = "gunaPanelMatch";
             this.gunaPanelMatch.Size = new System.Drawing.Size(1220, 195);
             this.gunaPanelMatch.TabIndex = 2;
+            // 
+            // btnTopBalance
+            // 
+            this.btnTopBalance.BorderColor = System.Drawing.Color.White;
+            this.btnTopBalance.BorderRadius = 5;
+            this.btnTopBalance.BorderThickness = 2;
+            this.btnTopBalance.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTopBalance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTopBalance.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTopBalance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTopBalance.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnTopBalance.Font = new System.Drawing.Font("Inter Medium", 11F, System.Drawing.FontStyle.Bold);
+            this.btnTopBalance.ForeColor = System.Drawing.Color.White;
+            this.btnTopBalance.Location = new System.Drawing.Point(929, 63);
+            this.btnTopBalance.Name = "btnTopBalance";
+            this.btnTopBalance.Size = new System.Drawing.Size(262, 55);
+            this.btnTopBalance.TabIndex = 38;
+            this.btnTopBalance.Text = "Пополнить балланс";
+            // 
+            // labelPhone
+            // 
+            this.labelPhone.AutoSize = true;
+            this.labelPhone.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPhone.Location = new System.Drawing.Point(269, 150);
+            this.labelPhone.Name = "labelPhone";
+            this.labelPhone.Size = new System.Drawing.Size(111, 28);
+            this.labelPhone.TabIndex = 37;
+            this.labelPhone.Text = "Телефон: ";
+            this.labelPhone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelEmail.Location = new System.Drawing.Point(269, 83);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(75, 28);
+            this.labelEmail.TabIndex = 36;
+            this.labelEmail.Text = "Email: ";
+            this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDeleteUser
             // 
@@ -83,9 +123,9 @@
             this.labelUserName.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelUserName.Location = new System.Drawing.Point(269, 18);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(59, 28);
+            this.labelUserName.Size = new System.Drawing.Size(71, 28);
             this.labelUserName.TabIndex = 23;
-            this.labelUserName.Text = "ФИО";
+            this.labelUserName.Text = "ФИО: ";
             this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxProfil
@@ -99,51 +139,12 @@
             this.pictureBoxProfil.TabIndex = 35;
             this.pictureBoxProfil.TabStop = false;
             // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelEmail.Location = new System.Drawing.Point(269, 83);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(63, 28);
-            this.labelEmail.TabIndex = 36;
-            this.labelEmail.Text = "Email";
-            this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelPhone
-            // 
-            this.labelPhone.AutoSize = true;
-            this.labelPhone.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPhone.Location = new System.Drawing.Point(269, 150);
-            this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(99, 28);
-            this.labelPhone.TabIndex = 37;
-            this.labelPhone.Text = "Телефон";
-            this.labelPhone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnTopBalance
-            // 
-            this.btnTopBalance.BorderColor = System.Drawing.Color.White;
-            this.btnTopBalance.BorderRadius = 5;
-            this.btnTopBalance.BorderThickness = 2;
-            this.btnTopBalance.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTopBalance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTopBalance.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTopBalance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTopBalance.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.btnTopBalance.Font = new System.Drawing.Font("Inter Medium", 11F, System.Drawing.FontStyle.Bold);
-            this.btnTopBalance.ForeColor = System.Drawing.Color.White;
-            this.btnTopBalance.Location = new System.Drawing.Point(929, 63);
-            this.btnTopBalance.Name = "btnTopBalance";
-            this.btnTopBalance.Size = new System.Drawing.Size(262, 55);
-            this.btnTopBalance.TabIndex = 38;
-            this.btnTopBalance.Text = "Пополнить балланс";
-            // 
             // UsersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gunaPanelMatch);
+            this.Margin = new System.Windows.Forms.Padding(25, 0, 0, 25);
             this.Name = "UsersControl";
             this.Size = new System.Drawing.Size(1220, 195);
             this.gunaPanelMatch.ResumeLayout(false);

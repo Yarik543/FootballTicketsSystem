@@ -273,6 +273,16 @@ namespace FootballTicketsSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap profil_default {
+            get {
+                object obj = ResourceManager.GetObject("profil_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap profil_white {
             get {
                 object obj = ResourceManager.GetObject("profil_white", resourceCulture);

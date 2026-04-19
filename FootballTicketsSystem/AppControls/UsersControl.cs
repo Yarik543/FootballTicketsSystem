@@ -24,23 +24,28 @@ namespace FootballTicketsSystem.AppControls
 
         private void SetDataUsersLabel()
         {
-            labelUserName.Text = _user.FullName ?? "Не указано";
-            labelEmail.Text = _user.Email ?? "Не указано";
-            labelPhone.Text = _user.Phone ?? "Не указано";
-            string path  = string.IsNullOrEmpty(_user.PhotoProfil) 
-                ? Path.Combine(Application.StartupPath,"img", "users", "picture_default.png")
-                : Path.Combine(Application.StartupPath, "img", "users", _user.PhotoProfil);
+            labelUserName.Text += _user.FullName ?? "Не указано";
+            labelEmail.Text += _user.Email ?? "Не указано";
+            labelPhone.Text += _user.Phone ?? "Не указано";
+            Image newImage;
 
-            if(pictureBoxProfil.Image != null)
+            if (string.IsNullOrEmpty(_user.PhotoProfil))
             {
-                pictureBoxProfil.Image.Dispose();
-                pictureBoxProfil.Image = null;
+                newImage = Properties.Resources.profil_default;
+            }
+            else
+            {
+                string path = Path.Combine(Application.StartupPath, "img", "users", _user.PhotoProfil);
+
+                // Image.FromFile блокирует файл, поэтому делаем независимую копию
+                using (var temp = Image.FromFile(path))
+                {
+                    newImage = new Bitmap(temp);
+                }
             }
 
-            using (var temp = Image.FromFile(path))
-            {
-                pictureBoxProfil.Image = new Bitmap(temp);
-            }
+            pictureBoxProfil.Image?.Dispose();
+            pictureBoxProfil.Image = newImage;
         }
 
         /// <summary>
