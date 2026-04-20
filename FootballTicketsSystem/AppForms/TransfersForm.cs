@@ -1,14 +1,16 @@
 ﻿using FootballTicketsSystem.AppControls;
+using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.DBModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
 
 namespace FootballTicketsSystem.AppForms
 {
@@ -17,8 +19,20 @@ namespace FootballTicketsSystem.AppForms
         public TransfersForm()
         {
             InitializeComponent();
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
         }
 
+        /// <summary>
+        /// Фон + границы формы
+        /// </summary>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            UiPainter.DrawGradientBackground(this, e);
+        }
         private void btnMain_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -46,6 +60,11 @@ namespace FootballTicketsSystem.AppForms
         {
             CreateTransfersAdminForm createTransfersAdminForm = new CreateTransfersAdminForm();
             DialogResult result = createTransfersAdminForm.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

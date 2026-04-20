@@ -1,4 +1,5 @@
-﻿using FootballTicketsSystem.DBModels;
+﻿using FootballTicketsSystem.AppServices;
+using FootballTicketsSystem.DBModels;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,19 @@ namespace FootballTicketsSystem.AppForms
         public TicketBuyForm()
         {
             InitializeComponent();
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
+        }
+
+        /// <summary>
+        /// Фон + границы формы
+        /// </summary>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            UiPainter.DrawGradientBackground(this, e);
         }
 
         private void btnCloseBack_Click(object sender, EventArgs e)

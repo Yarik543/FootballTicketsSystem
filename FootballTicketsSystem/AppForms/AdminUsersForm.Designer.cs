@@ -30,31 +30,31 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUsersForm));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelUserRole = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.btnTransfers = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.btnCalendar = new Guna.UI2.WinForms.Guna2Button();
             this.btnProfil = new Guna.UI2.WinForms.Guna2Button();
             this.btnTickets = new Guna.UI2.WinForms.Guna2Button();
             this.btnTeams = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.gunaPanelHeaderForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -78,125 +78,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(284, 810);
             this.guna2Panel1.TabIndex = 2;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.guna2Separator1.FillThickness = 2;
-            this.guna2Separator1.Location = new System.Drawing.Point(29, 614);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(225, 10);
-            this.guna2Separator1.TabIndex = 7;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(284, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.gunaPanelHeaderForm);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 30);
-            this.splitContainer1.Size = new System.Drawing.Size(968, 810);
-            this.splitContainer1.SplitterDistance = 157;
-            this.splitContainer1.TabIndex = 3;
-            // 
-            // gunaPanelHeaderForm
-            // 
-            this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
-            this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.gunaPanelHeaderForm.Controls.Add(this.btnCloseBack);
-            this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
-            this.gunaPanelHeaderForm.Controls.Add(this.label1);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
-            this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
-            this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
-            this.gunaPanelHeaderForm.Size = new System.Drawing.Size(968, 157);
-            this.gunaPanelHeaderForm.TabIndex = 20;
-            // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(769, 70);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 15;
-            this.labelUserRole.Text = "UserRole";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Inter Medium", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(19, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Все клиенты";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(769, 33);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 14;
-            this.labelUserName.Text = "UserName";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(968, 609);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // btnCloseBack
-            // 
-            this.btnCloseBack.BorderColor = System.Drawing.Color.White;
-            this.btnCloseBack.BorderRadius = 5;
-            this.btnCloseBack.BorderThickness = 1;
-            this.btnCloseBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCloseBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCloseBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCloseBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCloseBack.FillColor = System.Drawing.Color.CadetBlue;
-            this.btnCloseBack.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold);
-            this.btnCloseBack.ForeColor = System.Drawing.Color.White;
-            this.btnCloseBack.Location = new System.Drawing.Point(26, 110);
-            this.btnCloseBack.Name = "btnCloseBack";
-            this.btnCloseBack.Size = new System.Drawing.Size(169, 44);
-            this.btnCloseBack.TabIndex = 52;
-            this.btnCloseBack.Text = "Назад";
-            this.btnCloseBack.Click += new System.EventHandler(this.btnCloseBack_Click);
-            // 
-            // pictureProfil
-            // 
-            this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureProfil.BackColor = System.Drawing.Color.Transparent;
-            this.pictureProfil.ImageRotate = 0F;
-            this.pictureProfil.Location = new System.Drawing.Point(681, 30);
-            this.pictureProfil.Name = "pictureProfil";
-            this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureProfil.Size = new System.Drawing.Size(75, 75);
-            this.pictureProfil.TabIndex = 16;
-            this.pictureProfil.TabStop = false;
             // 
             // btnExit
             // 
@@ -239,6 +120,15 @@
             this.btnTransfers.TabIndex = 12;
             this.btnTransfers.Text = "Трансферы";
             this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.guna2Separator1.FillThickness = 2;
+            this.guna2Separator1.Location = new System.Drawing.Point(29, 614);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(225, 10);
+            this.guna2Separator1.TabIndex = 7;
             // 
             // btnCalendar
             // 
@@ -352,6 +242,117 @@
             this.btnMain.TabIndex = 7;
             this.btnMain.Text = "Главная";
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(284, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.gunaPanelHeaderForm);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 30);
+            this.splitContainer1.Size = new System.Drawing.Size(968, 810);
+            this.splitContainer1.SplitterDistance = 157;
+            this.splitContainer1.TabIndex = 3;
+            // 
+            // gunaPanelHeaderForm
+            // 
+            this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
+            this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.gunaPanelHeaderForm.Controls.Add(this.btnCloseBack);
+            this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
+            this.gunaPanelHeaderForm.Controls.Add(this.label1);
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
+            this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
+            this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
+            this.gunaPanelHeaderForm.Size = new System.Drawing.Size(968, 157);
+            this.gunaPanelHeaderForm.TabIndex = 20;
+            // 
+            // btnCloseBack
+            // 
+            this.btnCloseBack.BorderColor = System.Drawing.Color.White;
+            this.btnCloseBack.BorderRadius = 5;
+            this.btnCloseBack.BorderThickness = 1;
+            this.btnCloseBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCloseBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCloseBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCloseBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCloseBack.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnCloseBack.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCloseBack.ForeColor = System.Drawing.Color.White;
+            this.btnCloseBack.Location = new System.Drawing.Point(26, 110);
+            this.btnCloseBack.Name = "btnCloseBack";
+            this.btnCloseBack.Size = new System.Drawing.Size(169, 44);
+            this.btnCloseBack.TabIndex = 52;
+            this.btnCloseBack.Text = "Назад";
+            this.btnCloseBack.Click += new System.EventHandler(this.btnCloseBack_Click);
+            // 
+            // pictureProfil
+            // 
+            this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureProfil.BackColor = System.Drawing.Color.Transparent;
+            this.pictureProfil.ImageRotate = 0F;
+            this.pictureProfil.Location = new System.Drawing.Point(681, 30);
+            this.pictureProfil.Name = "pictureProfil";
+            this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureProfil.TabIndex = 16;
+            this.pictureProfil.TabStop = false;
+            // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(769, 70);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 15;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Inter Medium", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(19, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Все клиенты";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(769, 33);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(96, 24);
+            this.labelUserName.TabIndex = 14;
+            this.labelUserName.Text = "UserName";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(968, 609);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // AdminUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -366,6 +367,7 @@
             this.Text = "Управление пользователями";
             this.Load += new System.EventHandler(this.AdminUsersForm_Load);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -373,7 +375,6 @@
             this.gunaPanelHeaderForm.ResumeLayout(false);
             this.gunaPanelHeaderForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -30,11 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDashboardForm));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTransfers = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.btnCalendar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnProfil = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTickets = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTeams = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.labelUserBack = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.labelUserRole = new System.Windows.Forms.Label();
             this.panelNextMatch = new Guna.UI2.WinForms.Guna2Panel();
+            this.gunaPictureBoxLogoSecondTeam = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.gunaPictureBoxLogoFirstTeam = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.labelTeamNameSecond = new System.Windows.Forms.Label();
             this.labelTeamNameFirst = new System.Windows.Forms.Label();
             this.line = new System.Windows.Forms.Label();
@@ -84,57 +95,46 @@
             this.label4 = new System.Windows.Forms.Label();
             this.gunaPanelMatchTime = new Guna.UI2.WinForms.Guna2Panel();
             this.labelTimerMatch = new System.Windows.Forms.Label();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.gunaPanelTicketsSale = new Guna.UI2.WinForms.Guna2Panel();
             this.labelTicketsCount = new System.Windows.Forms.Label();
+            this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.gunaPanelRateMatch = new Guna.UI2.WinForms.Guna2Panel();
             this.labelRatingMatch = new System.Windows.Forms.Label();
+            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.gunaPanelCapacity = new Guna.UI2.WinForms.Guna2Panel();
             this.labelCapacityPircent = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.gunaPictureBoxLogoSecondTeam = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.gunaPictureBoxLogoFirstTeam = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.pictureBoxIndexMessage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pictureBoxMessage = new System.Windows.Forms.PictureBox();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTransfers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCalendar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnProfil = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTickets = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTeams = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelNextMatch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoSecondTeam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoFirstTeam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.gunaPanelGameStatistic.SuspendLayout();
             this.gunaPanelGrafick.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.gunaPanelHeaderTable.SuspendLayout();
             this.gunaPanelLastResults.SuspendLayout();
             this.gunaPanelMatchTime.SuspendLayout();
-            this.gunaPanelTicketsSale.SuspendLayout();
-            this.gunaPanelRateMatch.SuspendLayout();
-            this.gunaPanelCapacity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
+            this.gunaPanelTicketsSale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoSecondTeam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoFirstTeam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.gunaPanelRateMatch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            this.gunaPanelCapacity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIndexMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,6 +160,50 @@
             this.guna2Panel1.Size = new System.Drawing.Size(284, 810);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BorderRadius = 5;
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.FillColor = System.Drawing.Color.Transparent;
+            this.btnExit.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.btnExit.Image = global::FootballTicketsSystem.Properties.Resources.exit_black;
+            this.btnExit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnExit.Location = new System.Drawing.Point(29, 728);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnExit.Size = new System.Drawing.Size(226, 48);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "Выйти";
+            this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnTransfers
+            // 
+            this.btnTransfers.BackColor = System.Drawing.Color.Transparent;
+            this.btnTransfers.BorderRadius = 5;
+            this.btnTransfers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransfers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransfers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTransfers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTransfers.FillColor = System.Drawing.Color.Transparent;
+            this.btnTransfers.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnTransfers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.btnTransfers.Image = global::FootballTicketsSystem.Properties.Resources.transfer_black;
+            this.btnTransfers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTransfers.Location = new System.Drawing.Point(29, 655);
+            this.btnTransfers.Name = "btnTransfers";
+            this.btnTransfers.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnTransfers.Size = new System.Drawing.Size(226, 49);
+            this.btnTransfers.TabIndex = 12;
+            this.btnTransfers.Text = "Трансферы";
+            this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
+            // 
             // guna2Separator1
             // 
             this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
@@ -168,6 +212,122 @@
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(225, 10);
             this.guna2Separator1.TabIndex = 7;
+            // 
+            // btnCalendar
+            // 
+            this.btnCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCalendar.BorderRadius = 5;
+            this.btnCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCalendar.FillColor = System.Drawing.Color.Transparent;
+            this.btnCalendar.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.btnCalendar.Image = global::FootballTicketsSystem.Properties.Resources.calendar_black;
+            this.btnCalendar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCalendar.Location = new System.Drawing.Point(28, 538);
+            this.btnCalendar.Name = "btnCalendar";
+            this.btnCalendar.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnCalendar.Size = new System.Drawing.Size(226, 49);
+            this.btnCalendar.TabIndex = 11;
+            this.btnCalendar.Text = "Календарь";
+            this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
+            // 
+            // btnProfil
+            // 
+            this.btnProfil.BackColor = System.Drawing.Color.Transparent;
+            this.btnProfil.BorderRadius = 5;
+            this.btnProfil.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnProfil.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnProfil.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnProfil.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnProfil.FillColor = System.Drawing.Color.Transparent;
+            this.btnProfil.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnProfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.btnProfil.Image = global::FootballTicketsSystem.Properties.Resources.profil_black;
+            this.btnProfil.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProfil.Location = new System.Drawing.Point(28, 462);
+            this.btnProfil.Name = "btnProfil";
+            this.btnProfil.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnProfil.Size = new System.Drawing.Size(226, 49);
+            this.btnProfil.TabIndex = 10;
+            this.btnProfil.Text = "Профиль";
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
+            // 
+            // btnTickets
+            // 
+            this.btnTickets.BackColor = System.Drawing.Color.Transparent;
+            this.btnTickets.BorderRadius = 5;
+            this.btnTickets.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTickets.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTickets.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTickets.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTickets.FillColor = System.Drawing.Color.Transparent;
+            this.btnTickets.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.btnTickets.Image = global::FootballTicketsSystem.Properties.Resources.tickets_black;
+            this.btnTickets.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTickets.Location = new System.Drawing.Point(28, 385);
+            this.btnTickets.Name = "btnTickets";
+            this.btnTickets.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnTickets.Size = new System.Drawing.Size(226, 49);
+            this.btnTickets.TabIndex = 9;
+            this.btnTickets.Text = "Мои билеты";
+            this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
+            // 
+            // btnTeams
+            // 
+            this.btnTeams.BackColor = System.Drawing.Color.Transparent;
+            this.btnTeams.BorderRadius = 5;
+            this.btnTeams.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTeams.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTeams.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTeams.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTeams.FillColor = System.Drawing.Color.Transparent;
+            this.btnTeams.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnTeams.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.btnTeams.Image = ((System.Drawing.Image)(resources.GetObject("btnTeams.Image")));
+            this.btnTeams.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTeams.Location = new System.Drawing.Point(28, 309);
+            this.btnTeams.Name = "btnTeams";
+            this.btnTeams.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnTeams.Size = new System.Drawing.Size(226, 49);
+            this.btnTeams.TabIndex = 8;
+            this.btnTeams.Text = "Команды";
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::FootballTicketsSystem.Properties.Resources.logo_green;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(54, 28);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(175, 175);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // btnMain
+            // 
+            this.btnMain.BorderRadius = 5;
+            this.btnMain.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMain.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMain.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMain.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnMain.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnMain.ForeColor = System.Drawing.Color.White;
+            this.btnMain.Image = ((System.Drawing.Image)(resources.GetObject("btnMain.Image")));
+            this.btnMain.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMain.Location = new System.Drawing.Point(28, 236);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
+            this.btnMain.Size = new System.Drawing.Size(226, 49);
+            this.btnMain.TabIndex = 7;
+            this.btnMain.Text = "Главная";
             // 
             // labelUserBack
             // 
@@ -229,6 +389,47 @@
             this.panelNextMatch.Name = "panelNextMatch";
             this.panelNextMatch.Size = new System.Drawing.Size(437, 178);
             this.panelNextMatch.TabIndex = 9;
+            // 
+            // gunaPictureBoxLogoSecondTeam
+            // 
+            this.gunaPictureBoxLogoSecondTeam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
+            this.gunaPictureBoxLogoSecondTeam.BorderRadius = 5;
+            this.gunaPictureBoxLogoSecondTeam.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBoxLogoSecondTeam.Image")));
+            this.gunaPictureBoxLogoSecondTeam.ImageRotate = 0F;
+            this.gunaPictureBoxLogoSecondTeam.Location = new System.Drawing.Point(247, 126);
+            this.gunaPictureBoxLogoSecondTeam.Name = "gunaPictureBoxLogoSecondTeam";
+            this.gunaPictureBoxLogoSecondTeam.Size = new System.Drawing.Size(40, 40);
+            this.gunaPictureBoxLogoSecondTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBoxLogoSecondTeam.TabIndex = 21;
+            this.gunaPictureBoxLogoSecondTeam.TabStop = false;
+            // 
+            // gunaPictureBoxLogoFirstTeam
+            // 
+            this.gunaPictureBoxLogoFirstTeam.BorderRadius = 5;
+            this.gunaPictureBoxLogoFirstTeam.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBoxLogoFirstTeam.Image")));
+            this.gunaPictureBoxLogoFirstTeam.ImageRotate = 0F;
+            this.gunaPictureBoxLogoFirstTeam.Location = new System.Drawing.Point(146, 126);
+            this.gunaPictureBoxLogoFirstTeam.Name = "gunaPictureBoxLogoFirstTeam";
+            this.gunaPictureBoxLogoFirstTeam.Size = new System.Drawing.Size(40, 40);
+            this.gunaPictureBoxLogoFirstTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBoxLogoFirstTeam.TabIndex = 20;
+            this.gunaPictureBoxLogoFirstTeam.TabStop = false;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.Image = global::FootballTicketsSystem.Properties.Resources.vs;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(202, 137);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 19;
+            this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2CirclePictureBox1.UseTransparentBackground = true;
             // 
             // labelTeamNameSecond
             // 
@@ -764,6 +965,17 @@
             this.labelTimerMatch.TabIndex = 25;
             this.labelTimerMatch.Text = "До матча";
             // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.Image = global::FootballTicketsSystem.Properties.Resources.time;
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(14, 25);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(40, 40);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 24;
+            this.guna2PictureBox6.TabStop = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -800,6 +1012,17 @@
             this.labelTicketsCount.Size = new System.Drawing.Size(121, 32);
             this.labelTicketsCount.TabIndex = 26;
             this.labelTicketsCount.Text = "До матча";
+            // 
+            // guna2PictureBox7
+            // 
+            this.guna2PictureBox7.Image = global::FootballTicketsSystem.Properties.Resources.ticket;
+            this.guna2PictureBox7.ImageRotate = 0F;
+            this.guna2PictureBox7.Location = new System.Drawing.Point(13, 21);
+            this.guna2PictureBox7.Name = "guna2PictureBox7";
+            this.guna2PictureBox7.Size = new System.Drawing.Size(40, 40);
+            this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox7.TabIndex = 25;
+            this.guna2PictureBox7.TabStop = false;
             // 
             // label10
             // 
@@ -838,6 +1061,17 @@
             this.labelRatingMatch.TabIndex = 26;
             this.labelRatingMatch.Text = "До матча";
             // 
+            // guna2PictureBox5
+            // 
+            this.guna2PictureBox5.Image = global::FootballTicketsSystem.Properties.Resources.star_rate;
+            this.guna2PictureBox5.ImageRotate = 0F;
+            this.guna2PictureBox5.Location = new System.Drawing.Point(13, 20);
+            this.guna2PictureBox5.Name = "guna2PictureBox5";
+            this.guna2PictureBox5.Size = new System.Drawing.Size(40, 40);
+            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox5.TabIndex = 23;
+            this.guna2PictureBox5.TabStop = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -875,27 +1109,6 @@
             this.labelCapacityPircent.TabIndex = 26;
             this.labelCapacityPircent.Text = "До матча";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Inter", 10F);
-            this.label7.Location = new System.Drawing.Point(64, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 24);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Заполнено";
-            // 
-            // guna2PictureBox5
-            // 
-            this.guna2PictureBox5.Image = global::FootballTicketsSystem.Properties.Resources.star_rate;
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(13, 20);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(40, 40);
-            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox5.TabIndex = 23;
-            this.guna2PictureBox5.TabStop = false;
-            // 
             // guna2PictureBox4
             // 
             this.guna2PictureBox4.Image = global::FootballTicketsSystem.Properties.Resources.stadium;
@@ -907,68 +1120,15 @@
             this.guna2PictureBox4.TabIndex = 22;
             this.guna2PictureBox4.TabStop = false;
             // 
-            // guna2PictureBox6
+            // label7
             // 
-            this.guna2PictureBox6.Image = global::FootballTicketsSystem.Properties.Resources.time;
-            this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(14, 25);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(40, 40);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox6.TabIndex = 24;
-            this.guna2PictureBox6.TabStop = false;
-            // 
-            // guna2PictureBox7
-            // 
-            this.guna2PictureBox7.Image = global::FootballTicketsSystem.Properties.Resources.ticket;
-            this.guna2PictureBox7.ImageRotate = 0F;
-            this.guna2PictureBox7.Location = new System.Drawing.Point(13, 21);
-            this.guna2PictureBox7.Name = "guna2PictureBox7";
-            this.guna2PictureBox7.Size = new System.Drawing.Size(40, 40);
-            this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox7.TabIndex = 25;
-            this.guna2PictureBox7.TabStop = false;
-            // 
-            // gunaPictureBoxLogoSecondTeam
-            // 
-            this.gunaPictureBoxLogoSecondTeam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
-            this.gunaPictureBoxLogoSecondTeam.BorderRadius = 5;
-            this.gunaPictureBoxLogoSecondTeam.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBoxLogoSecondTeam.Image")));
-            this.gunaPictureBoxLogoSecondTeam.ImageRotate = 0F;
-            this.gunaPictureBoxLogoSecondTeam.Location = new System.Drawing.Point(247, 126);
-            this.gunaPictureBoxLogoSecondTeam.Name = "gunaPictureBoxLogoSecondTeam";
-            this.gunaPictureBoxLogoSecondTeam.Size = new System.Drawing.Size(40, 40);
-            this.gunaPictureBoxLogoSecondTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBoxLogoSecondTeam.TabIndex = 21;
-            this.gunaPictureBoxLogoSecondTeam.TabStop = false;
-            // 
-            // gunaPictureBoxLogoFirstTeam
-            // 
-            this.gunaPictureBoxLogoFirstTeam.BorderRadius = 5;
-            this.gunaPictureBoxLogoFirstTeam.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBoxLogoFirstTeam.Image")));
-            this.gunaPictureBoxLogoFirstTeam.ImageRotate = 0F;
-            this.gunaPictureBoxLogoFirstTeam.Location = new System.Drawing.Point(146, 126);
-            this.gunaPictureBoxLogoFirstTeam.Name = "gunaPictureBoxLogoFirstTeam";
-            this.gunaPictureBoxLogoFirstTeam.Size = new System.Drawing.Size(40, 40);
-            this.gunaPictureBoxLogoFirstTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBoxLogoFirstTeam.TabIndex = 20;
-            this.gunaPictureBoxLogoFirstTeam.TabStop = false;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = global::FootballTicketsSystem.Properties.Resources.vs;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(202, 137);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 19;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.UseTransparentBackground = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Inter", 10F);
+            this.label7.Location = new System.Drawing.Point(64, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 24);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Заполнено";
             // 
             // pictureBoxIndexMessage
             // 
@@ -1007,168 +1167,9 @@
             this.pictureProfil.Name = "pictureProfil";
             this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProfil.TabIndex = 4;
             this.pictureProfil.TabStop = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.BorderRadius = 5;
-            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.FillColor = System.Drawing.Color.Transparent;
-            this.btnExit.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.btnExit.Image = global::FootballTicketsSystem.Properties.Resources.exit_black;
-            this.btnExit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnExit.Location = new System.Drawing.Point(29, 728);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnExit.Size = new System.Drawing.Size(226, 48);
-            this.btnExit.TabIndex = 13;
-            this.btnExit.Text = "Выйти";
-            this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnTransfers
-            // 
-            this.btnTransfers.BackColor = System.Drawing.Color.Transparent;
-            this.btnTransfers.BorderRadius = 5;
-            this.btnTransfers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransfers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransfers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTransfers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTransfers.FillColor = System.Drawing.Color.Transparent;
-            this.btnTransfers.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnTransfers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.btnTransfers.Image = global::FootballTicketsSystem.Properties.Resources.transfer_black;
-            this.btnTransfers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTransfers.Location = new System.Drawing.Point(29, 655);
-            this.btnTransfers.Name = "btnTransfers";
-            this.btnTransfers.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnTransfers.Size = new System.Drawing.Size(226, 49);
-            this.btnTransfers.TabIndex = 12;
-            this.btnTransfers.Text = "Трансферы";
-            this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
-            // 
-            // btnCalendar
-            // 
-            this.btnCalendar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCalendar.BorderRadius = 5;
-            this.btnCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCalendar.FillColor = System.Drawing.Color.Transparent;
-            this.btnCalendar.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.btnCalendar.Image = global::FootballTicketsSystem.Properties.Resources.calendar_black;
-            this.btnCalendar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCalendar.Location = new System.Drawing.Point(28, 538);
-            this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnCalendar.Size = new System.Drawing.Size(226, 49);
-            this.btnCalendar.TabIndex = 11;
-            this.btnCalendar.Text = "Календарь";
-            this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
-            // 
-            // btnProfil
-            // 
-            this.btnProfil.BackColor = System.Drawing.Color.Transparent;
-            this.btnProfil.BorderRadius = 5;
-            this.btnProfil.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProfil.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProfil.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProfil.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProfil.FillColor = System.Drawing.Color.Transparent;
-            this.btnProfil.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnProfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.btnProfil.Image = global::FootballTicketsSystem.Properties.Resources.profil_black;
-            this.btnProfil.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProfil.Location = new System.Drawing.Point(28, 462);
-            this.btnProfil.Name = "btnProfil";
-            this.btnProfil.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnProfil.Size = new System.Drawing.Size(226, 49);
-            this.btnProfil.TabIndex = 10;
-            this.btnProfil.Text = "Профиль";
-            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
-            // 
-            // btnTickets
-            // 
-            this.btnTickets.BackColor = System.Drawing.Color.Transparent;
-            this.btnTickets.BorderRadius = 5;
-            this.btnTickets.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTickets.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTickets.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTickets.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTickets.FillColor = System.Drawing.Color.Transparent;
-            this.btnTickets.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.btnTickets.Image = global::FootballTicketsSystem.Properties.Resources.tickets_black;
-            this.btnTickets.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTickets.Location = new System.Drawing.Point(28, 385);
-            this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnTickets.Size = new System.Drawing.Size(226, 49);
-            this.btnTickets.TabIndex = 9;
-            this.btnTickets.Text = "Мои билеты";
-            this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
-            // 
-            // btnTeams
-            // 
-            this.btnTeams.BackColor = System.Drawing.Color.Transparent;
-            this.btnTeams.BorderRadius = 5;
-            this.btnTeams.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTeams.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTeams.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTeams.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTeams.FillColor = System.Drawing.Color.Transparent;
-            this.btnTeams.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnTeams.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.btnTeams.Image = ((System.Drawing.Image)(resources.GetObject("btnTeams.Image")));
-            this.btnTeams.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTeams.Location = new System.Drawing.Point(28, 309);
-            this.btnTeams.Name = "btnTeams";
-            this.btnTeams.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnTeams.Size = new System.Drawing.Size(226, 49);
-            this.btnTeams.TabIndex = 8;
-            this.btnTeams.Text = "Команды";
-            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::FootballTicketsSystem.Properties.Resources.logo_green;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(54, 28);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(175, 175);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // btnMain
-            // 
-            this.btnMain.BorderRadius = 5;
-            this.btnMain.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMain.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMain.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMain.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.btnMain.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnMain.ForeColor = System.Drawing.Color.White;
-            this.btnMain.Image = ((System.Drawing.Image)(resources.GetObject("btnMain.Image")));
-            this.btnMain.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMain.Location = new System.Drawing.Point(28, 236);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Padding = new System.Windows.Forms.Padding(10, 10, 60, 10);
-            this.btnMain.Size = new System.Drawing.Size(226, 49);
-            this.btnMain.TabIndex = 7;
-            this.btnMain.Text = "Главная";
             // 
             // pictureBox3
             // 
@@ -1209,8 +1210,12 @@
             this.Text = "Главная";
             this.Load += new System.EventHandler(this.MainDashboardForm_Load);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panelNextMatch.ResumeLayout(false);
             this.panelNextMatch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoSecondTeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoFirstTeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.gunaPanelGameStatistic.ResumeLayout(false);
             this.gunaPanelGameStatistic.PerformLayout();
             this.gunaPanelGrafick.ResumeLayout(false);
@@ -1222,23 +1227,19 @@
             this.gunaPanelLastResults.PerformLayout();
             this.gunaPanelMatchTime.ResumeLayout(false);
             this.gunaPanelMatchTime.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             this.gunaPanelTicketsSale.ResumeLayout(false);
             this.gunaPanelTicketsSale.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
             this.gunaPanelRateMatch.ResumeLayout(false);
             this.gunaPanelRateMatch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             this.gunaPanelCapacity.ResumeLayout(false);
             this.gunaPanelCapacity.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoSecondTeam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoFirstTeam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIndexMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

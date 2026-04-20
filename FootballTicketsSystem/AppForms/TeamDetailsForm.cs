@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballTicketsSystem.AppServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace FootballTicketsSystem.AppForms
         public TeamDetailsForm()
         {
             InitializeComponent();
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
 
             // По умолчанию показываем команду
             panelPlayers.BringToFront();
@@ -22,7 +27,15 @@ namespace FootballTicketsSystem.AppForms
             // Подсветка активного таба
             labelTeam.ForeColor = Color.FromArgb(0, 200, 150); // Зелёный
             labelCoach.ForeColor = Color.Gray; // Серый
+        }
 
+        /// <summary>
+        /// Фон + границы формы
+        /// </summary>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            UiPainter.DrawGradientBackground(this, e);
         }
 
         private void btnCloseBack_Click(object sender, EventArgs e)

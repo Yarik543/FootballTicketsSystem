@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballTicketsSystem.AppServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace FootballTicketsSystem.AppForms
         public CreateMatchesAdminForm()
         {
             InitializeComponent();
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
+        }
+
+        /// <summary>
+        /// Фон + границы формы
+        /// </summary>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            UiPainter.DrawGradientBackground(this, e);
         }
 
         private void matchesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -22,7 +36,6 @@ namespace FootballTicketsSystem.AppForms
             this.Validate();
             this.matchesBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.footballTicketSystemDataSet);
-
         }
 
         private void CreateMatchesAdminForm_Load(object sender, EventArgs e)

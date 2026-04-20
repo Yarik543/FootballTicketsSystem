@@ -1,4 +1,5 @@
 ﻿using FootballTicketsSystem.AppControls;
+using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.DBModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,19 @@ namespace FootballTicketsSystem.AppForms
         public MyTicketsForm()
         {   
             InitializeComponent();
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
+        }
+
+        /// <summary>
+        /// Фон + границы формы
+        /// </summary>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            UiPainter.DrawGradientBackground(this, e);
         }
 
         private void MyTicketsForm_Load(object sender, EventArgs e)

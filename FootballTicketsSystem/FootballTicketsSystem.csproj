@@ -296,6 +296,7 @@
     <Compile Include="AppServices\ContextManager.cs" />
     <Compile Include="AppServices\ImageCache.cs" />
     <Compile Include="AppServices\ImageLoader.cs" />
+    <Compile Include="AppServices\PhotoHelper.cs" />
     <Compile Include="AppServices\UiPainter.cs" />
     <Compile Include="AppServices\UserSession.cs" />
     <Compile Include="DBModels\Coaches.cs" />

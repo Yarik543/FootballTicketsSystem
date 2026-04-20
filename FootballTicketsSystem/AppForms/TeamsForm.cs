@@ -1,4 +1,5 @@
 ﻿using FootballTicketsSystem.AppControls;
+using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.DBModels;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,10 @@ namespace FootballTicketsSystem.AppForms
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
         }
 
         /// <summary>

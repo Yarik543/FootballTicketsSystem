@@ -20,6 +20,10 @@ namespace FootballTicketsSystem.AppForms
             InitializeComponent();
             ContextManager.mainDashboardForm = this;
             this.DoubleBuffered = true;
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
         }
 
         private void MainDashboardForm_Load(object sender, EventArgs e)

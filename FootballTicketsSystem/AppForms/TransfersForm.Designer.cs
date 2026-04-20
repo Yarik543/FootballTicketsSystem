@@ -106,6 +106,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Выйти";
             this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // guna2Separator1
             // 
@@ -252,6 +253,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(284, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -299,7 +301,7 @@
             this.btnAddMatch.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnAddMatch.ForeColor = System.Drawing.Color.White;
             this.btnAddMatch.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddMatch.Location = new System.Drawing.Point(26, 119);
+            this.btnAddMatch.Location = new System.Drawing.Point(26, 116);
             this.btnAddMatch.Name = "btnAddMatch";
             this.btnAddMatch.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.btnAddMatch.Size = new System.Drawing.Size(260, 49);
@@ -377,6 +379,7 @@
             this.pictureProfil.Name = "pictureProfil";
             this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProfil.TabIndex = 16;
             this.pictureProfil.TabStop = false;
             // 

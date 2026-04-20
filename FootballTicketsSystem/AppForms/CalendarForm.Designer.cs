@@ -253,6 +253,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(284, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -389,6 +390,7 @@
             this.pictureProfil.Name = "pictureProfil";
             this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProfil.TabIndex = 16;
             this.pictureProfil.TabStop = false;
             // 

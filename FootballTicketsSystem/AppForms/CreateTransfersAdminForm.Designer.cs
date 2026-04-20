@@ -541,6 +541,7 @@
             this.pictureProfil.Name = "pictureProfil";
             this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProfil.TabIndex = 51;
             this.pictureProfil.TabStop = false;
             // 
