@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FootballTicketsSystem.AppForms
 {
-    public partial class UsersAdminForm : Form
+    public partial class TeamDetailsForm : Form
     {
-        public UsersAdminForm()
+        public TeamDetailsForm()
         {
             InitializeComponent();
+        }
+
+        private void btnCloseBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

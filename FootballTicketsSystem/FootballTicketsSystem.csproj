@@ -269,6 +269,12 @@
     <Compile Include="AppForms\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppForms\TeamDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\TeamDetailsForm.Designer.cs">
+      <DependentUpon>TeamDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\TeamsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,12 +292,6 @@
     </Compile>
     <Compile Include="AppForms\TransfersForm.Designer.cs">
       <DependentUpon>TransfersForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppForms\UsersAdminForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppForms\UsersAdminForm.Designer.cs">
-      <DependentUpon>UsersAdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppServices\ContextManager.cs" />
     <Compile Include="AppServices\ImageCache.cs" />
@@ -362,6 +362,9 @@
     <EmbeddedResource Include="AppForms\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\TeamDetailsForm.resx">
+      <DependentUpon>TeamDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForms\TeamsForm.resx">
       <DependentUpon>TeamsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,9 +373,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\TransfersForm.resx">
       <DependentUpon>TransfersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppForms\UsersAdminForm.resx">
-      <DependentUpon>UsersAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
