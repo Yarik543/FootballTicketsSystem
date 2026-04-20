@@ -1,4 +1,5 @@
-﻿using FootballTicketsSystem.DBModels;
+﻿using FootballTicketsSystem.AppForms;
+using FootballTicketsSystem.DBModels;
 using FootballTicketsSystem.Helpers;
 using Guna.UI2.WinForms;
 using System;
@@ -72,6 +73,12 @@ namespace FootballTicketsSystem.AppControls
             path.CloseAllFigures();
 
             this.Region = new Region(path);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            TeamDetailsForm teamDetailsForm = new TeamDetailsForm();
+            DialogResult dialogResult = teamDetailsForm.ShowDialog();
         }
     }
 }

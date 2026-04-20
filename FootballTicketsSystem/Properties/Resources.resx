@@ -121,6 +121,18 @@
   <data name="agree_galochka" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\img\icon\agree_galochka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\img\icon\arrow_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\img\icon\arrow_next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_prev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\img\icon\arrow_prev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\img\icon\arrow_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BlockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\img\icon\Замок.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
