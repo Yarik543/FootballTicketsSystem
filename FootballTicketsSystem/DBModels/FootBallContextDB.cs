@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
 namespace FootballTicketsSystem.DBModels
 {
-    public partial class FootBallTicketsDB : DbContext
+    public partial class FootBallContextDB : DbContext
     {
-        public FootBallTicketsDB()
-            : base("name=FootBallTicketsDB")
+        public FootBallContextDB()
+            : base("name=FootBallContextDB")
         {
         }
 

@@ -23,6 +23,7 @@ namespace FootballTicketsSystem.AppForms
             labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
             pictureProfil.Image?.Dispose();
             pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
+            ContextManager.transfersForm = this;
         }
 
         /// <summary>
@@ -44,11 +45,27 @@ namespace FootballTicketsSystem.AppForms
             LoadData();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
-           flowLayoutPanelTrnasfers.Controls.Clear();
+            flowLayoutPanelTrnasfers.Controls.Clear();
 
             List<Transfers> transfers = Program.context.Transfers.OrderBy(t => t.DateTransfer).ToList();
+
+            string search = tBoxSearchTransfer.Text.Trim().ToLower();
+            transfers = transfers.Where(t =>
+                (t.FromTeamName?.ToLower() ?? "").Contains(search) ||
+                (t.Players?.FullName?.ToLower() ?? "").Contains(search) ||
+                (t.Teams?.TeamName?.ToLower() ?? "").Contains(search)
+            ).ToList();
+
+            if (radioBtnNew.Checked)
+            {
+                transfers = transfers.OrderByDescending(t => t.DateTransfer).ToList();
+            }
+            else if (radioBtnLater.Checked)
+            {
+                transfers = transfers.OrderBy(t => t.DateTransfer).ToList();
+            }
 
             foreach (Transfers transfer in transfers)
             {
@@ -60,11 +77,30 @@ namespace FootballTicketsSystem.AppForms
         {
             CreateTransfersAdminForm createTransfersAdminForm = new CreateTransfersAdminForm();
             DialogResult result = createTransfersAdminForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void radioBtnNew_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void radioBtnLater_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void tBoxSearchTransfer_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

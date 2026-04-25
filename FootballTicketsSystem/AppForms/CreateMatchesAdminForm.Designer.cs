@@ -62,11 +62,11 @@
             this.btnTickets = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
-            this.labelUserRole = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.btnSaveMatch = new Guna.UI2.WinForms.Guna2Button();
             this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             teamHomeIdLabel = new System.Windows.Forms.Label();
             teamAwayIdLabel = new System.Windows.Forms.Label();
             matchDateLabel = new System.Windows.Forms.Label();
@@ -511,32 +511,6 @@
             this.btnMain.TabIndex = 7;
             this.btnMain.Text = "Главная";
             // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(1007, 85);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 48;
-            this.labelUserRole.Text = "UserRole";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(1007, 48);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 47;
-            this.labelUserName.Text = "UserName";
-            // 
             // btnSaveMatch
             // 
             this.btnSaveMatch.BorderColor = System.Drawing.Color.White;
@@ -587,15 +561,40 @@
             this.pictureProfil.TabIndex = 28;
             this.pictureProfil.TabStop = false;
             // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(992, 48);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 52;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(992, 87);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 66);
+            this.labelUserName.TabIndex = 51;
+            this.labelUserName.Text = "UserName";
+            // 
             // CreateMatchesAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 810);
-            this.Controls.Add(this.btnCloseBack);
-            this.Controls.Add(this.btnSaveMatch);
             this.Controls.Add(this.labelUserRole);
             this.Controls.Add(this.labelUserName);
+            this.Controls.Add(this.btnCloseBack);
+            this.Controls.Add(this.btnSaveMatch);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.ratingMatchNumericUpDown);
             this.Controls.Add(this.stadiumIdComboBox);
@@ -652,8 +651,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTickets;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnMain;
-        private System.Windows.Forms.Label labelUserRole;
-        private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2Button btnSaveMatch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -662,5 +659,7 @@
         private System.Windows.Forms.Label labelActivMatches;
         private System.Windows.Forms.Label labelTicketsBuy;
         private Guna.UI2.WinForms.Guna2Button btnCloseBack;
+        private System.Windows.Forms.Label labelUserRole;
+        private System.Windows.Forms.Label labelUserName;
     }
 }

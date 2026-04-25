@@ -1,4 +1,4 @@
-namespace FootballTicketsSystem.DBModels
+﻿namespace FootballTicketsSystem.DBModels
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +8,11 @@ namespace FootballTicketsSystem.DBModels
 
     public partial class Users
     {
+        public bool IsAdmin()
+        {
+            return this.Roles.RoleName == "Администратор";
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {

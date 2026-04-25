@@ -1,9 +1,11 @@
 ﻿using FootballTicketsSystem.AppServices;
+using FootballTicketsSystem.Helpers;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -15,6 +17,9 @@ namespace FootballTicketsSystem.AppForms
 {
     public partial class MainDashboardForm : Form
     {
+        private int? _currentMatchId = null; // Запоминаем ID текущего матча
+        private int? _currentTeamsStatsMatchId = null; //  Для статистики
+        private DateTime _lastTeamsStatsUpdate = DateTime.MinValue; //  Новое поле
         public MainDashboardForm()
         {
             InitializeComponent();
@@ -31,6 +36,15 @@ namespace FootballTicketsSystem.AppForms
             labelUserBack.Text += UserSession.CurrentUser.FullName;
             labelUserName.Text = UserSession.CurrentUser.FullName;
             labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+
+            // Загружаем всё сразу
+            LoadNextMatch();
+            LoadTeamsStatistics(); // Установит _currentTeamsStatsMatchId
+            LoadMatchStatistics();
+
+            timerMatchStats.Interval = 1000;
+            timerMatchStats.Tick += timerMatchStats_Tick;
+            timerMatchStats.Start();
         }
 
         /// <summary>
@@ -75,7 +89,7 @@ namespace FootballTicketsSystem.AppForms
             ProfilForm profilForm = new ProfilForm();
             DialogResult profilDialog = profilForm.ShowDialog();
             this.Hide();
-            if(profilDialog == DialogResult.OK)
+            if (profilDialog == DialogResult.OK)
             {
                 this.Show();
             }
@@ -101,6 +115,277 @@ namespace FootballTicketsSystem.AppForms
             {
                 this.Show();
             }
+        }
+
+        /// <summary>
+        /// Загрузка следующего матча (через Program.context)
+        /// </summary>
+        private bool LoadNextMatch()
+        {
+            var activeWindowStart = DateTime.Now.AddHours(-2);
+
+            var nextMatch = Program.context.Matches
+                .AsNoTracking()
+                .Include(m => m.Teams)
+                .Include(m => m.Teams1)
+                .Include(m => m.Stadiums)
+                .Where(m => m.MatchDate > activeWindowStart)
+                .OrderBy(m => m.MatchDate)
+                .FirstOrDefault();
+
+            // Если матч не изменился — не перезагружаем команды
+            if (nextMatch?.IdMatch == _currentMatchId)
+            {
+                return false; // Матч тот же
+            }
+
+            // Матч изменился (или первый запуск) — обновляем всё
+            _currentMatchId = nextMatch?.IdMatch;
+
+            if (nextMatch != null)
+            {
+                labelTeamNameFirst.Text = nextMatch.Teams?.TeamName;
+                labelTeamNameSecond.Text = nextMatch.Teams1?.TeamName;
+
+                if (nextMatch.MatchDate.HasValue)
+                {
+                    labelDateMatch.Text = nextMatch.MatchDate.Value.ToString("HH:mm, dd MMMM, yyyy");
+                }
+
+                labelStadiumName.Text = nextMatch.Stadiums?.NameStadium ?? "Стадион не указан";
+
+                // Логотипы
+                if (nextMatch.Teams != null && !string.IsNullOrEmpty(nextMatch.Teams.Logo))
+                    _ = ImageLoader.LoadToPictureBoxAsync(pictureBoxLogoFirstTeam, nextMatch.Teams.Logo, Properties.Resources.picture);
+                else
+                    pictureBoxLogoFirstTeam.Image = Properties.Resources.picture;
+
+                if (nextMatch.Teams1 != null && !string.IsNullOrEmpty(nextMatch.Teams1.Logo))
+                    _ = ImageLoader.LoadToPictureBoxAsync(pictureBoxLogoSecondTeam, nextMatch.Teams1.Logo, Properties.Resources.picture);
+                else
+                    pictureBoxLogoSecondTeam.Image = Properties.Resources.picture;
+
+                return true; // Матч обновился
+            }
+            else
+            {
+                labelNextMatch.Text = "Матчей нет";
+                labelDateMatch.Text = "";
+                labelStadiumName.Text = "";
+                pictureBoxLogoFirstTeam.Image = Properties.Resources.picture;
+                pictureBoxLogoSecondTeam.Image = Properties.Resources.picture;
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Загрузка статистики последних игр между командами
+        /// </summary>
+        private void LoadTeamsStatistics()
+        {
+            // Ищем ТЕКУЩИЙ активный матч (с учетом 2-часового буфера)
+            var activeWindowStart = DateTime.Now.AddHours(-2);
+
+            var currentMatch = Program.context.Matches
+                .AsNoTracking()
+                .Include(m => m.Teams)
+                .Include(m => m.Teams1)
+                .Where(m => m.MatchDate > activeWindowStart)
+                .OrderBy(m => m.MatchDate)
+                .FirstOrDefault();
+
+            if (currentMatch == null || currentMatch.Teams == null || currentMatch.Teams1 == null)
+            {
+                labelLastGame.Text = "Нет матча";
+                return;
+            }
+
+            // Если матч для статистики не изменился — не обновляем
+            if (currentMatch.IdMatch == _currentTeamsStatsMatchId)
+            {
+                return;
+            }
+
+            _currentTeamsStatsMatchId = currentMatch.IdMatch;
+
+            int team1Id = currentMatch.Teams.IdTeam;
+            int team2Id = currentMatch.Teams1.IdTeam;
+
+            // Названия команд
+            labelTeamFirst.Text = currentMatch.Teams.TeamName;
+            labelTeamSecond.Text = currentMatch.Teams1.TeamName;
+
+            // Получаем последние 10 завершенных матчей между командами
+            var lastMatches = Program.context.Matches
+                .AsNoTracking()
+                .Where(m => (m.TeamHomeId == team1Id && m.TeamAwayId == team2Id) ||
+                           (m.TeamHomeId == team2Id && m.TeamAwayId == team1Id))
+                .Where(m => m.MatchDate < DateTime.Now && m.ScoreHome != null && m.ScoreAway != null)
+                .OrderByDescending(m => m.MatchDate)
+                .Take(10)
+                .ToList();
+
+            // Считаем статистику
+            int team1Wins = 0;
+            int team2Wins = 0;
+            int draws = 0;
+
+            foreach (var match in lastMatches)
+            {
+                bool isTeam1Home = match.TeamHomeId == team1Id;
+                int homeScore = match.ScoreHome.Value;
+                int awayScore = match.ScoreAway.Value;
+
+                if (homeScore > awayScore)
+                {
+                    if (isTeam1Home) team1Wins++; else team2Wins++;
+                }
+                else if (awayScore > homeScore)
+                {
+                    if (isTeam1Home) team2Wins++; else team1Wins++;
+                }
+                else
+                {
+                    draws++;
+                }
+            }
+
+            // Обновляем цифры
+            labelCountTeamFirstWin.Text = team1Wins.ToString();
+            labelCountTeamSecondWin.Text = team2Wins.ToString();
+            labelDrawsCount.Text = draws.ToString();
+            labelLastGame.Text = "Последние игры: " + lastMatches.Count.ToString();
+
+            // Обновляем прогресс-бар
+            UpdateStatsBars(team1Wins, team2Wins, draws, lastMatches.Count);
+        }
+
+
+        /// <summary>
+        /// Обновляет ширину цветных панелей статистики
+        /// </summary>
+        private void UpdateStatsBars(int team1Wins, int team2Wins, int draws, int totalGames)
+        {
+            // Если нет игр, очищаем всё
+            if (totalGames == 0)
+            {
+                panelTeam1Win.Width = 0;
+                panelDraw.Width = 0;
+                panelTeam2Win.Width = 0;
+                return;
+            }
+
+            // Общая ширина контейнера (берем текущую ширину родительской панели)
+            int totalWidth = panelStatsContainer.Width;
+
+            // Считаем ширину каждой части пропорционально количеству
+            // Формула: (Победы * Общая Ширина) / Всего Игр
+            panelTeam1Win.Width = (team1Wins * totalWidth) / totalGames;
+            panelDraw.Width = (draws * totalWidth) / totalGames;
+            panelTeam2Win.Width = (team2Wins * totalWidth) / totalGames;
+        }
+
+        private void timerMatchStats_Tick(object sender, EventArgs e)
+        {
+            // 1. Всегда обновляем билеты/таймер
+            LoadMatchStatistics();
+
+            // 2. Проверяем, не сменился ли матч
+            bool matchChanged = LoadNextMatch();
+
+            // 3. Если матч сменился — обновляем статистику команд
+            if (matchChanged)
+            {
+                LoadTeamsStatistics();
+                Console.WriteLine($"[{DateTime.Now}] Матч сменился! Обновляем статистику команд.");
+            }
+        }
+
+        private void LoadMatchStatistics()
+        {
+            //  1. Вычисляем пороговое время ДО запроса
+            var thresholdTime = DateTime.Now.AddHours(-2);
+
+            //  2. Используем переменную в Where
+            var match = Program.context.Matches
+                .AsNoTracking()
+                .Include(m => m.Stadiums)
+                .Where(m => m.MatchDate > thresholdTime)
+                .OrderBy(m => m.MatchDate)
+                .FirstOrDefault();
+
+            if (match == null)
+            {
+                labelTimerMatch.Text = "Нет матча";
+                return;
+            }
+
+            TimeSpan timeLeft = match.MatchDate.Value - DateTime.Now;
+
+            // ==========================================
+            // УМНОЕ ОТОБРАЖЕНИЕ ВРЕМЕНИ
+            // ==========================================
+            if (timeLeft.TotalSeconds <= 0)
+            {
+                // ⚽ МАТЧ НАЧАЛСЯ
+                labelTimerMatch.Text = "⚽ Матч идет";
+                labelTimerMatch.ForeColor = Color.FromArgb(0, 200, 150); // Зелёный
+            }
+            else if (timeLeft.TotalMinutes < 1)
+            {
+                // ⏱ ПОСЛЕДНЯЯ МИНУТА — показываем секунды
+                int seconds = (int)timeLeft.TotalSeconds;
+                labelTimerMatch.Text = $"{seconds} сек";
+                labelTimerMatch.ForeColor = Color.FromArgb(255, 62, 62); // Красный (срочно!)
+            }
+            else if (timeLeft.TotalHours < 1)
+            {
+                // ⏰ МЕНЬШЕ ЧАСА — показываем минуты
+                int minutes = (int)timeLeft.TotalMinutes;
+                labelTimerMatch.Text = $"{minutes} мин";
+                labelTimerMatch.ForeColor = Color.FromArgb(255, 193, 7); // Жёлтый
+            }
+            else if (timeLeft.TotalDays < 1)
+            {
+                // 📅 МЕНЬШЕ СУТОК — показываем часы
+                int hours = (int)timeLeft.TotalHours;
+                labelTimerMatch.Text = $"{hours} ч";
+                labelTimerMatch.ForeColor = Color.Black;
+            }
+            else
+            {
+                // 📆 БОЛЬШЕ ДНЯ — показываем дни
+                int days = (int)timeLeft.TotalDays;
+                labelTimerMatch.Text = $"{days} дн";
+                labelTimerMatch.ForeColor = Color.Gray;
+            }
+
+            // ==========================================
+            // ОСТАЛЬНАЯ СТАТИСТИКА (без изменений)
+            // ==========================================
+            int soldCount = Program.context.Tickets.Count(t => t.MatchId == match.IdMatch);
+            labelTicketsCount.Text = soldCount.ToString("N0");
+
+            int capacity = match.Stadiums?.Capacity ?? 0;
+            int percentage = 0;
+            if (capacity > 0)
+            {
+                percentage = (soldCount * 100) / capacity;
+                if (percentage > 100) percentage = 100;
+            }
+            labelCapacityPircent.Text = $"{percentage}%";
+
+            labelRatingMatch.Text = match.RatingMatch?.ToString("F2") ?? "0.00";
+        }
+
+        private void timerNextMatchRefresh_Tick(object sender, EventArgs e)
+        {
+            // Обновляем следующий матч и статистику команд
+            LoadNextMatch();
+            LoadTeamsStatistics();
+            LoadMatchStatistics();
+
+            Console.WriteLine($"[{DateTime.Now}] Следующий матч обновлён автоматически");
         }
     }
 }

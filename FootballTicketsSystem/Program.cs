@@ -12,7 +12,7 @@ namespace FootballTicketsSystem
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        public static FootBallTicketsDB context = new FootBallTicketsDB();
+        public static FootBallContextDB context = new FootBallContextDB();
         [STAThread]
         static void Main()
         {

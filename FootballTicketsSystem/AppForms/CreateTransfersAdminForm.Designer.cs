@@ -48,10 +48,7 @@
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.priceTransferNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.teamNowComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.teamFromComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
-            this.labelUserRole = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.dateTimePickerTransfer = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panelMatchStatistic = new Guna.UI2.WinForms.Guna2Panel();
             this.labelTeamNameMore = new System.Windows.Forms.Label();
@@ -68,7 +65,13 @@
             this.matchesTableAdapter = new FootballTicketsSystem.FootballTicketSystemDataSetTableAdapters.MatchesTableAdapter();
             this.transfersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transfersTableAdapter = new FootballTicketsSystem.FootballTicketSystemDataSetTableAdapters.TransfersTableAdapter();
-            this.tBoxPlayerName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.comboBoxPlayers = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tBoxTeamFrom = new Guna.UI2.WinForms.Guna2TextBox();
+            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamsTableAdapter = new FootballTicketsSystem.FootballTicketSystemDataSetTableAdapters.TeamsTableAdapter();
+            this.teamsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             teamHomeIdLabel = new System.Windows.Forms.Label();
             teamAwayIdLabel = new System.Windows.Forms.Label();
             matchDateLabel = new System.Windows.Forms.Label();
@@ -82,13 +85,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.footballTicketSystemDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.matchesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transfersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // teamHomeIdLabel
             // 
             teamHomeIdLabel.AutoSize = true;
             teamHomeIdLabel.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            teamHomeIdLabel.Location = new System.Drawing.Point(564, 212);
+            teamHomeIdLabel.Location = new System.Drawing.Point(564, 311);
             teamHomeIdLabel.Name = "teamHomeIdLabel";
             teamHomeIdLabel.Size = new System.Drawing.Size(59, 24);
             teamHomeIdLabel.TabIndex = 54;
@@ -118,7 +123,7 @@
             // 
             stadiumIdLabel.AutoSize = true;
             stadiumIdLabel.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            stadiumIdLabel.Location = new System.Drawing.Point(564, 309);
+            stadiumIdLabel.Location = new System.Drawing.Point(564, 211);
             stadiumIdLabel.Name = "stadiumIdLabel";
             stadiumIdLabel.Size = new System.Drawing.Size(160, 24);
             stadiumIdLabel.TabIndex = 57;
@@ -151,6 +156,7 @@
             this.btnSaveTransfer.Size = new System.Drawing.Size(448, 47);
             this.btnSaveTransfer.TabIndex = 67;
             this.btnSaveTransfer.Text = "Сохранить";
+            this.btnSaveTransfer.Click += new System.EventHandler(this.btnSaveTransfer_Click);
             // 
             // guna2Panel1
             // 
@@ -347,6 +353,11 @@
             this.priceTransferNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.priceTransferNumericUpDown.Location = new System.Drawing.Point(751, 405);
             this.priceTransferNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.priceTransferNumericUpDown.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
             this.priceTransferNumericUpDown.Name = "priceTransferNumericUpDown";
             this.priceTransferNumericUpDown.Size = new System.Drawing.Size(265, 37);
             this.priceTransferNumericUpDown.TabIndex = 63;
@@ -363,25 +374,11 @@
             this.teamNowComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.teamNowComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.teamNowComboBox.ItemHeight = 30;
-            this.teamNowComboBox.Location = new System.Drawing.Point(751, 303);
+            this.teamNowComboBox.Location = new System.Drawing.Point(751, 207);
             this.teamNowComboBox.Name = "teamNowComboBox";
             this.teamNowComboBox.Size = new System.Drawing.Size(265, 36);
             this.teamNowComboBox.TabIndex = 62;
-            // 
-            // teamFromComboBox
-            // 
-            this.teamFromComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.teamFromComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.teamFromComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.teamFromComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.teamFromComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.teamFromComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.teamFromComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.teamFromComboBox.ItemHeight = 30;
-            this.teamFromComboBox.Location = new System.Drawing.Point(751, 254);
-            this.teamFromComboBox.Name = "teamFromComboBox";
-            this.teamFromComboBox.Size = new System.Drawing.Size(265, 36);
-            this.teamFromComboBox.TabIndex = 61;
+            this.teamNowComboBox.SelectedIndexChanged += new System.EventHandler(this.teamNowComboBox_SelectedIndexChanged);
             // 
             // btnCloseBack
             // 
@@ -401,32 +398,6 @@
             this.btnCloseBack.TabIndex = 68;
             this.btnCloseBack.Text = "Назад";
             this.btnCloseBack.Click += new System.EventHandler(this.btnCloseBack_Click);
-            // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(1065, 85);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 66;
-            this.labelUserRole.Text = "UserRole";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(1065, 48);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 65;
-            this.labelUserName.Text = "UserName";
             // 
             // dateTimePickerTransfer
             // 
@@ -477,7 +448,7 @@
             // 
             this.labelCountTransfers.AutoSize = true;
             this.labelCountTransfers.Font = new System.Drawing.Font("Inter SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCountTransfers.Location = new System.Drawing.Point(213, 100);
+            this.labelCountTransfers.Location = new System.Drawing.Point(199, 100);
             this.labelCountTransfers.Name = "labelCountTransfers";
             this.labelCountTransfers.Size = new System.Drawing.Size(32, 28);
             this.labelCountTransfers.TabIndex = 4;
@@ -583,39 +554,93 @@
             // 
             this.transfersTableAdapter.ClearBeforeFill = true;
             // 
-            // tBoxPlayerName
+            // labelUserRole
             // 
-            this.tBoxPlayerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tBoxPlayerName.DefaultText = "";
-            this.tBoxPlayerName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tBoxPlayerName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tBoxPlayerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxPlayerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxPlayerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxPlayerName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tBoxPlayerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxPlayerName.Location = new System.Drawing.Point(751, 206);
-            this.tBoxPlayerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tBoxPlayerName.Name = "tBoxPlayerName";
-            this.tBoxPlayerName.PlaceholderText = "";
-            this.tBoxPlayerName.SelectedText = "";
-            this.tBoxPlayerName.Size = new System.Drawing.Size(265, 36);
-            this.tBoxPlayerName.TabIndex = 77;
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(1050, 51);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 79;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(1050, 90);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(188, 66);
+            this.labelUserName.TabIndex = 78;
+            this.labelUserName.Text = "UserName";
+            // 
+            // comboBoxPlayers
+            // 
+            this.comboBoxPlayers.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxPlayers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlayers.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxPlayers.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxPlayers.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxPlayers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboBoxPlayers.ItemHeight = 30;
+            this.comboBoxPlayers.Location = new System.Drawing.Point(751, 304);
+            this.comboBoxPlayers.Name = "comboBoxPlayers";
+            this.comboBoxPlayers.Size = new System.Drawing.Size(265, 36);
+            this.comboBoxPlayers.TabIndex = 80;
+            // 
+            // tBoxTeamFrom
+            // 
+            this.tBoxTeamFrom.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tBoxTeamFrom.DefaultText = "";
+            this.tBoxTeamFrom.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tBoxTeamFrom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tBoxTeamFrom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxTeamFrom.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxTeamFrom.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxTeamFrom.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tBoxTeamFrom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxTeamFrom.Location = new System.Drawing.Point(751, 254);
+            this.tBoxTeamFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tBoxTeamFrom.Name = "tBoxTeamFrom";
+            this.tBoxTeamFrom.PlaceholderText = "";
+            this.tBoxTeamFrom.SelectedText = "";
+            this.tBoxTeamFrom.Size = new System.Drawing.Size(265, 36);
+            this.tBoxTeamFrom.TabIndex = 81;
+            // 
+            // teamsBindingSource
+            // 
+            this.teamsBindingSource.DataMember = "Teams";
+            this.teamsBindingSource.DataSource = this.footballTicketSystemDataSet;
+            // 
+            // teamsTableAdapter
+            // 
+            this.teamsTableAdapter.ClearBeforeFill = true;
+            // 
+            // teamsBindingSource1
+            // 
+            this.teamsBindingSource1.DataMember = "Teams";
+            this.teamsBindingSource1.DataSource = this.footballTicketSystemDataSet;
             // 
             // CreateTransfersAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 810);
-            this.Controls.Add(this.tBoxPlayerName);
+            this.Controls.Add(this.tBoxTeamFrom);
+            this.Controls.Add(this.comboBoxPlayers);
+            this.Controls.Add(this.labelUserRole);
+            this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.btnSaveTransfer);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.priceTransferNumericUpDown);
             this.Controls.Add(this.teamNowComboBox);
-            this.Controls.Add(this.teamFromComboBox);
             this.Controls.Add(this.btnCloseBack);
-            this.Controls.Add(this.labelUserRole);
-            this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.dateTimePickerTransfer);
             this.Controls.Add(teamHomeIdLabel);
             this.Controls.Add(teamAwayIdLabel);
@@ -640,6 +665,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.footballTicketSystemDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matchesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transfersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,10 +687,7 @@
         private Guna.UI2.WinForms.Guna2Button btnMain;
         private Guna.UI2.WinForms.Guna2NumericUpDown priceTransferNumericUpDown;
         private Guna.UI2.WinForms.Guna2ComboBox teamNowComboBox;
-        private Guna.UI2.WinForms.Guna2ComboBox teamFromComboBox;
         private Guna.UI2.WinForms.Guna2Button btnCloseBack;
-        private System.Windows.Forms.Label labelUserRole;
-        private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2DateTimePicker dateTimePickerTransfer;
         private Guna.UI2.WinForms.Guna2Panel panelMatchStatistic;
         private System.Windows.Forms.Label labelTeamNameMore;
@@ -680,6 +704,12 @@
         private FootballTicketSystemDataSetTableAdapters.MatchesTableAdapter matchesTableAdapter;
         private System.Windows.Forms.BindingSource transfersBindingSource;
         private FootballTicketSystemDataSetTableAdapters.TransfersTableAdapter transfersTableAdapter;
-        private Guna.UI2.WinForms.Guna2TextBox tBoxPlayerName;
+        private System.Windows.Forms.Label labelUserRole;
+        private System.Windows.Forms.Label labelUserName;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBoxPlayers;
+        private Guna.UI2.WinForms.Guna2TextBox tBoxTeamFrom;
+        private System.Windows.Forms.BindingSource teamsBindingSource;
+        private FootballTicketSystemDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
+        private System.Windows.Forms.BindingSource teamsBindingSource1;
     }
 }

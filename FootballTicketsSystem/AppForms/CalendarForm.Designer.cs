@@ -41,17 +41,17 @@
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.btnAddMatch = new Guna.UI2.WinForms.Guna2Button();
             this.labelBallanceUser = new System.Windows.Forms.Label();
             this.gunaGroupBoxDate = new Guna.UI2.WinForms.Guna2GroupBox();
             this.radioBtnLater = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radioBtnEarly = new Guna.UI2.WinForms.Guna2RadioButton();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.labelUserRole = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxSearchMatch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.flowLayoutPanelMatches = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -275,20 +275,45 @@
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Controls.Add(this.btnAddMatch);
             this.gunaPanelHeaderForm.Controls.Add(this.labelBallanceUser);
             this.gunaPanelHeaderForm.Controls.Add(this.gunaGroupBoxDate);
             this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
             this.gunaPanelHeaderForm.Controls.Add(this.guna2PictureBox2);
             this.gunaPanelHeaderForm.Controls.Add(this.label1);
             this.gunaPanelHeaderForm.Controls.Add(this.tBoxSearchMatch);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
             this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
             this.gunaPanelHeaderForm.Size = new System.Drawing.Size(968, 189);
             this.gunaPanelHeaderForm.TabIndex = 20;
+            // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(762, 46);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 19;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(762, 85);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 66);
+            this.labelUserName.TabIndex = 18;
+            this.labelUserName.Text = "UserName";
             // 
             // btnAddMatch
             // 
@@ -346,7 +371,7 @@
             this.radioBtnLater.CheckedState.InnerOffset = -4;
             this.radioBtnLater.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioBtnLater.Font = new System.Drawing.Font("Inter", 10F);
-            this.radioBtnLater.Location = new System.Drawing.Point(121, 40);
+            this.radioBtnLater.Location = new System.Drawing.Point(115, 40);
             this.radioBtnLater.Name = "radioBtnLater";
             this.radioBtnLater.Size = new System.Drawing.Size(95, 29);
             this.radioBtnLater.TabIndex = 3;
@@ -356,6 +381,7 @@
             this.radioBtnLater.UncheckedState.BorderThickness = 1;
             this.radioBtnLater.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radioBtnLater.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioBtnLater.CheckedChanged += new System.EventHandler(this.radioBtnLater_CheckedChanged);
             // 
             // radioBtnEarly
             // 
@@ -369,7 +395,7 @@
             this.radioBtnEarly.CheckedState.InnerOffset = -4;
             this.radioBtnEarly.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioBtnEarly.Font = new System.Drawing.Font("Inter", 10F);
-            this.radioBtnEarly.Location = new System.Drawing.Point(5, 40);
+            this.radioBtnEarly.Location = new System.Drawing.Point(12, 40);
             this.radioBtnEarly.Name = "radioBtnEarly";
             this.radioBtnEarly.Size = new System.Drawing.Size(104, 29);
             this.radioBtnEarly.TabIndex = 2;
@@ -380,6 +406,7 @@
             this.radioBtnEarly.UncheckedState.BorderThickness = 1;
             this.radioBtnEarly.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radioBtnEarly.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioBtnEarly.CheckedChanged += new System.EventHandler(this.radioBtnEarly_CheckedChanged);
             // 
             // pictureProfil
             // 
@@ -393,19 +420,6 @@
             this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProfil.TabIndex = 16;
             this.pictureProfil.TabStop = false;
-            // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(769, 85);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 15;
-            this.labelUserRole.Text = "UserRole";
             // 
             // guna2PictureBox2
             // 
@@ -448,19 +462,7 @@
             this.tBoxSearchMatch.SelectedText = "";
             this.tBoxSearchMatch.Size = new System.Drawing.Size(212, 31);
             this.tBoxSearchMatch.TabIndex = 1;
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(769, 48);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 14;
-            this.labelUserName.Text = "UserName";
+            this.tBoxSearchMatch.TextChanged += new System.EventHandler(this.tBoxSearchMatch_TextChanged);
             // 
             // flowLayoutPanelMatches
             // 
@@ -516,16 +518,16 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelHeaderForm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureProfil;
-        private System.Windows.Forms.Label labelUserRole;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox tBoxSearchMatch;
-        private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2GroupBox gunaGroupBoxDate;
         private Guna.UI2.WinForms.Guna2RadioButton radioBtnEarly;
         private Guna.UI2.WinForms.Guna2RadioButton radioBtnLater;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMatches;
         private System.Windows.Forms.Label labelBallanceUser;
         private Guna.UI2.WinForms.Guna2Button btnAddMatch;
+        private System.Windows.Forms.Label labelUserRole;
+        private System.Windows.Forms.Label labelUserName;
     }
 }

@@ -32,6 +32,9 @@ namespace FootballTicketsSystem.DBModels
 
         public decimal? RatingMatch { get; set; }
 
+        [StringLength(255)]
+        public string Stage { get; set; }
+
         public virtual Stadiums Stadiums { get; set; }
 
         public virtual Teams Teams { get; set; }

@@ -44,9 +44,7 @@
             this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
             this.pictureLogoTeam = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.labelUserRole = new System.Windows.Forms.Label();
             this.labelTeamName = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.panelPlayers = new Guna.UI2.WinForms.Guna2Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -85,6 +83,8 @@
             this.labelCoach = new System.Windows.Forms.Label();
             this.labelTeam = new System.Windows.Forms.Label();
             this.flvPlayers = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -320,12 +320,12 @@
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Controls.Add(this.btnCloseBack);
             this.gunaPanelHeaderForm.Controls.Add(this.pictureLogoTeam);
             this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
             this.gunaPanelHeaderForm.Controls.Add(this.labelTeamName);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
             this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
@@ -375,19 +375,6 @@
             this.pictureProfil.TabIndex = 16;
             this.pictureProfil.TabStop = false;
             // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(864, 70);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 15;
-            this.labelUserRole.Text = "UserRole";
-            // 
             // labelTeamName
             // 
             this.labelTeamName.Font = new System.Drawing.Font("Inter Medium", 16F, System.Drawing.FontStyle.Bold);
@@ -396,19 +383,6 @@
             this.labelTeamName.Size = new System.Drawing.Size(295, 39);
             this.labelTeamName.TabIndex = 0;
             this.labelTeamName.Text = "Real Madrid";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(864, 33);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 14;
-            this.labelUserName.Text = "UserName";
             // 
             // panelPlayers
             // 
@@ -875,6 +849,31 @@
             this.flvPlayers.Size = new System.Drawing.Size(920, 100);
             this.flvPlayers.TabIndex = 0;
             // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(857, 35);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 55;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(857, 74);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 61);
+            this.labelUserName.TabIndex = 54;
+            this.labelUserName.Text = "UserName";
+            // 
             // TeamDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -932,9 +931,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelHeaderForm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureProfil;
-        private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Label labelTeamName;
-        private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2PictureBox pictureLogoTeam;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.FlowLayoutPanel flvPlayers;
@@ -975,5 +972,7 @@
         private System.Windows.Forms.Label labelPost;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelUserRole;
+        private System.Windows.Forms.Label labelUserName;
     }
 }

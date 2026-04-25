@@ -45,9 +45,7 @@
             this.labelBallance = new System.Windows.Forms.Label();
             this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.labelUserRole = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.gunaPanelDiagramProfil = new Guna.UI2.WinForms.Guna2Panel();
             this.labelPrice = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -89,6 +87,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureBoxProfilEdit = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             teamAwayIdLabel = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -329,12 +329,12 @@
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Controls.Add(this.labelBallance);
             this.gunaPanelHeaderForm.Controls.Add(this.btnCloseBack);
             this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
             this.gunaPanelHeaderForm.Controls.Add(this.label1);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
             this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
@@ -386,19 +386,6 @@
             this.pictureProfil.TabIndex = 16;
             this.pictureProfil.TabStop = false;
             // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(861, 70);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 15;
-            this.labelUserRole.Text = "UserRole";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -408,19 +395,6 @@
             this.label1.Size = new System.Drawing.Size(229, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Покупка билета";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(861, 33);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 14;
-            this.labelUserName.Text = "UserName";
             // 
             // gunaPanelDiagramProfil
             // 
@@ -945,6 +919,31 @@
             this.pictureBoxProfilEdit.TabIndex = 17;
             this.pictureBoxProfilEdit.TabStop = false;
             // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(854, 30);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 54;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(854, 69);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 56);
+            this.labelUserName.TabIndex = 53;
+            this.labelUserName.Text = "UserName";
+            // 
             // TicketBuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -997,9 +996,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelHeaderForm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureProfil;
-        private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2Button btnClients;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelDiagramProfil;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelImage;
@@ -1043,5 +1040,7 @@
         private System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelBallance;
+        private System.Windows.Forms.Label labelUserRole;
+        private System.Windows.Forms.Label labelUserName;
     }
 }

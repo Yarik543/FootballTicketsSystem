@@ -1,4 +1,5 @@
-﻿using FootballTicketsSystem.DBModels;
+﻿using FootballTicketsSystem.AppServices;
+using FootballTicketsSystem.DBModels;
 using FootballTicketsSystem.Helpers;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,11 @@ namespace FootballTicketsSystem.AppControls
             InitializeComponent();
             _transfer = transfer;
             SetDataLabels();
+            btnDeleteTransfer.Cursor = Cursors.Hand;
+            if(!UserSession.CurrentUser.IsAdmin())
+            {
+                btnDeleteTransfer.Visible = false;
+            }
         }
 
         private async Task LoadPlayerPhotoAsync()
@@ -117,6 +123,29 @@ namespace FootballTicketsSystem.AppControls
             path.CloseAllFigures();
 
             this.Region = new Region(path);
+        }
+
+        private void btnDeleteTransfer_Click(object sender, EventArgs e)
+        {
+            DialogResult agree = MessageBox.Show("Уверены, что хотите удалить?", "Запрос подтверждения", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (agree == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                Program.context.Transfers.Remove(_transfer);
+                Program.context.SaveChanges();
+                MessageBox.Show("Удаление прошло успешно");
+                ContextManager.transfersForm.LoadData();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при удалении", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
