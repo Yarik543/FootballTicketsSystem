@@ -670,6 +670,8 @@
             // 
             // flowLayoutPanelTableTeams
             // 
+            this.flowLayoutPanelTableTeams.AutoScroll = true;
+            this.flowLayoutPanelTableTeams.BackColor = System.Drawing.Color.IndianRed;
             this.flowLayoutPanelTableTeams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelTableTeams.Location = new System.Drawing.Point(0, 100);
             this.flowLayoutPanelTableTeams.Name = "flowLayoutPanelTableTeams";

@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace FootballTicketsSystem.DBModels
 {
-    public partial class FootBallContextDB : DbContext
+    public partial class FootBallModelDB : DbContext
     {
-        public FootBallContextDB()
-            : base("name=FootBallContextDB")
+        public FootBallModelDB()
+            : base("name=FootBallModelDB")
         {
         }
 

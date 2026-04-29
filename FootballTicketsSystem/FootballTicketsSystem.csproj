@@ -300,7 +300,7 @@
     <Compile Include="AppServices\UiPainter.cs" />
     <Compile Include="AppServices\UserSession.cs" />
     <Compile Include="DBModels\Coaches.cs" />
-    <Compile Include="DBModels\FootBallContextDB.cs" />
+    <Compile Include="DBModels\FootBallModelDB.cs" />
     <Compile Include="DBModels\Matches.cs" />
     <Compile Include="DBModels\Players.cs" />
     <Compile Include="DBModels\Roles.cs" />

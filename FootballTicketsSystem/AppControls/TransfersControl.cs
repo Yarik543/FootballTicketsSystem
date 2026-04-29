@@ -1,4 +1,5 @@
-﻿using FootballTicketsSystem.AppServices;
+﻿using FootballTicketsSystem.AppForms;
+using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.DBModels;
 using FootballTicketsSystem.Helpers;
 using System;
@@ -146,6 +147,19 @@ namespace FootballTicketsSystem.AppControls
                 MessageBox.Show("Ошибка при удалении", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void gunaPanelControl_Click(object sender, EventArgs e)
+        {
+            if(UserSession.CurrentUser.IsAdmin())
+            {
+                CreateTransfersAdminForm createTransfersAdminForm = new CreateTransfersAdminForm(_transfer);
+                DialogResult editResult = createTransfersAdminForm.ShowDialog();
+                if (editResult == DialogResult.OK)
+                {
+                    ContextManager.transfersForm.LoadData();
+                }
+            }
         }
     }
 }

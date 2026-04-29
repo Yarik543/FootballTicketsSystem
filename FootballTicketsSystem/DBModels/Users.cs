@@ -8,16 +8,19 @@
 
     public partial class Users
     {
-        public bool IsAdmin()
-        {
-            return this.Roles.RoleName == "Администратор";
-        }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
             UserTickets = new HashSet<UserTickets>();
         }
+
+          public bool IsAdmin()
+        {
+            return this.Roles.RoleName == "Администратор";
+        }
+
 
         [Key]
         public int IdUser { get; set; }
@@ -40,6 +43,8 @@
 
         [StringLength(255)]
         public string PhotoProfil { get; set; }
+
+        public int? Ballance { get; set; }
 
         public virtual Roles Roles { get; set; }
 

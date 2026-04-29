@@ -35,10 +35,10 @@
             this.labelDrawCount = new System.Windows.Forms.Label();
             this.labelWinCount = new System.Windows.Forms.Label();
             this.labelLostCount = new System.Windows.Forms.Label();
-            this.gunaPictureBoxLogoTeam = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxLogoTeam = new Guna.UI2.WinForms.Guna2PictureBox();
             this.labelTeamName = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoTeam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPointsCoint
@@ -111,21 +111,21 @@
             this.labelLostCount.TabIndex = 11;
             this.labelLostCount.Text = "П";
             // 
-            // gunaPictureBoxLogoTeam
+            // pictureBoxLogoTeam
             // 
-            this.gunaPictureBoxLogoTeam.ImageRotate = 0F;
-            this.gunaPictureBoxLogoTeam.Location = new System.Drawing.Point(33, 5);
-            this.gunaPictureBoxLogoTeam.Name = "gunaPictureBoxLogoTeam";
-            this.gunaPictureBoxLogoTeam.Size = new System.Drawing.Size(30, 30);
-            this.gunaPictureBoxLogoTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBoxLogoTeam.TabIndex = 22;
-            this.gunaPictureBoxLogoTeam.TabStop = false;
+            this.pictureBoxLogoTeam.ImageRotate = 0F;
+            this.pictureBoxLogoTeam.Location = new System.Drawing.Point(33, 5);
+            this.pictureBoxLogoTeam.Name = "pictureBoxLogoTeam";
+            this.pictureBoxLogoTeam.Size = new System.Drawing.Size(35, 30);
+            this.pictureBoxLogoTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogoTeam.TabIndex = 22;
+            this.pictureBoxLogoTeam.TabStop = false;
             // 
             // labelTeamName
             // 
             this.labelTeamName.AutoSize = true;
             this.labelTeamName.Font = new System.Drawing.Font("Inter", 7F);
-            this.labelTeamName.Location = new System.Drawing.Point(69, 13);
+            this.labelTeamName.Location = new System.Drawing.Point(74, 13);
             this.labelTeamName.Name = "labelTeamName";
             this.labelTeamName.Size = new System.Drawing.Size(85, 17);
             this.labelTeamName.TabIndex = 23;
@@ -146,7 +146,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.labelTeamName);
-            this.Controls.Add(this.gunaPictureBoxLogoTeam);
+            this.Controls.Add(this.pictureBoxLogoTeam);
             this.Controls.Add(this.labelPointsCoint);
             this.Controls.Add(this.labelNumberTable);
             this.Controls.Add(this.labelGoalsCount);
@@ -156,7 +156,7 @@
             this.Controls.Add(this.labelLostCount);
             this.Name = "TableTeamsControl";
             this.Size = new System.Drawing.Size(437, 55);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoTeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,15 +164,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelPointsCoint;
-        private System.Windows.Forms.Label labelNumberTable;
-        private System.Windows.Forms.Label labelGoalsCount;
-        private System.Windows.Forms.Label labelGamesCount;
-        private System.Windows.Forms.Label labelDrawCount;
-        private System.Windows.Forms.Label labelWinCount;
-        private System.Windows.Forms.Label labelLostCount;
-        private Guna.UI2.WinForms.Guna2PictureBox gunaPictureBoxLogoTeam;
-        private System.Windows.Forms.Label labelTeamName;
-        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        public System.Windows.Forms.Label labelPointsCoint;
+        public System.Windows.Forms.Label labelNumberTable;
+        public System.Windows.Forms.Label labelGoalsCount;
+        public System.Windows.Forms.Label labelGamesCount;
+        public System.Windows.Forms.Label labelDrawCount;
+        public System.Windows.Forms.Label labelWinCount;
+        public System.Windows.Forms.Label labelLostCount;
+        public Guna.UI2.WinForms.Guna2PictureBox pictureBoxLogoTeam;
+        public System.Windows.Forms.Label labelTeamName;
+        public Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }

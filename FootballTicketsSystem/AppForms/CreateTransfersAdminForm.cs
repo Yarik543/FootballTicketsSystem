@@ -17,6 +17,7 @@ namespace FootballTicketsSystem.AppForms
         Transfers _transfer;
 
         List <Transfers> transfers = Program.context.Transfers.ToList();
+        private bool _isEditMode = false;
         public CreateTransfersAdminForm()
         {
             InitializeComponent();
@@ -25,11 +26,12 @@ namespace FootballTicketsSystem.AppForms
             pictureProfil.Image?.Dispose();
             pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
             _transfer = new Transfers();
+            labelCountTransfers.Text = Program.context.Transfers.Count().ToString();
+            _isEditMode = false;
             Program.context.Transfers.Add(_transfer);
-            labelCountTransfers.Text = transfers.Count.ToString();
         }
-
         public CreateTransfersAdminForm(Transfers transfers)
+
         {
             InitializeComponent();
             labelUserName.Text = UserSession.CurrentUser.FullName;
@@ -38,6 +40,51 @@ namespace FootballTicketsSystem.AppForms
             pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
             _transfer = transfers;
             transfersBindingSource.DataSource = _transfer;
+            _isEditMode = true;
+        }
+
+        /// <summary>
+        /// Заполняет поля формы данными трансфера
+        /// </summary>
+        private void LoadTransferData()
+        {
+            // === КОМАНДА ===
+            List<Teams> teams = Program.context.Teams.OrderBy(t => t.TeamName).ToList();
+
+            teamNowComboBox.DataSource = null;
+            teamNowComboBox.DataSource = teams;
+            teamNowComboBox.DisplayMember = "TeamName";
+            teamNowComboBox.ValueMember = "IdTeam";
+
+            // Сначала привязка, ПОТОМ выбор значения
+            if (_transfer.ToTeamId.HasValue)
+            {
+                teamNowComboBox.SelectedValue = _transfer.ToTeamId.Value;
+            }
+
+            // Остальные поля
+            tBoxTeamFrom.Text = _transfer.FromTeamName ?? "";
+            priceTransferNumericUpDown.Value = _transfer.Price ?? 0m;
+            dateTimePickerTransfer.Value = _transfer.DateTransfer ?? DateTime.Now;
+
+            // === ИГРОК ===
+            if (_transfer.PlayerId.HasValue)
+            {
+                var player = Program.context.Players.Find(_transfer.PlayerId.Value);
+                if (player != null && player.TeamId.HasValue)
+                {
+                    // Загружаем игроков команды, не фильтруя текущего
+                    LoadPlayersByTeam(player.TeamId.Value, excludePlayerId: _transfer.PlayerId.Value);
+
+                    // Выбираем игрока ПОСЛЕ загрузки списка
+                    if (comboBoxPlayers.Items.Count > 0)
+                    {
+                        comboBoxPlayers.SelectedValue = _transfer.PlayerId.Value;
+                    }
+                }
+            }
+
+            labelCountTransfers.Text = Program.context.Transfers.Count().ToString();
         }
 
         /// <summary>
@@ -52,15 +99,26 @@ namespace FootballTicketsSystem.AppForms
         private void CreateTransfersAdminForm_Load(object sender, EventArgs e)
         {
 
-            List <Teams> teams = Program.context.Teams.OrderBy(t=>t.IdTeam).ToList();
-            // Настраиваем ComboBox "Текущая команда"
-            teamNowComboBox.DataSource = null;
-            teamNowComboBox.DataSource = teams;
-            teamNowComboBox.DisplayMember = "TeamName";  
-            teamNowComboBox.ValueMember = "IdTeam";   
+            if (_isEditMode)
+            {
+                // 👇 Режим редактирования — загружаем данные
+                LoadTransferData();
+            }
+            else
+            {
+                // 👇 Режим создания — базовая настройка
+                List<Teams> teams = Program.context.Teams.OrderBy(t => t.TeamName).ToList();
 
-            teamNowComboBox.SelectedIndex = -1;
-            teamNowComboBox.Text = "Выберите команду...";
+                teamNowComboBox.DataSource = null;
+                teamNowComboBox.DataSource = teams;
+                teamNowComboBox.DisplayMember = "TeamName";
+                teamNowComboBox.ValueMember = "IdTeam";
+                teamNowComboBox.SelectedIndex = -1;
+                teamNowComboBox.Text = "Выберите команду...";
+
+                comboBoxPlayers.Enabled = false;
+                comboBoxPlayers.Text = "Сначала выберите команду...";
+            }
         }
 
         private void btnCloseBack_Click(object sender, EventArgs e)
@@ -70,7 +128,6 @@ namespace FootballTicketsSystem.AppForms
 
         private void teamNowComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Безопасное получение команды
             var selectedTeam = teamNowComboBox.SelectedItem as Teams;
 
             if (selectedTeam == null)
@@ -81,20 +138,29 @@ namespace FootballTicketsSystem.AppForms
                 return;
             }
 
-            int teamId = selectedTeam.IdTeam; 
+            int teamId = selectedTeam.IdTeam;
             LoadPlayersByTeam(teamId);
         }
 
-        private void LoadPlayersByTeam(int teamId)
+        private void LoadPlayersByTeam(int teamId, int? excludePlayerId = null)
         {
-            // Получаем игроков:
-            // 1. Из нужной команды (p.TeamId == teamId)
-            // 2. У которых НЕТ записи в таблице Transfers
-            List<Players> players = Program.context.Players
-                .Where(p => p.TeamId == teamId &&
-                           !Program.context.Transfers.Any(t => t.PlayerId == p.IdPlayer))
-                .OrderBy(p => p.FullName)
-                .ToList();
+            var playersQuery = Program.context.Players.Where(p => p.TeamId == teamId);
+
+            if (excludePlayerId.HasValue)
+            {
+                // В режиме редактирования: исключаем всех с трансфером, КРОМЕ текущего игрока
+                playersQuery = playersQuery.Where(p =>
+                    p.IdPlayer == excludePlayerId.Value ||
+                    !Program.context.Transfers.Any(t => t.PlayerId == p.IdPlayer));
+            }
+            else
+            {
+                // В режиме создания: исключаем всех, у кого уже есть трансфер
+                playersQuery = playersQuery.Where(p =>
+                    !Program.context.Transfers.Any(t => t.PlayerId == p.IdPlayer));
+            }
+
+            List<Players> players = playersQuery.OrderBy(p => p.FullName).ToList();
 
             if (players.Count == 0)
             {
@@ -104,23 +170,24 @@ namespace FootballTicketsSystem.AppForms
                 return;
             }
 
-            // Настраиваем ComboBox игрока
-            comboBoxPlayers.DataSource = null; // Сброс старой привязки
-            comboBoxPlayers.DataSource = players;
-            comboBoxPlayers.DisplayMember = "FullName"; 
-            comboBoxPlayers.ValueMember = "IdPlayer";    
-            comboBoxPlayers.SelectedIndex = -1;
-            comboBoxPlayers.Text = "Выберите игрока...";
-            comboBoxPlayers.Enabled = true;
+            // 👇 ВАЖНЫЙ ПОРЯДОК:
+            comboBoxPlayers.DataSource = null;           // 1. Сброс
+            comboBoxPlayers.DataSource = players;        // 2. Новый источник
+            comboBoxPlayers.DisplayMember = "FullName";  // 3. Что показывать
+            comboBoxPlayers.ValueMember = "IdPlayer";    // 4. Какое значение брать
+            comboBoxPlayers.Enabled = true;              // 5. Включаем
+                                                         // 👇 SelectedValue ставится ВНЕ этого метода, после вызова!
         }
 
         private void FieldModels()
         {
-            _transfer.ToTeamId = (int)teamNowComboBox.SelectedValue;
+            if (teamNowComboBox.SelectedValue != null)
+                _transfer.ToTeamId = (int)teamNowComboBox.SelectedValue;
             _transfer.FromTeamName = tBoxTeamFrom.Text.Trim();
             _transfer.Price = priceTransferNumericUpDown.Value;
             _transfer.DateTransfer = dateTimePickerTransfer.Value;
-            _transfer.PlayerId = (int)comboBoxPlayers.SelectedValue;
+            if (comboBoxPlayers.SelectedValue != null)
+                _transfer.PlayerId = (int)comboBoxPlayers.SelectedValue;
         }
 
         private void btnSaveTransfer_Click(object sender, EventArgs e)

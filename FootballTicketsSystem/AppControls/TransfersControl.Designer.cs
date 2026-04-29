@@ -63,6 +63,7 @@
             this.gunaPanelControl.Name = "gunaPanelControl";
             this.gunaPanelControl.Size = new System.Drawing.Size(595, 204);
             this.gunaPanelControl.TabIndex = 1;
+            this.gunaPanelControl.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // btnDeleteTransfer
             // 
@@ -85,6 +86,7 @@
             this.labelPriceTransfer.Size = new System.Drawing.Size(190, 24);
             this.labelPriceTransfer.TabIndex = 34;
             this.labelPriceTransfer.Text = "$120M";
+            this.labelPriceTransfer.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // label1
             // 
@@ -94,6 +96,7 @@
             this.label1.Size = new System.Drawing.Size(78, 24);
             this.label1.TabIndex = 33;
             this.label1.Text = "Сумма: ";
+            this.label1.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // labelTeamsTransfer
             // 
@@ -103,6 +106,7 @@
             this.labelTeamsTransfer.Size = new System.Drawing.Size(55, 24);
             this.labelTeamsTransfer.TabIndex = 32;
             this.labelTeamsTransfer.Text = "Team";
+            this.labelTeamsTransfer.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // labelDataTransfer
             // 
@@ -113,6 +117,7 @@
             this.labelDataTransfer.Size = new System.Drawing.Size(96, 24);
             this.labelDataTransfer.TabIndex = 31;
             this.labelDataTransfer.Text = "12.10.2026";
+            this.labelDataTransfer.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // guna2CirclePictureBox2
             // 
@@ -129,6 +134,7 @@
             this.guna2CirclePictureBox2.TabIndex = 30;
             this.guna2CirclePictureBox2.TabStop = false;
             this.guna2CirclePictureBox2.UseTransparentBackground = true;
+            this.guna2CirclePictureBox2.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // labelPlayerName
             // 
@@ -139,6 +145,7 @@
             this.labelPlayerName.Size = new System.Drawing.Size(65, 28);
             this.labelPlayerName.TabIndex = 1;
             this.labelPlayerName.Text = "label1";
+            this.labelPlayerName.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // pictureBoxPhotoPlayer
             // 
@@ -151,6 +158,7 @@
             this.pictureBoxPhotoPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPhotoPlayer.TabIndex = 0;
             this.pictureBoxPhotoPlayer.TabStop = false;
+            this.pictureBoxPhotoPlayer.Click += new System.EventHandler(this.gunaPanelControl_Click);
             // 
             // TransfersControl
             // 

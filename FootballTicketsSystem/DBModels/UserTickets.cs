@@ -1,4 +1,4 @@
-namespace FootballTicketsSystem.DBModels
+﻿namespace FootballTicketsSystem.DBModels
 {
     using System;
     using System.Collections.Generic;

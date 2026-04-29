@@ -113,7 +113,7 @@ namespace FootballTicketsSystem.AppControls
 
         private void btnBuyTicket_Click(object sender, EventArgs e)
         {
-            TicketBuyForm ticketBuyForm = new TicketBuyForm();
+            TicketBuyForm ticketBuyForm = new TicketBuyForm(_match);
             DialogResult dialogResult = ticketBuyForm.ShowDialog();
         }
     }

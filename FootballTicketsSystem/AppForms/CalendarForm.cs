@@ -22,6 +22,11 @@ namespace FootballTicketsSystem.AppForms
             labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
             pictureProfil.Image?.Dispose();
             pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
+            if(UserSession.CurrentUser.IsAdmin())
+            {
+                btnAddMatch.Visible = true;
+                comboBoxSortGoalsMatch.Visible = true;
+            }
         }
 
         /// <summary>
@@ -70,6 +75,10 @@ namespace FootballTicketsSystem.AppForms
         {
             CreateMatchesAdminForm createMatchesAdminForm = new CreateMatchesAdminForm();
             DialogResult result = createMatchesAdminForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadDataMatch();
+            }
         }
 
         private void radioBtnEarly_CheckedChanged(object sender, EventArgs e)

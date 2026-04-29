@@ -1,4 +1,5 @@
-﻿using FootballTicketsSystem.AppServices;
+﻿using FootballTicketsSystem.AppControls;
+using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.Helpers;
 using Guna.UI2.WinForms;
 using System;
@@ -41,6 +42,8 @@ namespace FootballTicketsSystem.AppForms
             LoadNextMatch();
             LoadTeamsStatistics(); // Установит _currentTeamsStatsMatchId
             LoadMatchStatistics();
+            LoadLastThreeMatchesAll();
+            LoadTeamsTable();
 
             timerMatchStats.Interval = 1000;
             timerMatchStats.Tick += timerMatchStats_Tick;
@@ -297,7 +300,8 @@ namespace FootballTicketsSystem.AppForms
             if (matchChanged)
             {
                 LoadTeamsStatistics();
-                Console.WriteLine($"[{DateTime.Now}] Матч сменился! Обновляем статистику команд.");
+                LoadLastThreeMatchesAll(); // Обновляем последние результаты при смене матча
+                LoadTeamsTable();
             }
         }
 
@@ -386,6 +390,175 @@ namespace FootballTicketsSystem.AppForms
             LoadMatchStatistics();
 
             Console.WriteLine($"[{DateTime.Now}] Следующий матч обновлён автоматически");
+        }
+
+        /// <summary>
+        /// Загружает 3 самых последних завершенных матча из всей базы
+        /// </summary>
+        private void LoadLastThreeMatchesAll()
+        {
+            // Получаем 3 самых свежих завершенных матча
+            var lastMatches = Program.context.Matches
+                .AsNoTracking()
+                .Include(m => m.Teams)        // Домашняя команда
+                .Include(m => m.Teams1)       // Гостевая команда
+                .Where(m => m.MatchDate < DateTime.Now && m.ScoreHome != null && m.ScoreAway != null)
+                .OrderByDescending(m => m.MatchDate)
+                .Take(3)
+                .ToList();
+
+            // Заполняем label'ы
+            for (int i = 0; i < 3; i++)
+            {
+                if (i < lastMatches.Count)
+                {
+                    var match = lastMatches[i];
+                    string homeTeam = match.Teams?.TeamName ?? "???";
+                    string awayTeam = match.Teams1?.TeamName ?? "???";
+                    string score = $"{match.ScoreHome}   :   {match.ScoreAway}";
+
+                    SetLastMatchLabels(i, homeTeam, awayTeam, score);
+                }
+                else
+                {
+                    // Если матчей меньше 3 — ставим прочерки
+                    SetLastMatchLabels(i, "-", "-", "-");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Вспомогательный метод для установки текста в label'ы матчей
+        /// </summary>
+        private void SetLastMatchLabels(int matchIndex, string homeTeam, string awayTeam, string score)
+        {
+            switch (matchIndex)
+            {
+                case 0: // Самый свежий матч
+                    labelTeamHomeNameLastResult.Text = homeTeam;
+                    labelTeamAwayNameLastResult.Text = awayTeam;
+                    labelScoreFirstMatchLast.Text = score;
+                    break;
+                case 1: // Второй по свежести
+                    labelTeamHomeNameLastResult2.Text = homeTeam;
+                    labelTeamAwayNameLastResult2.Text = awayTeam;
+                    labelScoreSecondMatchLast.Text = score;
+                    break;
+                case 2: // Третий по свежести
+                    labelTeamHomeNameLastResult3.Text = homeTeam;
+                    labelTeamAwayNameLastResult3.Text = awayTeam;
+                    labelScoreThirdMatchLast.Text = score;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Загружает турнирную таблицу команд
+        /// </summary>
+        private void LoadTeamsTable()
+        {
+            flowLayoutPanelTableTeams.Controls.Clear();
+
+            // 1. Получаем все завершенные матчи с известным счетом
+            var matches = Program.context.Matches.AsNoTracking()
+                .Where(m => m.MatchDate < DateTime.Now && m.ScoreHome != null && m.ScoreAway != null)
+                .ToList();
+
+            // 2. Словарь для накопления статистики по каждой команде
+            var stats = new Dictionary<int, TeamStats>();
+
+            // Инициализируем ВСЕ команды из БД (даже те, у кого пока 0 матчей)
+            foreach (var team in Program.context.Teams.AsNoTracking().ToList())
+            {
+                stats[team.IdTeam] = new TeamStats
+                {
+                    TeamId = team.IdTeam,
+                    TeamName = team.TeamName,
+                    LogoPath = team.Logo
+                };
+            }
+
+            // 3. Проходим по матчам и считаем показатели
+            foreach (var m in matches)
+            {
+                // --- Домашняя команда ---
+                var home = stats[m.TeamHomeId.Value];
+                home.Games++;
+                home.Goals += m.ScoreHome.Value;
+                if (m.ScoreHome > m.ScoreAway) home.Wins++;
+                else if (m.ScoreHome == m.ScoreAway) home.Draws++;
+                else home.Losses++;
+
+                // --- Гостевая команда ---
+                var away = stats[m.TeamAwayId.Value];
+                away.Games++;
+                away.Goals += m.ScoreAway.Value;
+                if (m.ScoreAway > m.ScoreHome) away.Wins++;
+                else if (m.ScoreAway == m.ScoreHome) away.Draws++;
+                else away.Losses++;
+            }
+
+            // 4. Вычисляем очки и сортируем таблицу
+            var sortedTable = stats.Values
+                .Select(t => new
+                {
+                    t.TeamId,
+                    t.TeamName,
+                    t.LogoPath,
+                    t.Games,
+                    t.Wins,
+                    t.Draws,
+                    t.Losses,
+                    t.Goals,
+                    Points = (t.Wins * 3) + t.Draws // 👈 ФОРМУЛА ОЧКОВ
+                })
+                .OrderByDescending(x => x.Points)      // 1. По очкам
+                .ThenByDescending(x => x.Goals)        // 2. При равенстве очков → по забитым голам
+                .ToList();
+
+            flowLayoutPanelTableTeams.FlowDirection = FlowDirection.LeftToRight;
+
+            // 5. Создаем и добавляем UserControl для каждой команды
+            for (int i = 0; i < sortedTable.Count; i++)
+            {
+                var row = sortedTable[i];
+                var control = new TableTeamsControl();
+
+                // Установи фиксированную ширину контрола
+                control.Width = flowLayoutPanelTableTeams.Width - 20; // -20 для отступа
+                control.MinimumSize = new Size(control.Width, 50);
+
+                // Заполняем данные (убедись, что label'ы в контроле имеют модификатор Public или Internal)
+                control.labelNumberTable.Text = (i + 1).ToString();
+                control.labelTeamName.Text = row.TeamName;
+                control.labelGamesCount.Text = row.Games.ToString();
+                control.labelWinCount.Text = row.Wins.ToString();
+                control.labelDrawCount.Text = row.Draws.ToString();
+                control.labelLostCount.Text = row.Losses.ToString();
+                control.labelGoalsCount.Text = row.Goals.ToString();
+                control.labelPointsCoint.Text = row.Points.ToString();
+
+                // Загружаем логотип
+                if (!string.IsNullOrEmpty(row.LogoPath))
+                    ImageLoader.LoadToPictureBoxAsync(control.pictureBoxLogoTeam, row.LogoPath, Properties.Resources.picture);
+                else
+                    control.pictureBoxLogoTeam.Image = Properties.Resources.picture;
+
+                flowLayoutPanelTableTeams.Controls.Add(control);
+            }
+        }
+
+        // Вспомогательный класс для накопления данных (можно разместить внутри формы)
+        private class TeamStats
+        {
+            public int TeamId { get; set; }
+            public string TeamName { get; set; }
+            public string LogoPath { get; set; }
+            public int Games { get; set; }
+            public int Wins { get; set; }
+            public int Draws { get; set; }
+            public int Losses { get; set; }
+            public int Goals { get; set; }
         }
     }
 }

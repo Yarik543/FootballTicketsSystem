@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxSearchMatch = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowLayoutPanelMatches = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBoxSortGoalsMatch = new System.Windows.Forms.ComboBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -275,6 +276,7 @@
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.gunaPanelHeaderForm.Controls.Add(this.comboBoxSortGoalsMatch);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Controls.Add(this.btnAddMatch);
@@ -334,6 +336,7 @@
             this.btnAddMatch.TabIndex = 14;
             this.btnAddMatch.Text = "Добавить матч";
             this.btnAddMatch.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnAddMatch.Visible = false;
             this.btnAddMatch.Click += new System.EventHandler(this.btnAddMatch_Click);
             // 
             // labelBallanceUser
@@ -474,6 +477,19 @@
             this.flowLayoutPanelMatches.Size = new System.Drawing.Size(968, 592);
             this.flowLayoutPanelMatches.TabIndex = 0;
             // 
+            // comboBoxSortGoalsMatch
+            // 
+            this.comboBoxSortGoalsMatch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxSortGoalsMatch.FormattingEnabled = true;
+            this.comboBoxSortGoalsMatch.Items.AddRange(new object[] {
+            "Все",
+            "Без счёта"});
+            this.comboBoxSortGoalsMatch.Location = new System.Drawing.Point(691, 151);
+            this.comboBoxSortGoalsMatch.Name = "comboBoxSortGoalsMatch";
+            this.comboBoxSortGoalsMatch.Size = new System.Drawing.Size(154, 28);
+            this.comboBoxSortGoalsMatch.TabIndex = 21;
+            this.comboBoxSortGoalsMatch.Visible = false;
+            // 
             // CalendarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -529,5 +545,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAddMatch;
         private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.ComboBox comboBoxSortGoalsMatch;
     }
 }
