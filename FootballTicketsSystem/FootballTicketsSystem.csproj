@@ -108,11 +108,15 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.8.16.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.5-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.8.0.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.8.0\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
@@ -296,11 +300,13 @@
     <Compile Include="AppServices\ContextManager.cs" />
     <Compile Include="AppServices\ImageCache.cs" />
     <Compile Include="AppServices\ImageLoader.cs" />
+    <Compile Include="AppServices\LogoutService.cs" />
+    <Compile Include="AppServices\PasswordHelper.cs" />
     <Compile Include="AppServices\PhotoHelper.cs" />
     <Compile Include="AppServices\UiPainter.cs" />
     <Compile Include="AppServices\UserSession.cs" />
     <Compile Include="DBModels\Coaches.cs" />
-    <Compile Include="DBModels\FootBallModelDB.cs" />
+    <Compile Include="DBModels\ContextDbFootBall.cs" />
     <Compile Include="DBModels\Matches.cs" />
     <Compile Include="DBModels\Players.cs" />
     <Compile Include="DBModels\Roles.cs" />

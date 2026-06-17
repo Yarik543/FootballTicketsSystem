@@ -1,5 +1,6 @@
 ﻿using FootballTicketsSystem.AppControls;
 using FootballTicketsSystem.AppServices;
+using FootballTicketsSystem.DBModels;
 using FootballTicketsSystem.Helpers;
 using Guna.UI2.WinForms;
 using System;
@@ -18,9 +19,9 @@ namespace FootballTicketsSystem.AppForms
 {
     public partial class MainDashboardForm : Form
     {
-        private int? _currentMatchId = null; // Запоминаем ID текущего матча
-        private int? _currentTeamsStatsMatchId = null; //  Для статистики
-        private DateTime _lastTeamsStatsUpdate = DateTime.MinValue; //  Новое поле
+        private int? _currentMatchId = null; 
+        private int? _currentTeamsStatsMatchId = null;
+        private DateTime _lastTeamsStatsUpdate = DateTime.MinValue;
         public MainDashboardForm()
         {
             InitializeComponent();
@@ -32,18 +33,21 @@ namespace FootballTicketsSystem.AppForms
             pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
         }
 
-        private void MainDashboardForm_Load(object sender, EventArgs e)
+        private async void MainDashboardForm_Load(object sender, EventArgs e)
         {
             labelUserBack.Text += UserSession.CurrentUser.FullName;
             labelUserName.Text = UserSession.CurrentUser.FullName;
             labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
 
-            // Загружаем всё сразу
             LoadNextMatch();
-            LoadTeamsStatistics(); // Установит _currentTeamsStatsMatchId
+            LoadTeamsStatistics();
             LoadMatchStatistics();
             LoadLastThreeMatchesAll();
-            LoadTeamsTable();
+
+            await LoadTeamsTableAsync();
+
+            CheckTomorrowMatchWithTicket();
+
 
             timerMatchStats.Interval = 1000;
             timerMatchStats.Tick += timerMatchStats_Tick;
@@ -61,67 +65,150 @@ namespace FootballTicketsSystem.AppForms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            DialogResult = DialogResult.OK;
+            LogoutService.RequestLogout(this);
+        }
+
+        /// <summary>
+        /// Обрабатывает переходы из дочерних форм (циклически, пока не вернёмся на главную)
+        /// </summary>
+        private void HandleNavigationResult(DialogResult initialResult)
+        {
+            DialogResult result = initialResult;
+
+            while (result != DialogResult.OK)
+            {
+                switch (result)
+                {
+                    case DialogResult.Abort: // Билеты
+                        using (var f = new MyTicketsForm())
+                        {
+                            result = f.ShowDialog();
+                            if (result == DialogResult.OK)
+                                RefreshDashboardAfterTickets();
+                        }
+                        break;
+
+                    case DialogResult.Retry: // Команды
+                        using (var f = new TeamsForm())
+                        {
+                            result = f.ShowDialog();
+                            if (result == DialogResult.OK)
+                                _ = LoadTeamsTableAsync();
+                        }
+                        break;
+
+                    case DialogResult.Ignore: //Профиль
+                        using (var f = new ProfilForm(UserSession.CurrentUser))
+                        {
+                            result = f.ShowDialog();
+                            if (result == DialogResult.OK)
+                                RefreshUserProfile();
+                        }
+                        break;
+
+                    case DialogResult.Yes: // Календарь
+                        using (var f = new CalendarForm())
+                        {
+                            result = f.ShowDialog();
+                            if (result == DialogResult.OK)
+                            {
+                                LoadNextMatch();
+                                _ = LoadTeamsTableAsync();
+                            }
+                        }
+                        break;
+
+                    case DialogResult.Cancel: //Трансферы
+                        using (var f = new TransfersForm())
+                        {
+                            result = f.ShowDialog();
+                        }
+                        break;
+
+                    default:
+                        // Неизвестный результат — выходим
+                        return;
+                }
+            }
+
+            RefreshDashboardAfterTickets();
+        }
+
+        /// <summary>
+        /// Обновляет данные профиля в шапке
+        /// </summary>
+        private void RefreshUserProfile()
+        {
+            labelUserName.Text = UserSession.CurrentUser.FullName;
+            labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
+            pictureProfil.Image?.Dispose();
+            pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
         }
 
         private void btnTeams_Click(object sender, EventArgs e)
         {
-            TeamsForm teamsForm = new TeamsForm();
-            DialogResult teamsF = teamsForm.ShowDialog();
-            this.Hide();
-            if (teamsF == DialogResult.OK)
+            using (var form = new TeamsForm())
             {
-                this.Show();
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK) _ = LoadTeamsTableAsync();
+                else HandleNavigationResult(result);
             }
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
         {
-            MyTicketsForm ticketsForm = new MyTicketsForm();
-            DialogResult ticketsDialog = ticketsForm.ShowDialog();
-            this.Hide();
-            if (ticketsDialog == DialogResult.OK)
+            using (var form = new MyTicketsForm())
             {
-                this.Show();
+                var result = form.ShowDialog();
+                RefreshDashboardAfterTickets();
+                if (result != DialogResult.OK) HandleNavigationResult(result);
             }
+        }
+
+        /// <summary>
+        /// Обновляет данные на главной после возврата из формы билетов
+        /// </summary>
+        private void RefreshDashboardAfterTickets()
+        {
+            LoadMatchStatistics();
+            CheckTomorrowMatchWithTicket();
         }
 
         private void btnProfil_Click(object sender, EventArgs e)
         {
-            ProfilForm profilForm = new ProfilForm();
-            DialogResult profilDialog = profilForm.ShowDialog();
-            this.Hide();
-            if (profilDialog == DialogResult.OK)
+            using (var form = new ProfilForm(UserSession.CurrentUser))
             {
-                this.Show();
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK) RefreshUserProfile();
+                else HandleNavigationResult(result);
             }
         }
 
         private void btnCalendar_Click(object sender, EventArgs e)
         {
-            CalendarForm calendarForm = new CalendarForm();
-            DialogResult calendarDialog = calendarForm.ShowDialog();
-            this.Hide();
-            if (calendarDialog == DialogResult.OK)
+            using (var form = new CalendarForm())
             {
-                this.Show();
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    LoadNextMatch();
+                    _ = LoadTeamsTableAsync();
+                }
+                else HandleNavigationResult(result);
             }
         }
 
         private void btnTransfers_Click(object sender, EventArgs e)
         {
-            TransfersForm transfers = new TransfersForm();
-            DialogResult transferDialog = transfers.ShowDialog();
-            this.Hide();
-            if (transferDialog == DialogResult.OK)
+            using (var form = new TransfersForm())
             {
-                this.Show();
+                var result = form.ShowDialog();
+                if (result != DialogResult.OK) HandleNavigationResult(result);
             }
         }
 
         /// <summary>
-        /// Загрузка следующего матча (через Program.context)
+        /// Загрузка следующего матча
         /// </summary>
         private bool LoadNextMatch()
         {
@@ -136,13 +223,11 @@ namespace FootballTicketsSystem.AppForms
                 .OrderBy(m => m.MatchDate)
                 .FirstOrDefault();
 
-            // Если матч не изменился — не перезагружаем команды
             if (nextMatch?.IdMatch == _currentMatchId)
             {
-                return false; // Матч тот же
+                return false;
             }
 
-            // Матч изменился (или первый запуск) — обновляем всё
             _currentMatchId = nextMatch?.IdMatch;
 
             if (nextMatch != null)
@@ -157,7 +242,6 @@ namespace FootballTicketsSystem.AppForms
 
                 labelStadiumName.Text = nextMatch.Stadiums?.NameStadium ?? "Стадион не указан";
 
-                // Логотипы
                 if (nextMatch.Teams != null && !string.IsNullOrEmpty(nextMatch.Teams.Logo))
                     _ = ImageLoader.LoadToPictureBoxAsync(pictureBoxLogoFirstTeam, nextMatch.Teams.Logo, Properties.Resources.picture);
                 else
@@ -168,7 +252,7 @@ namespace FootballTicketsSystem.AppForms
                 else
                     pictureBoxLogoSecondTeam.Image = Properties.Resources.picture;
 
-                return true; // Матч обновился
+                return true;
             }
             else
             {
@@ -186,7 +270,6 @@ namespace FootballTicketsSystem.AppForms
         /// </summary>
         private void LoadTeamsStatistics()
         {
-            // Ищем ТЕКУЩИЙ активный матч (с учетом 2-часового буфера)
             var activeWindowStart = DateTime.Now.AddHours(-2);
 
             var currentMatch = Program.context.Matches
@@ -203,7 +286,6 @@ namespace FootballTicketsSystem.AppForms
                 return;
             }
 
-            // Если матч для статистики не изменился — не обновляем
             if (currentMatch.IdMatch == _currentTeamsStatsMatchId)
             {
                 return;
@@ -214,7 +296,6 @@ namespace FootballTicketsSystem.AppForms
             int team1Id = currentMatch.Teams.IdTeam;
             int team2Id = currentMatch.Teams1.IdTeam;
 
-            // Названия команд
             labelTeamFirst.Text = currentMatch.Teams.TeamName;
             labelTeamSecond.Text = currentMatch.Teams1.TeamName;
 
@@ -228,7 +309,6 @@ namespace FootballTicketsSystem.AppForms
                 .Take(10)
                 .ToList();
 
-            // Считаем статистику
             int team1Wins = 0;
             int team2Wins = 0;
             int draws = 0;
@@ -253,13 +333,11 @@ namespace FootballTicketsSystem.AppForms
                 }
             }
 
-            // Обновляем цифры
             labelCountTeamFirstWin.Text = team1Wins.ToString();
             labelCountTeamSecondWin.Text = team2Wins.ToString();
             labelDrawsCount.Text = draws.ToString();
             labelLastGame.Text = "Последние игры: " + lastMatches.Count.ToString();
 
-            // Обновляем прогресс-бар
             UpdateStatsBars(team1Wins, team2Wins, draws, lastMatches.Count);
         }
 
@@ -269,7 +347,6 @@ namespace FootballTicketsSystem.AppForms
         /// </summary>
         private void UpdateStatsBars(int team1Wins, int team2Wins, int draws, int totalGames)
         {
-            // Если нет игр, очищаем всё
             if (totalGames == 0)
             {
                 panelTeam1Win.Width = 0;
@@ -278,39 +355,33 @@ namespace FootballTicketsSystem.AppForms
                 return;
             }
 
-            // Общая ширина контейнера (берем текущую ширину родительской панели)
             int totalWidth = panelStatsContainer.Width;
 
-            // Считаем ширину каждой части пропорционально количеству
-            // Формула: (Победы * Общая Ширина) / Всего Игр
             panelTeam1Win.Width = (team1Wins * totalWidth) / totalGames;
             panelDraw.Width = (draws * totalWidth) / totalGames;
             panelTeam2Win.Width = (team2Wins * totalWidth) / totalGames;
         }
 
-        private void timerMatchStats_Tick(object sender, EventArgs e)
+        private async void timerMatchStats_Tick(object sender, EventArgs e)
         {
-            // 1. Всегда обновляем билеты/таймер
             LoadMatchStatistics();
 
-            // 2. Проверяем, не сменился ли матч
             bool matchChanged = LoadNextMatch();
 
-            // 3. Если матч сменился — обновляем статистику команд
             if (matchChanged)
             {
                 LoadTeamsStatistics();
-                LoadLastThreeMatchesAll(); // Обновляем последние результаты при смене матча
-                LoadTeamsTable();
+                LoadLastThreeMatchesAll();
+                await LoadTeamsTableAsync();
+
+                CheckTomorrowMatchWithTicket();
             }
         }
 
-        private void LoadMatchStatistics()
+        public void LoadMatchStatistics()
         {
-            //  1. Вычисляем пороговое время ДО запроса
             var thresholdTime = DateTime.Now.AddHours(-2);
 
-            //  2. Используем переменную в Where
             var match = Program.context.Matches
                 .AsNoTracking()
                 .Include(m => m.Stadiums)
@@ -326,47 +397,36 @@ namespace FootballTicketsSystem.AppForms
 
             TimeSpan timeLeft = match.MatchDate.Value - DateTime.Now;
 
-            // ==========================================
-            // УМНОЕ ОТОБРАЖЕНИЕ ВРЕМЕНИ
-            // ==========================================
             if (timeLeft.TotalSeconds <= 0)
             {
-                // ⚽ МАТЧ НАЧАЛСЯ
                 labelTimerMatch.Text = "⚽ Матч идет";
-                labelTimerMatch.ForeColor = Color.FromArgb(0, 200, 150); // Зелёный
+                labelTimerMatch.ForeColor = Color.FromArgb(0, 200, 150);
             }
             else if (timeLeft.TotalMinutes < 1)
             {
-                // ⏱ ПОСЛЕДНЯЯ МИНУТА — показываем секунды
                 int seconds = (int)timeLeft.TotalSeconds;
                 labelTimerMatch.Text = $"{seconds} сек";
-                labelTimerMatch.ForeColor = Color.FromArgb(255, 62, 62); // Красный (срочно!)
+                labelTimerMatch.ForeColor = Color.FromArgb(255, 62, 62);
             }
             else if (timeLeft.TotalHours < 1)
             {
-                // ⏰ МЕНЬШЕ ЧАСА — показываем минуты
                 int minutes = (int)timeLeft.TotalMinutes;
                 labelTimerMatch.Text = $"{minutes} мин";
-                labelTimerMatch.ForeColor = Color.FromArgb(255, 193, 7); // Жёлтый
+                labelTimerMatch.ForeColor = Color.FromArgb(255, 193, 7);
             }
             else if (timeLeft.TotalDays < 1)
             {
-                // 📅 МЕНЬШЕ СУТОК — показываем часы
                 int hours = (int)timeLeft.TotalHours;
                 labelTimerMatch.Text = $"{hours} ч";
                 labelTimerMatch.ForeColor = Color.Black;
             }
             else
             {
-                // 📆 БОЛЬШЕ ДНЯ — показываем дни
                 int days = (int)timeLeft.TotalDays;
                 labelTimerMatch.Text = $"{days} дн";
                 labelTimerMatch.ForeColor = Color.Gray;
             }
 
-            // ==========================================
-            // ОСТАЛЬНАЯ СТАТИСТИКА (без изменений)
-            // ==========================================
             int soldCount = Program.context.Tickets.Count(t => t.MatchId == match.IdMatch);
             labelTicketsCount.Text = soldCount.ToString("N0");
 
@@ -384,7 +444,6 @@ namespace FootballTicketsSystem.AppForms
 
         private void timerNextMatchRefresh_Tick(object sender, EventArgs e)
         {
-            // Обновляем следующий матч и статистику команд
             LoadNextMatch();
             LoadTeamsStatistics();
             LoadMatchStatistics();
@@ -397,17 +456,15 @@ namespace FootballTicketsSystem.AppForms
         /// </summary>
         private void LoadLastThreeMatchesAll()
         {
-            // Получаем 3 самых свежих завершенных матча
             var lastMatches = Program.context.Matches
                 .AsNoTracking()
-                .Include(m => m.Teams)        // Домашняя команда
-                .Include(m => m.Teams1)       // Гостевая команда
+                .Include(m => m.Teams)
+                .Include(m => m.Teams1)
                 .Where(m => m.MatchDate < DateTime.Now && m.ScoreHome != null && m.ScoreAway != null)
                 .OrderByDescending(m => m.MatchDate)
                 .Take(3)
                 .ToList();
 
-            // Заполняем label'ы
             for (int i = 0; i < 3; i++)
             {
                 if (i < lastMatches.Count)
@@ -421,7 +478,6 @@ namespace FootballTicketsSystem.AppForms
                 }
                 else
                 {
-                    // Если матчей меньше 3 — ставим прочерки
                     SetLastMatchLabels(i, "-", "-", "-");
                 }
             }
@@ -453,21 +509,162 @@ namespace FootballTicketsSystem.AppForms
         }
 
         /// <summary>
+        /// Проверяет, есть ли у пользователя билет на матч ЗАВТРА
+        /// </summary>
+        private void CheckTomorrowMatchWithTicket()
+        {
+            DateTime today = DateTime.Today;
+            DateTime tomorrow = today.AddDays(1);
+            DateTime dayAfterTomorrow = today.AddDays(2);
+
+            var tomorrowMatch = Program.context.Matches
+                .AsNoTracking()
+                .Include(m => m.Teams)
+                .Include(m => m.Teams1)
+                .FirstOrDefault(m =>
+                    m.MatchDate >= tomorrow &&
+                    m.MatchDate < dayAfterTomorrow);
+
+            if (tomorrowMatch == null)
+            {
+                pictureBoxIndexMessage.Visible = false;
+                return;
+            }
+
+            var userTicketIds = Program.context.UserTickets
+                .Where(ut => ut.UserId == UserSession.CurrentUser.IdUser)
+                .Select(ut => ut.TicketId)
+                .ToList();
+
+            bool hasTicket = Program.context.Tickets
+                .Any(t => userTicketIds.Contains(t.IdTicket) &&
+                          t.MatchId == tomorrowMatch.IdMatch &&
+                          t.IsSold == true);
+
+            if (hasTicket)
+            {
+                pictureBoxIndexMessage.Visible = true;
+                ShowTomorrowMatchNotification(tomorrowMatch);
+            }
+            else
+            {
+                pictureBoxIndexMessage.Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// Показывает красивое уведомление о завтрашнем матче
+        /// </summary>
+        private void ShowTomorrowMatchNotification(Matches match)
+        {
+            if (UserSession.HasSeenTomorrowNotification) return;
+
+            var notificationForm = new Form
+            {
+                Text = "Напоминание",
+                Size = new Size(400, 250),
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedSingle,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                BackColor = Color.White
+            };
+
+            var headerPanel = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 60,
+                BackColor = Color.FromArgb(20, 184, 134)
+            };
+            notificationForm.Controls.Add(headerPanel);
+
+            var iconLabel = new Label
+            {
+                Text = "🎫",
+                Font = new Font("Segoe UI Emoji", 24F),
+                Location = new Point(15, 10),
+                AutoSize = true
+            };
+            headerPanel.Controls.Add(iconLabel);
+
+            var titleLabel = new Label
+            {
+                Text = "     Завтра матч!",
+                Font = new Font("Inter", 14F, FontStyle.Bold),
+                ForeColor = Color.White,
+                Location = new Point(60, 15),
+                AutoSize = true
+            };
+            headerPanel.Controls.Add(titleLabel);
+
+            var matchInfo = new Label
+            {
+                Text = $"{match.Teams?.TeamName}  vs  {match.Teams1?.TeamName}\n" +
+                       $"📅 {match.MatchDate?.ToString("dd.MM.yyyy HH:mm")}\n" +
+                       $"🏟️ {match.Stadiums?.NameStadium}",
+                Font = new Font("Microsoft Sans Serif", 10F),
+                Location = new Point(20, 80),
+                Width = 340,
+                Height = 70,
+                AutoSize = false,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            notificationForm.Controls.Add(matchInfo);
+
+            var btnViewTicket = new Guna2Button
+            {
+                Text = "🎫 Мои билеты",
+                Location = new Point(120, 160),
+                Width = 160,
+                Height = 40,
+                BorderRadius = 20,
+                FillColor = Color.FromArgb(20, 184, 134),
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold)
+            };
+
+            btnViewTicket.HoverState.FillColor = Color.FromArgb(0, 150, 100);
+            btnViewTicket.Click += (s, e) =>
+            {
+                notificationForm.Close();
+                var ticketsForm = new MyTicketsForm();
+                ticketsForm.ShowDialog();
+            };
+            notificationForm.Controls.Add(btnViewTicket);
+
+            var btnClose = new Guna2Button
+            {
+                Text = "Понятно",
+                Location = new Point(140, 205),
+                Width = 120,
+                Height = 30,
+                BorderRadius = 15,
+                FillColor = Color.FromArgb(240, 240, 240),
+                ForeColor = Color.FromArgb(30, 30, 47)
+            };
+
+            btnClose.HoverState.FillColor = Color.FromArgb(220, 220, 220);
+            btnClose.Click += (s, e) => notificationForm.Close();
+            notificationForm.Controls.Add(btnClose);
+
+
+            notificationForm.ShowDialog();
+            UserSession.HasSeenTomorrowNotification = true;
+        }
+
+        /// <summary>
         /// Загружает турнирную таблицу команд
         /// </summary>
-        private void LoadTeamsTable()
+        private async Task LoadTeamsTableAsync()
         {
             flowLayoutPanelTableTeams.Controls.Clear();
 
-            // 1. Получаем все завершенные матчи с известным счетом
             var matches = Program.context.Matches.AsNoTracking()
                 .Where(m => m.MatchDate < DateTime.Now && m.ScoreHome != null && m.ScoreAway != null)
                 .ToList();
 
-            // 2. Словарь для накопления статистики по каждой команде
             var stats = new Dictionary<int, TeamStats>();
 
-            // Инициализируем ВСЕ команды из БД (даже те, у кого пока 0 матчей)
             foreach (var team in Program.context.Teams.AsNoTracking().ToList())
             {
                 stats[team.IdTeam] = new TeamStats
@@ -478,10 +675,8 @@ namespace FootballTicketsSystem.AppForms
                 };
             }
 
-            // 3. Проходим по матчам и считаем показатели
             foreach (var m in matches)
             {
-                // --- Домашняя команда ---
                 var home = stats[m.TeamHomeId.Value];
                 home.Games++;
                 home.Goals += m.ScoreHome.Value;
@@ -489,7 +684,6 @@ namespace FootballTicketsSystem.AppForms
                 else if (m.ScoreHome == m.ScoreAway) home.Draws++;
                 else home.Losses++;
 
-                // --- Гостевая команда ---
                 var away = stats[m.TeamAwayId.Value];
                 away.Games++;
                 away.Goals += m.ScoreAway.Value;
@@ -498,7 +692,6 @@ namespace FootballTicketsSystem.AppForms
                 else away.Losses++;
             }
 
-            // 4. Вычисляем очки и сортируем таблицу
             var sortedTable = stats.Values
                 .Select(t => new
                 {
@@ -510,45 +703,43 @@ namespace FootballTicketsSystem.AppForms
                     t.Draws,
                     t.Losses,
                     t.Goals,
-                    Points = (t.Wins * 3) + t.Draws // 👈 ФОРМУЛА ОЧКОВ
+                    Points = (t.Wins * 3) + t.Draws
                 })
-                .OrderByDescending(x => x.Points)      // 1. По очкам
-                .ThenByDescending(x => x.Goals)        // 2. При равенстве очков → по забитым голам
+                .OrderByDescending(x => x.Points)
+                .ThenByDescending(x => x.Goals)
                 .ToList();
 
             flowLayoutPanelTableTeams.FlowDirection = FlowDirection.LeftToRight;
 
-            // 5. Создаем и добавляем UserControl для каждой команды
+            var loadTasks = new List<Task>();
+
             for (int i = 0; i < sortedTable.Count; i++)
             {
                 var row = sortedTable[i];
                 var control = new TableTeamsControl();
 
-                // Установи фиксированную ширину контрола
-                control.Width = flowLayoutPanelTableTeams.Width - 20; // -20 для отступа
-                control.MinimumSize = new Size(control.Width, 50);
+                control.Width = flowLayoutPanelTableTeams.Width - 20;
+                control.MinimumSize = new Size(control.Width, 55);
 
-                // Заполняем данные (убедись, что label'ы в контроле имеют модификатор Public или Internal)
-                control.labelNumberTable.Text = (i + 1).ToString();
-                control.labelTeamName.Text = row.TeamName;
-                control.labelGamesCount.Text = row.Games.ToString();
-                control.labelWinCount.Text = row.Wins.ToString();
-                control.labelDrawCount.Text = row.Draws.ToString();
-                control.labelLostCount.Text = row.Losses.ToString();
-                control.labelGoalsCount.Text = row.Goals.ToString();
-                control.labelPointsCoint.Text = row.Points.ToString();
-
-                // Загружаем логотип
-                if (!string.IsNullOrEmpty(row.LogoPath))
-                    ImageLoader.LoadToPictureBoxAsync(control.pictureBoxLogoTeam, row.LogoPath, Properties.Resources.picture);
-                else
-                    control.pictureBoxLogoTeam.Image = Properties.Resources.picture;
+                // Запускаем загрузку данных в фоне
+                loadTasks.Add(control.LoadTeamDataAsync(
+                    position: i + 1,
+                    teamName: row.TeamName,
+                    logoPath: row.LogoPath,
+                    games: row.Games,
+                    wins: row.Wins,
+                    draws: row.Draws,
+                    losses: row.Losses,
+                    points: row.Points
+                ));
 
                 flowLayoutPanelTableTeams.Controls.Add(control);
             }
+
+            await Task.WhenAll(loadTasks);
         }
 
-        // Вспомогательный класс для накопления данных (можно разместить внутри формы)
+        // Вспомогательный класс для накопления данных
         private class TeamStats
         {
             public int TeamId { get; set; }
@@ -559,6 +750,30 @@ namespace FootballTicketsSystem.AppForms
             public int Draws { get; set; }
             public int Losses { get; set; }
             public int Goals { get; set; }
+        }
+
+        private void MainDashboardForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirm = MessageBox.Show(
+                    "Вы действительно хотите выйти из системы?",
+                    "Подтверждение выхода",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    UserSession.CurrentUser = null;
+                    UserSession.HasSeenTomorrowNotification = false;
+                    timerMatchStats.Stop();
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

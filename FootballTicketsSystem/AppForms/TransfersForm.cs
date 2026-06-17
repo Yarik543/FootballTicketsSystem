@@ -19,6 +19,11 @@ namespace FootballTicketsSystem.AppForms
         public TransfersForm()
         {
             InitializeComponent();
+            if (UserSession.CurrentUser.Roles.RoleName == "Администратор")
+            {
+                btnAddTransfer.Visible = true;
+            }
+
             labelUserName.Text = UserSession.CurrentUser.FullName;
             labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
             pictureProfil.Image?.Dispose();
@@ -36,8 +41,8 @@ namespace FootballTicketsSystem.AppForms
         }
         private void btnMain_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
-            DialogResult = DialogResult.OK;
         }
 
         private void TransfersForm_Load(object sender, EventArgs e)
@@ -73,19 +78,10 @@ namespace FootballTicketsSystem.AppForms
             }
         }
 
-        private void btnAddMatch_Click(object sender, EventArgs e)
-        {
-            CreateTransfersAdminForm createTransfersAdminForm = new CreateTransfersAdminForm();
-            DialogResult result = createTransfersAdminForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                LoadData();
-            }
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+            LogoutService.RequestLogout(this);
         }
 
         private void radioBtnNew_CheckedChanged(object sender, EventArgs e)
@@ -101,6 +97,40 @@ namespace FootballTicketsSystem.AppForms
         private void tBoxSearchTransfer_TextChanged(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnTickets_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Abort;
+            this.Close();
+        }
+
+        private void btnTeams_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Retry;
+            this.Close();
+        }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+        }
+
+        private void btnProfil_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Ignore;
+            this.Close();
+        }
+
+        private void btnAddTransfer_Click(object sender, EventArgs e)
+        {
+            CreateTransfersAdminForm createTransfersAdminForm = new CreateTransfersAdminForm();
+            DialogResult result = createTransfersAdminForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
     }
 }

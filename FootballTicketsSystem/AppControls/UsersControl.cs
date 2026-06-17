@@ -1,4 +1,5 @@
-﻿using FootballTicketsSystem.DBModels;
+﻿using FootballTicketsSystem.AppServices;
+using FootballTicketsSystem.DBModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace FootballTicketsSystem.AppControls
             InitializeComponent();
             _user = users;
             SetDataUsersLabel();
+            btnDeleteUser.Cursor = Cursors.Hand;
         }
 
         private void SetDataUsersLabel()
@@ -27,25 +29,9 @@ namespace FootballTicketsSystem.AppControls
             labelUserName.Text += _user.FullName ?? "Не указано";
             labelEmail.Text += _user.Email ?? "Не указано";
             labelPhone.Text += _user.Phone ?? "Не указано";
-            Image newImage;
-
-            if (string.IsNullOrEmpty(_user.PhotoProfil))
-            {
-                newImage = Properties.Resources.profil_default;
-            }
-            else
-            {
-                string path = Path.Combine(Application.StartupPath, "img", "users", _user.PhotoProfil);
-
-                // Image.FromFile блокирует файл, поэтому делаем независимую копию
-                using (var temp = Image.FromFile(path))
-                {
-                    newImage = new Bitmap(temp);
-                }
-            }
 
             pictureBoxProfil.Image?.Dispose();
-            pictureBoxProfil.Image = newImage;
+            pictureBoxProfil.Image = PhotoHelper.LoadUserPhoto(_user.PhotoProfil);
         }
 
         /// <summary>
@@ -66,6 +52,125 @@ namespace FootballTicketsSystem.AppControls
             path.CloseAllFigures();
 
             this.Region = new Region(path);
+        }
+
+        private void DeleteOldImg(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+                return;
+
+            // 👇 Аналогичная проверка пути
+            string path;
+            if (fileName.StartsWith("Uploads") || fileName.StartsWith("img"))
+            {
+                path = Path.Combine(Application.StartupPath, fileName);
+            }
+            else
+            {
+                path = Path.Combine(Application.StartupPath, "img", "users", fileName);
+            }
+
+            if (File.Exists(path))
+            {
+                try
+                {
+                    File.Delete(path);
+                }
+                catch
+                {
+                    // Файл заблокирован или не удалось удалить
+                }
+            }
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            DialogResult deleteResult = MessageBox.Show("Уверены, что хотите удалить?", "Запрос подтверждения", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (deleteResult == DialogResult.Yes)
+            {
+                if (pictureBoxProfil.Image != null)
+                {
+                    pictureBoxProfil.Image.Dispose();
+                    pictureBoxProfil.Image = null;
+                }
+                DeleteOldImg(_user.PhotoProfil);
+                Program.context.Users.Remove(_user);
+                Program.context.SaveChanges();
+                ContextManager.adminUsersForm.LoadDataUsers();
+            }
+        }
+
+        private void btnTopBalance_Click(object sender, EventArgs e)
+        {
+            // Простой ввод суммы
+            string amountStr = Microsoft.VisualBasic.Interaction.InputBox(
+                $"Пополнение баланса для {_user.FullName}",
+                "Пополнение баланса",
+                "1000"); // Значение по умолчанию
+
+            if (string.IsNullOrWhiteSpace(amountStr))
+                return;
+
+            if (int.TryParse(amountStr, out int amount) && amount > 0)
+            {
+                DialogResult confirm = MessageBox.Show(
+                    $"Пополнить баланс {_user.FullName} на {amount:N0} ₽?",
+                    "Подтверждение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes && _user.Ballance != null)
+                {
+                    try
+                    {
+                        _user.Ballance += amount;
+                        Program.context.SaveChanges();
+
+                        MessageBox.Show(
+                            $"Баланс пополнен на {amount:N0} ₽\nНовый баланс: {_user.Ballance:N0} ₽",
+                            "Успех",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        // Обновляем отображение
+                        ContextManager.adminUsersForm.LoadDataUsers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                else if (confirm == DialogResult.Yes && _user.Ballance == null)
+                {
+                    try
+                    {
+                        _user.Ballance = amount;
+                        Program.context.SaveChanges();
+
+                        MessageBox.Show(
+                            $"Баланс пополнен на {amount:N0} ₽\nНовый баланс: {_user.Ballance:N0} ₽",
+                            "Успех",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        // Обновляем отображение
+                        ContextManager.adminUsersForm.LoadDataUsers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Введите корректную сумму", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

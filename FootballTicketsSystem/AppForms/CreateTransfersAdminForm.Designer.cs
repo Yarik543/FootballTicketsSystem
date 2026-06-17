@@ -72,6 +72,7 @@
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new FootballTicketsSystem.FootballTicketSystemDataSetTableAdapters.TeamsTableAdapter();
             this.teamsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             teamHomeIdLabel = new System.Windows.Forms.Label();
             teamAwayIdLabel = new System.Windows.Forms.Label();
             matchDateLabel = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.transfersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // teamHomeIdLabel
@@ -438,7 +440,7 @@
             // 
             this.labelTeamNameMore.AutoSize = true;
             this.labelTeamNameMore.Font = new System.Drawing.Font("Inter SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTeamNameMore.Location = new System.Drawing.Point(475, 152);
+            this.labelTeamNameMore.Location = new System.Drawing.Point(472, 152);
             this.labelTeamNameMore.Name = "labelTeamNameMore";
             this.labelTeamNameMore.Size = new System.Drawing.Size(68, 28);
             this.labelTeamNameMore.TabIndex = 5;
@@ -448,7 +450,7 @@
             // 
             this.labelCountTransfers.AutoSize = true;
             this.labelCountTransfers.Font = new System.Drawing.Font("Inter SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCountTransfers.Location = new System.Drawing.Point(199, 100);
+            this.labelCountTransfers.Location = new System.Drawing.Point(197, 100);
             this.labelCountTransfers.Name = "labelCountTransfers";
             this.labelCountTransfers.Size = new System.Drawing.Size(32, 28);
             this.labelCountTransfers.TabIndex = 4;
@@ -457,7 +459,7 @@
             // labelTopPlayers
             // 
             this.labelTopPlayers.Font = new System.Drawing.Font("Inter SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTopPlayers.Location = new System.Drawing.Point(291, 38);
+            this.labelTopPlayers.Location = new System.Drawing.Point(288, 38);
             this.labelTopPlayers.Name = "labelTopPlayers";
             this.labelTopPlayers.Size = new System.Drawing.Size(559, 57);
             this.labelTopPlayers.TabIndex = 3;
@@ -627,6 +629,10 @@
             this.teamsBindingSource1.DataMember = "Teams";
             this.teamsBindingSource1.DataSource = this.footballTicketSystemDataSet;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // CreateTransfersAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -651,6 +657,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureProfil);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateTransfersAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -667,6 +674,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.transfersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -711,5 +719,6 @@
         private System.Windows.Forms.BindingSource teamsBindingSource;
         private FootballTicketSystemDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
         private System.Windows.Forms.BindingSource teamsBindingSource1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

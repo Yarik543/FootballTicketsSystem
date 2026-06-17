@@ -8,19 +8,16 @@
 
     public partial class Users
     {
-
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
             UserTickets = new HashSet<UserTickets>();
         }
 
-          public bool IsAdmin()
+        public bool IsAdmin()
         {
             return this.Roles.RoleName == "Администратор";
         }
-
 
         [Key]
         public int IdUser { get; set; }
@@ -32,9 +29,11 @@
         [StringLength(255)]
         public string Email { get; set; }
 
-        [Required]
         [StringLength(255)]
-        public string Password { get; set; }
+        public string PasswordSalt { get; set; }
+
+        [StringLength(255)]
+        public string PasswordHash { get; set; }
 
         [StringLength(255)]
         public string Phone { get; set; }

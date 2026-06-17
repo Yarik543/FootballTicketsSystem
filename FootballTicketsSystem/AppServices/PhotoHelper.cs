@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FootballTicketsSystem.AppServices
@@ -12,27 +8,48 @@ namespace FootballTicketsSystem.AppServices
     public class PhotoHelper
     {
         /// <summary>
-        /// Загружает фото пользователя (твой код, вынесенный в метод)
+        /// Загружает фото пользователя
         /// </summary>
         public static Image LoadUserPhoto(string photoFileName)
         {
-            Image newImage;
-
             if (string.IsNullOrEmpty(photoFileName))
             {
-                newImage = Properties.Resources.profil_default;
+                return Properties.Resources.profil_default;
+            }
+
+            // 👇 ПРАВИЛЬНЫЙ ПУТЬ
+            string path;
+
+            // Проверяем, начинается ли путь уже с "Uploads" или "img"
+            if (photoFileName.StartsWith("Uploads") || photoFileName.StartsWith("img"))
+            {
+                // Путь уже полный относительно StartupPath
+                path = Path.Combine(Application.StartupPath, photoFileName);
             }
             else
             {
-                string path = Path.Combine(Application.StartupPath, "img", "users", photoFileName);
-
-                using (var temp = Image.FromFile(path))
-                {
-                    newImage = new Bitmap(temp);
-                }
+                // Старый формат - добавляем префикс
+                path = Path.Combine(Application.StartupPath, "img", "users", photoFileName);
             }
 
-            return newImage;
+            // Проверяем существование файла
+            if (!File.Exists(path))
+            {
+                // Если файл не найден - возвращаем заглушку
+                return Properties.Resources.profil_default;
+            }
+
+            try
+            {
+                using (var temp = Image.FromFile(path))
+                {
+                    return new Bitmap(temp);
+                }
+            }
+            catch
+            {
+                return Properties.Resources.profil_default;
+            }
         }
     }
 }

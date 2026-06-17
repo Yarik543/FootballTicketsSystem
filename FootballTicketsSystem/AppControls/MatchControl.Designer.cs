@@ -43,12 +43,14 @@
             this.labelCapacity = new System.Windows.Forms.Label();
             this.labelScore = new System.Windows.Forms.Label();
             this.gunaPanelMatch = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnDeleteMatch = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoFirstTeam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTeamLogoAway)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
             this.gunaPanelMatch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteMatch)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTeamNameFirst
@@ -60,6 +62,7 @@
             this.labelTeamNameFirst.TabIndex = 23;
             this.labelTeamNameFirst.Text = "Real";
             this.labelTeamNameFirst.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTeamNameFirst.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // pictureBoxVs
             // 
@@ -76,6 +79,7 @@
             this.pictureBoxVs.TabIndex = 25;
             this.pictureBoxVs.TabStop = false;
             this.pictureBoxVs.UseTransparentBackground = true;
+            this.pictureBoxVs.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // pictureBoxLogoFirstTeam
             // 
@@ -88,6 +92,7 @@
             this.pictureBoxLogoFirstTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogoFirstTeam.TabIndex = 26;
             this.pictureBoxLogoFirstTeam.TabStop = false;
+            this.pictureBoxLogoFirstTeam.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // pictureBoxTeamLogoAway
             // 
@@ -101,6 +106,7 @@
             this.pictureBoxTeamLogoAway.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxTeamLogoAway.TabIndex = 27;
             this.pictureBoxTeamLogoAway.TabStop = false;
+            this.pictureBoxTeamLogoAway.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // guna2CirclePictureBox2
             // 
@@ -117,6 +123,7 @@
             this.guna2CirclePictureBox2.TabIndex = 28;
             this.guna2CirclePictureBox2.TabStop = false;
             this.guna2CirclePictureBox2.UseTransparentBackground = true;
+            this.guna2CirclePictureBox2.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // labelDataMatch
             // 
@@ -127,6 +134,7 @@
             this.labelDataMatch.Size = new System.Drawing.Size(108, 27);
             this.labelDataMatch.TabIndex = 29;
             this.labelDataMatch.Text = "12.10.2026";
+            this.labelDataMatch.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // labelTeamNameSecond
             // 
@@ -137,6 +145,7 @@
             this.labelTeamNameSecond.TabIndex = 30;
             this.labelTeamNameSecond.Text = "FC Barcelona";
             this.labelTeamNameSecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTeamNameSecond.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // guna2CirclePictureBox3
             // 
@@ -153,6 +162,7 @@
             this.guna2CirclePictureBox3.TabIndex = 31;
             this.guna2CirclePictureBox3.TabStop = false;
             this.guna2CirclePictureBox3.UseTransparentBackground = true;
+            this.guna2CirclePictureBox3.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // labelTimeMatch
             // 
@@ -163,6 +173,7 @@
             this.labelTimeMatch.Size = new System.Drawing.Size(61, 27);
             this.labelTimeMatch.TabIndex = 32;
             this.labelTimeMatch.Text = "21:00";
+            this.labelTimeMatch.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // labelStadiumName
             // 
@@ -173,6 +184,7 @@
             this.labelStadiumName.TabIndex = 33;
             this.labelStadiumName.Text = "Стадион: Santiago Bernabeu";
             this.labelStadiumName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStadiumName.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // btnBuyTicket
             // 
@@ -202,6 +214,7 @@
             this.labelCapacity.Size = new System.Drawing.Size(206, 27);
             this.labelCapacity.TabIndex = 36;
             this.labelCapacity.Text = "Заполненность: 72%";
+            this.labelCapacity.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // labelScore
             // 
@@ -213,6 +226,7 @@
             this.labelScore.TabIndex = 40;
             this.labelScore.Text = "12";
             this.labelScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelScore.Click += new System.EventHandler(this.pictureBoxVs_Click);
             // 
             // gunaPanelMatch
             // 
@@ -220,6 +234,7 @@
             this.gunaPanelMatch.BorderColor = System.Drawing.Color.White;
             this.gunaPanelMatch.BorderRadius = 10;
             this.gunaPanelMatch.BorderThickness = 2;
+            this.gunaPanelMatch.Controls.Add(this.btnDeleteMatch);
             this.gunaPanelMatch.Controls.Add(this.labelScore);
             this.gunaPanelMatch.Controls.Add(this.labelCapacity);
             this.gunaPanelMatch.Controls.Add(this.btnBuyTicket);
@@ -240,6 +255,20 @@
             this.gunaPanelMatch.Name = "gunaPanelMatch";
             this.gunaPanelMatch.Size = new System.Drawing.Size(1220, 238);
             this.gunaPanelMatch.TabIndex = 1;
+            this.gunaPanelMatch.Click += new System.EventHandler(this.pictureBoxVs_Click);
+            // 
+            // btnDeleteMatch
+            // 
+            this.btnDeleteMatch.Image = global::FootballTicketsSystem.Properties.Resources.trash;
+            this.btnDeleteMatch.ImageRotate = 0F;
+            this.btnDeleteMatch.Location = new System.Drawing.Point(1144, 20);
+            this.btnDeleteMatch.Name = "btnDeleteMatch";
+            this.btnDeleteMatch.Size = new System.Drawing.Size(38, 27);
+            this.btnDeleteMatch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnDeleteMatch.TabIndex = 36;
+            this.btnDeleteMatch.TabStop = false;
+            this.btnDeleteMatch.Visible = false;
+            this.btnDeleteMatch.Click += new System.EventHandler(this.btnDeleteMatch_Click);
             // 
             // MatchControl
             // 
@@ -256,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
             this.gunaPanelMatch.ResumeLayout(false);
             this.gunaPanelMatch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteMatch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +306,6 @@
         private System.Windows.Forms.Label labelCapacity;
         private System.Windows.Forms.Label labelScore;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelMatch;
+        private Guna.UI2.WinForms.Guna2PictureBox btnDeleteMatch;
     }
 }

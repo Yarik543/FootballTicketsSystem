@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace FootballTicketsSystem.AppForms
 {
@@ -29,6 +30,8 @@ namespace FootballTicketsSystem.AppForms
             labelCountTransfers.Text = Program.context.Transfers.Count().ToString();
             _isEditMode = false;
             Program.context.Transfers.Add(_transfer);
+
+            UpdateTransferStatistics();
         }
         public CreateTransfersAdminForm(Transfers transfers)
 
@@ -41,6 +44,8 @@ namespace FootballTicketsSystem.AppForms
             _transfer = transfers;
             transfersBindingSource.DataSource = _transfer;
             _isEditMode = true;
+
+            UpdateTransferStatistics();
         }
 
         /// <summary>
@@ -48,7 +53,6 @@ namespace FootballTicketsSystem.AppForms
         /// </summary>
         private void LoadTransferData()
         {
-            // === КОМАНДА ===
             List<Teams> teams = Program.context.Teams.OrderBy(t => t.TeamName).ToList();
 
             teamNowComboBox.DataSource = null;
@@ -56,27 +60,22 @@ namespace FootballTicketsSystem.AppForms
             teamNowComboBox.DisplayMember = "TeamName";
             teamNowComboBox.ValueMember = "IdTeam";
 
-            // Сначала привязка, ПОТОМ выбор значения
             if (_transfer.ToTeamId.HasValue)
             {
                 teamNowComboBox.SelectedValue = _transfer.ToTeamId.Value;
             }
 
-            // Остальные поля
             tBoxTeamFrom.Text = _transfer.FromTeamName ?? "";
             priceTransferNumericUpDown.Value = _transfer.Price ?? 0m;
             dateTimePickerTransfer.Value = _transfer.DateTransfer ?? DateTime.Now;
 
-            // === ИГРОК ===
             if (_transfer.PlayerId.HasValue)
             {
                 var player = Program.context.Players.Find(_transfer.PlayerId.Value);
                 if (player != null && player.TeamId.HasValue)
                 {
-                    // Загружаем игроков команды, не фильтруя текущего
                     LoadPlayersByTeam(player.TeamId.Value, excludePlayerId: _transfer.PlayerId.Value);
 
-                    // Выбираем игрока ПОСЛЕ загрузки списка
                     if (comboBoxPlayers.Items.Count > 0)
                     {
                         comboBoxPlayers.SelectedValue = _transfer.PlayerId.Value;
@@ -101,12 +100,10 @@ namespace FootballTicketsSystem.AppForms
 
             if (_isEditMode)
             {
-                // 👇 Режим редактирования — загружаем данные
                 LoadTransferData();
             }
             else
             {
-                // 👇 Режим создания — базовая настройка
                 List<Teams> teams = Program.context.Teams.OrderBy(t => t.TeamName).ToList();
 
                 teamNowComboBox.DataSource = null;
@@ -169,14 +166,12 @@ namespace FootballTicketsSystem.AppForms
                 comboBoxPlayers.Enabled = false;
                 return;
             }
-
-            // 👇 ВАЖНЫЙ ПОРЯДОК:
-            comboBoxPlayers.DataSource = null;           // 1. Сброс
-            comboBoxPlayers.DataSource = players;        // 2. Новый источник
-            comboBoxPlayers.DisplayMember = "FullName";  // 3. Что показывать
-            comboBoxPlayers.ValueMember = "IdPlayer";    // 4. Какое значение брать
-            comboBoxPlayers.Enabled = true;              // 5. Включаем
-                                                         // 👇 SelectedValue ставится ВНЕ этого метода, после вызова!
+            comboBoxPlayers.DataSource = null;        
+            comboBoxPlayers.DataSource = players;      
+            comboBoxPlayers.DisplayMember = "FullName"; 
+            comboBoxPlayers.ValueMember = "IdPlayer";   
+            comboBoxPlayers.Enabled = true;            
+                                                       
         }
 
         private void FieldModels()
@@ -190,8 +185,98 @@ namespace FootballTicketsSystem.AppForms
                 _transfer.PlayerId = (int)comboBoxPlayers.SelectedValue;
         }
 
+        /// <summary>
+        /// Обновляет статистику трансферов на форме
+        /// </summary>
+        private void UpdateTransferStatistics()
+        {
+            try
+            {
+                int totalTransfers = Program.context.Transfers.Count();
+                labelCountTransfers.Text = totalTransfers.ToString();
+
+                var topPlayers = Program.context.Transfers
+                .Include(t => t.Players)
+                .Where(t => t.Price.HasValue && t.Players != null)
+                .OrderByDescending(t => t.Price.Value)
+                .Take(7)
+                .ToList();
+
+                if (topPlayers.Any())
+                {
+                    string topPlayersText = string.Join(", ",
+                        topPlayers.Select(p => p.Players.FullName));
+                    labelTopPlayers.Text = topPlayersText;
+                }
+                else
+                {
+                    labelTopPlayers.Text = "Нет данных";
+                }
+
+                var teamBuyingStats = Program.context.Transfers
+                    .Include(t => t.Teams)
+                    .Where(t => t.ToTeamId.HasValue && t.Teams != null)
+                    .ToList()
+                    .GroupBy(t => t.ToTeamId.Value)
+                    .Select(g => new
+                    {
+                        TeamId = g.Key,
+                        TeamName = g.First().Teams.TeamName, 
+                        Count = g.Count()
+                    })
+                    .OrderByDescending(t => t.Count)
+                    .FirstOrDefault();
+
+                if (teamBuyingStats != null)
+                {
+                    labelTeamNameMore.Text = $"{teamBuyingStats.TeamName} ({teamBuyingStats.Count} трансферов)";
+                }
+                else
+                {
+                    labelTeamNameMore.Text = "Нет данных";
+                }
+            }
+            catch (Exception ex)
+            {
+                labelTopPlayers.Text = "-";
+                labelTeamNameMore.Text = "-";
+                System.Diagnostics.Debug.WriteLine($"Ошибка статистики: {ex.Message}");
+            }
+        }
+
+        private bool IsValidation()
+        {
+            bool isValid = true;
+            errorProvider1.Clear();
+
+            if(comboBoxPlayers.SelectedIndex == -1) 
+            {
+                errorProvider1.SetError(comboBoxPlayers, "Выберите игрока");
+                isValid = false;
+            }
+
+            if (teamNowComboBox.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(teamNowComboBox, "Выберите текущую команду");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tBoxTeamFrom.Text))
+            {
+                errorProvider1.SetError(tBoxTeamFrom, "Заполните прошлую команду");
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
         private void btnSaveTransfer_Click(object sender, EventArgs e)
         {
+            if(!IsValidation())
+            {
+                return;
+            }
+
             DialogResult agree = MessageBox.Show("Уверены, что хотите сохранить?", "Запрос подтверждения", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (agree == DialogResult.No)
             {
@@ -202,6 +287,7 @@ namespace FootballTicketsSystem.AppForms
             {
                 FieldModels();
                 Program.context.SaveChanges();
+                UpdateTransferStatistics();
                 DialogResult = DialogResult.OK;
                 this.Close();
 

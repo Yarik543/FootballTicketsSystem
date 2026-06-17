@@ -74,12 +74,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gunaPanelLastResults = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelScoreThirdMatchLast = new System.Windows.Forms.Label();
+            this.labelScoreSecondMatchLast = new System.Windows.Forms.Label();
             this.labelTeamAwayNameLastResult3 = new System.Windows.Forms.Label();
             this.labelTeamHomeNameLastResult3 = new System.Windows.Forms.Label();
             this.labelTeamAwayNameLastResult2 = new System.Windows.Forms.Label();
@@ -111,8 +112,6 @@
             this.labelUserRole = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.timerMatchStats = new System.Windows.Forms.Timer(this.components);
-            this.labelScoreSecondMatchLast = new System.Windows.Forms.Label();
-            this.labelScoreThirdMatchLast = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelNextMatch.SuspendLayout();
@@ -671,7 +670,7 @@
             // flowLayoutPanelTableTeams
             // 
             this.flowLayoutPanelTableTeams.AutoScroll = true;
-            this.flowLayoutPanelTableTeams.BackColor = System.Drawing.Color.IndianRed;
+            this.flowLayoutPanelTableTeams.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanelTableTeams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelTableTeams.Location = new System.Drawing.Point(0, 100);
             this.flowLayoutPanelTableTeams.Name = "flowLayoutPanelTableTeams";
@@ -684,7 +683,6 @@
             this.gunaPanelHeaderTable.Controls.Add(this.label15);
             this.gunaPanelHeaderTable.Controls.Add(this.label22);
             this.gunaPanelHeaderTable.Controls.Add(this.label16);
-            this.gunaPanelHeaderTable.Controls.Add(this.label21);
             this.gunaPanelHeaderTable.Controls.Add(this.label17);
             this.gunaPanelHeaderTable.Controls.Add(this.label20);
             this.gunaPanelHeaderTable.Controls.Add(this.label18);
@@ -710,7 +708,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Inter", 8F);
-            this.label22.Location = new System.Drawing.Point(369, 69);
+            this.label22.Location = new System.Drawing.Point(356, 69);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(51, 21);
             this.label22.TabIndex = 7;
@@ -726,21 +724,11 @@
             this.label16.TabIndex = 1;
             this.label16.Text = "#    КОМАНДЫ";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Inter", 8F);
-            this.label21.Location = new System.Drawing.Point(336, 68);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(18, 21);
-            this.label21.TabIndex = 6;
-            this.label21.Text = "Г";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Inter", 8F);
-            this.label17.Location = new System.Drawing.Point(165, 68);
+            this.label17.Location = new System.Drawing.Point(215, 68);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(21, 21);
             this.label17.TabIndex = 2;
@@ -750,7 +738,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Inter", 8F);
-            this.label20.Location = new System.Drawing.Point(248, 68);
+            this.label20.Location = new System.Drawing.Point(289, 68);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(20, 21);
             this.label20.TabIndex = 5;
@@ -760,7 +748,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Inter", 8F);
-            this.label18.Location = new System.Drawing.Point(205, 68);
+            this.label18.Location = new System.Drawing.Point(254, 68);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(19, 21);
             this.label18.TabIndex = 3;
@@ -770,7 +758,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Inter", 8F);
-            this.label19.Location = new System.Drawing.Point(291, 68);
+            this.label19.Location = new System.Drawing.Point(323, 68);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(20, 21);
             this.label19.TabIndex = 4;
@@ -799,6 +787,26 @@
             this.gunaPanelLastResults.Name = "gunaPanelLastResults";
             this.gunaPanelLastResults.Size = new System.Drawing.Size(440, 168);
             this.gunaPanelLastResults.TabIndex = 12;
+            // 
+            // labelScoreThirdMatchLast
+            // 
+            this.labelScoreThirdMatchLast.Font = new System.Drawing.Font("Inter", 9F);
+            this.labelScoreThirdMatchLast.Location = new System.Drawing.Point(202, 132);
+            this.labelScoreThirdMatchLast.Name = "labelScoreThirdMatchLast";
+            this.labelScoreThirdMatchLast.Size = new System.Drawing.Size(60, 22);
+            this.labelScoreThirdMatchLast.TabIndex = 38;
+            this.labelScoreThirdMatchLast.Text = "2";
+            this.labelScoreThirdMatchLast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelScoreSecondMatchLast
+            // 
+            this.labelScoreSecondMatchLast.Font = new System.Drawing.Font("Inter", 9F);
+            this.labelScoreSecondMatchLast.Location = new System.Drawing.Point(202, 96);
+            this.labelScoreSecondMatchLast.Name = "labelScoreSecondMatchLast";
+            this.labelScoreSecondMatchLast.Size = new System.Drawing.Size(60, 22);
+            this.labelScoreSecondMatchLast.TabIndex = 37;
+            this.labelScoreSecondMatchLast.Text = "2";
+            this.labelScoreSecondMatchLast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTeamAwayNameLastResult3
             // 
@@ -1087,6 +1095,7 @@
             this.pictureBoxIndexMessage.TabIndex = 8;
             this.pictureBoxIndexMessage.TabStop = false;
             this.pictureBoxIndexMessage.UseTransparentBackground = true;
+            this.pictureBoxIndexMessage.Visible = false;
             // 
             // pictureBoxMessage
             // 
@@ -1155,26 +1164,6 @@
             this.timerMatchStats.Interval = 1000;
             this.timerMatchStats.Tick += new System.EventHandler(this.timerMatchStats_Tick);
             // 
-            // labelScoreSecondMatchLast
-            // 
-            this.labelScoreSecondMatchLast.Font = new System.Drawing.Font("Inter", 9F);
-            this.labelScoreSecondMatchLast.Location = new System.Drawing.Point(202, 96);
-            this.labelScoreSecondMatchLast.Name = "labelScoreSecondMatchLast";
-            this.labelScoreSecondMatchLast.Size = new System.Drawing.Size(60, 22);
-            this.labelScoreSecondMatchLast.TabIndex = 37;
-            this.labelScoreSecondMatchLast.Text = "2";
-            this.labelScoreSecondMatchLast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelScoreThirdMatchLast
-            // 
-            this.labelScoreThirdMatchLast.Font = new System.Drawing.Font("Inter", 9F);
-            this.labelScoreThirdMatchLast.Location = new System.Drawing.Point(202, 132);
-            this.labelScoreThirdMatchLast.Name = "labelScoreThirdMatchLast";
-            this.labelScoreThirdMatchLast.Size = new System.Drawing.Size(60, 22);
-            this.labelScoreThirdMatchLast.TabIndex = 38;
-            this.labelScoreThirdMatchLast.Text = "2";
-            this.labelScoreThirdMatchLast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MainDashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1197,10 +1186,12 @@
             this.Controls.Add(this.pictureBox3);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главная";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainDashboardForm_FormClosing);
             this.Load += new System.EventHandler(this.MainDashboardForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
@@ -1293,7 +1284,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelHeaderTable;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTableTeams;

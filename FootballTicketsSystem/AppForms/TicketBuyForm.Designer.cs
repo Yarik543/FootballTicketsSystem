@@ -49,6 +49,7 @@
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gunaPanelDiagramProfil = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelStage = new System.Windows.Forms.Label();
             this.labelPrice = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labelNumberPlace = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureBoxProfilEdit = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.labelStage = new System.Windows.Forms.Label();
             teamAwayIdLabel = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -461,6 +461,17 @@
             this.gunaPanelDiagramProfil.Size = new System.Drawing.Size(438, 614);
             this.gunaPanelDiagramProfil.TabIndex = 21;
             // 
+            // labelStage
+            // 
+            this.labelStage.AutoSize = true;
+            this.labelStage.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStage.Location = new System.Drawing.Point(171, 59);
+            this.labelStage.Name = "labelStage";
+            this.labelStage.Size = new System.Drawing.Size(93, 22);
+            this.labelStage.TabIndex = 59;
+            this.labelStage.Text = "Чемпионат";
+            this.labelStage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
@@ -792,13 +803,13 @@
             this.guna2CircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2CircleButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(111)))), ((int)(((byte)(128)))));
+            this.guna2CircleButton2.FillColor = System.Drawing.Color.Gray;
             this.guna2CircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(111)))), ((int)(((byte)(128)))));
             this.guna2CircleButton2.Location = new System.Drawing.Point(254, 443);
             this.guna2CircleButton2.Name = "guna2CircleButton2";
-            this.guna2CircleButton2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(111)))), ((int)(((byte)(128)))));
+            this.guna2CircleButton2.PressedColor = System.Drawing.Color.Gray;
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton2.Size = new System.Drawing.Size(15, 15);
             this.guna2CircleButton2.TabIndex = 48;
@@ -948,17 +959,6 @@
             this.pictureBoxProfilEdit.TabIndex = 17;
             this.pictureBoxProfilEdit.TabStop = false;
             // 
-            // labelStage
-            // 
-            this.labelStage.AutoSize = true;
-            this.labelStage.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStage.Location = new System.Drawing.Point(171, 59);
-            this.labelStage.Name = "labelStage";
-            this.labelStage.Size = new System.Drawing.Size(93, 22);
-            this.labelStage.TabIndex = 59;
-            this.labelStage.Text = "Чемпионат";
-            this.labelStage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // TicketBuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -967,10 +967,12 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TicketBuyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Покупка билета";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TicketBuyForm_FormClosed);
             this.Load += new System.EventHandler(this.TicketBuyForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

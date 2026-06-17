@@ -722,6 +722,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureProfil);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateMatchesAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

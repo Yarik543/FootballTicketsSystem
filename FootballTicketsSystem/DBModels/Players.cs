@@ -46,6 +46,8 @@ namespace FootballTicketsSystem.DBModels
 
         public string Photo { get; set; }
 
+        public bool IsCaptain { get; set; }
+
         public virtual Teams Teams { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

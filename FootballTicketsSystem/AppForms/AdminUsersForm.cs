@@ -18,6 +18,7 @@ namespace FootballTicketsSystem.AppForms
         public AdminUsersForm()
         {
             InitializeComponent();
+            ContextManager.adminUsersForm = this;
             labelUserName.Text = UserSession.CurrentUser.FullName;
             labelUserRole.Text = UserSession.CurrentUser.Roles.RoleName;
             pictureProfil.Image?.Dispose();
@@ -42,7 +43,7 @@ namespace FootballTicketsSystem.AppForms
             LoadDataUsers();
         }
 
-        private void LoadDataUsers()
+        public void LoadDataUsers()
         {
             flowLayoutPanel1.Controls.Clear();
 

@@ -41,6 +41,7 @@
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.comboBoxSortGoalsMatch = new System.Windows.Forms.ComboBox();
             this.labelUserRole = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.btnAddMatch = new Guna.UI2.WinForms.Guna2Button();
@@ -53,7 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxSearchMatch = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowLayoutPanelMatches = new System.Windows.Forms.FlowLayoutPanel();
-            this.comboBoxSortGoalsMatch = new System.Windows.Forms.ComboBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -108,6 +108,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Выйти";
             this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnTransfers
             // 
@@ -129,6 +130,7 @@
             this.btnTransfers.TabIndex = 12;
             this.btnTransfers.Text = "Трансферы";
             this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
             // 
             // guna2Separator1
             // 
@@ -179,6 +181,7 @@
             this.btnProfil.Size = new System.Drawing.Size(226, 49);
             this.btnProfil.TabIndex = 10;
             this.btnProfil.Text = "Профиль";
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
             // 
             // btnTickets
             // 
@@ -200,6 +203,7 @@
             this.btnTickets.TabIndex = 9;
             this.btnTickets.Text = "Мои билеты";
             this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // btnTeams
             // 
@@ -220,6 +224,7 @@
             this.btnTeams.Size = new System.Drawing.Size(226, 49);
             this.btnTeams.TabIndex = 8;
             this.btnTeams.Text = "Команды";
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
             // 
             // guna2PictureBox1
             // 
@@ -291,6 +296,20 @@
             this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
             this.gunaPanelHeaderForm.Size = new System.Drawing.Size(968, 189);
             this.gunaPanelHeaderForm.TabIndex = 20;
+            // 
+            // comboBoxSortGoalsMatch
+            // 
+            this.comboBoxSortGoalsMatch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxSortGoalsMatch.FormattingEnabled = true;
+            this.comboBoxSortGoalsMatch.Items.AddRange(new object[] {
+            "Все",
+            "Без счёта"});
+            this.comboBoxSortGoalsMatch.Location = new System.Drawing.Point(691, 151);
+            this.comboBoxSortGoalsMatch.Name = "comboBoxSortGoalsMatch";
+            this.comboBoxSortGoalsMatch.Size = new System.Drawing.Size(154, 28);
+            this.comboBoxSortGoalsMatch.TabIndex = 21;
+            this.comboBoxSortGoalsMatch.Visible = false;
+            this.comboBoxSortGoalsMatch.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortGoalsMatch_SelectedIndexChanged);
             // 
             // labelUserRole
             // 
@@ -477,19 +496,6 @@
             this.flowLayoutPanelMatches.Size = new System.Drawing.Size(968, 592);
             this.flowLayoutPanelMatches.TabIndex = 0;
             // 
-            // comboBoxSortGoalsMatch
-            // 
-            this.comboBoxSortGoalsMatch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxSortGoalsMatch.FormattingEnabled = true;
-            this.comboBoxSortGoalsMatch.Items.AddRange(new object[] {
-            "Все",
-            "Без счёта"});
-            this.comboBoxSortGoalsMatch.Location = new System.Drawing.Point(691, 151);
-            this.comboBoxSortGoalsMatch.Name = "comboBoxSortGoalsMatch";
-            this.comboBoxSortGoalsMatch.Size = new System.Drawing.Size(154, 28);
-            this.comboBoxSortGoalsMatch.TabIndex = 21;
-            this.comboBoxSortGoalsMatch.Visible = false;
-            // 
             // CalendarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -498,6 +504,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CalendarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

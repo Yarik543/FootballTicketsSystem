@@ -32,9 +32,9 @@
             this.btnTopBalance = new Guna.UI2.WinForms.Guna2Button();
             this.labelPhone = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
+            this.pictureBoxProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnDeleteUser = new Guna.UI2.WinForms.Guna2Button();
             this.labelUserName = new System.Windows.Forms.Label();
-            this.pictureBoxProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.gunaPanelMatch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfil)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +76,7 @@
             this.btnTopBalance.Size = new System.Drawing.Size(262, 55);
             this.btnTopBalance.TabIndex = 38;
             this.btnTopBalance.Text = "Пополнить балланс";
+            this.btnTopBalance.Click += new System.EventHandler(this.btnTopBalance_Click);
             // 
             // labelPhone
             // 
@@ -99,6 +100,17 @@
             this.labelEmail.Text = "Email: ";
             this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBoxProfil
+            // 
+            this.pictureBoxProfil.ImageRotate = 0F;
+            this.pictureBoxProfil.Location = new System.Drawing.Point(43, 18);
+            this.pictureBoxProfil.Name = "pictureBoxProfil";
+            this.pictureBoxProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxProfil.Size = new System.Drawing.Size(190, 160);
+            this.pictureBoxProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfil.TabIndex = 35;
+            this.pictureBoxProfil.TabStop = false;
+            // 
             // btnDeleteUser
             // 
             this.btnDeleteUser.BorderColor = System.Drawing.Color.White;
@@ -116,6 +128,7 @@
             this.btnDeleteUser.Size = new System.Drawing.Size(262, 54);
             this.btnDeleteUser.TabIndex = 34;
             this.btnDeleteUser.Text = "Удалить";
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // labelUserName
             // 
@@ -127,17 +140,6 @@
             this.labelUserName.TabIndex = 23;
             this.labelUserName.Text = "ФИО: ";
             this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBoxProfil
-            // 
-            this.pictureBoxProfil.ImageRotate = 0F;
-            this.pictureBoxProfil.Location = new System.Drawing.Point(43, 18);
-            this.pictureBoxProfil.Name = "pictureBoxProfil";
-            this.pictureBoxProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureBoxProfil.Size = new System.Drawing.Size(190, 160);
-            this.pictureBoxProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfil.TabIndex = 35;
-            this.pictureBoxProfil.TabStop = false;
             // 
             // UsersControl
             // 

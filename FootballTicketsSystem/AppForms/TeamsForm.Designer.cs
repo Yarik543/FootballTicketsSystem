@@ -42,12 +42,12 @@
             this.flowLayoutPanelTeamsShow = new System.Windows.Forms.FlowLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxSearchTeam = new Guna.UI2.WinForms.Guna2TextBox();
-            this.labelUserRole = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -121,6 +121,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Выйти";
             this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnTransfers
             // 
@@ -142,6 +143,7 @@
             this.btnTransfers.TabIndex = 12;
             this.btnTransfers.Text = "Трансферы";
             this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
             // 
             // guna2Separator1
             // 
@@ -172,6 +174,7 @@
             this.btnCalendar.TabIndex = 11;
             this.btnCalendar.Text = "Календарь";
             this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // btnProfil
             // 
@@ -192,6 +195,7 @@
             this.btnProfil.Size = new System.Drawing.Size(226, 49);
             this.btnProfil.TabIndex = 10;
             this.btnProfil.Text = "Профиль";
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
             // 
             // btnTickets
             // 
@@ -213,6 +217,7 @@
             this.btnTickets.TabIndex = 9;
             this.btnTickets.Text = "Мои билеты";
             this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // guna2PictureBox1
             // 
@@ -292,6 +297,31 @@
             this.gunaPanelHeaderForm.Size = new System.Drawing.Size(995, 144);
             this.gunaPanelHeaderForm.TabIndex = 19;
             // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(789, 31);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 22;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(789, 70);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 66);
+            this.labelUserName.TabIndex = 21;
+            this.labelUserName.Text = "UserName";
+            // 
             // pictureProfil
             // 
             this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -346,31 +376,7 @@
             this.tBoxSearchTeam.SelectedText = "";
             this.tBoxSearchTeam.Size = new System.Drawing.Size(212, 31);
             this.tBoxSearchTeam.TabIndex = 1;
-            // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(789, 31);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 22;
-            this.labelUserRole.Text = "UserRole";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(789, 70);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(194, 66);
-            this.labelUserName.TabIndex = 21;
-            this.labelUserName.Text = "UserName";
+            this.tBoxSearchTeam.TextChanged += new System.EventHandler(this.tBoxSearchTeam_TextChanged);
             // 
             // TeamsForm
             // 
@@ -380,6 +386,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TeamsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

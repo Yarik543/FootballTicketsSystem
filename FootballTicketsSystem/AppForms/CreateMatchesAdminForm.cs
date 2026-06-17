@@ -24,8 +24,9 @@ namespace FootballTicketsSystem.AppForms
             pictureProfil.Image?.Dispose();
             pictureProfil.Image = PhotoHelper.LoadUserPhoto(UserSession.CurrentUser.PhotoProfil);
             _match = new Matches();
-            Program.context.Matches.Add(_match);
             _isEditMode = false;
+
+            UpdateStatistics();
         }
 
         public CreateMatchesAdminForm(Matches matches)
@@ -38,6 +39,8 @@ namespace FootballTicketsSystem.AppForms
             _match = matches;
             matchesBindingSource.DataSource = _match;
             _isEditMode = true;
+
+            UpdateStatistics();
         }
 
         /// <summary>
@@ -58,10 +61,43 @@ namespace FootballTicketsSystem.AppForms
 
         private void CreateMatchesAdminForm_Load(object sender, EventArgs e)
         {
+            dateTimePickerMatch.Format = DateTimePickerFormat.Custom;
+            dateTimePickerMatch.CustomFormat = "dd MMMM yyyy г., HH:mm";
+            dateTimePickerMatch.ShowUpDown = true;
+
+            DateTime tomorrow = DateTime.Now.Date.AddDays(1).AddHours(21);
+            DateTime safeMaxDate = new DateTime(2100, 12, 31);
+
+            if (_isEditMode)
+            {
+                if (_match.MatchDate.HasValue)
+                {
+                    DateTime matchDate = _match.MatchDate.Value;
+
+                    DateTime minDate = matchDate < DateTime.Now ? matchDate : tomorrow;
+
+                    dateTimePickerMatch.MinDate = minDate;
+                    dateTimePickerMatch.MaxDate = safeMaxDate;
+                    dateTimePickerMatch.Value = matchDate;
+                }
+                else
+                {
+                    dateTimePickerMatch.MinDate = tomorrow;
+                    dateTimePickerMatch.MaxDate = safeMaxDate;
+                    dateTimePickerMatch.Value = tomorrow;
+                }
+            }
+            else
+            {
+                dateTimePickerMatch.MinDate = tomorrow;
+                dateTimePickerMatch.MaxDate = safeMaxDate;
+                dateTimePickerMatch.Value = tomorrow;
+            }
+
             LoadTeams();
             LoadStadiums();
             LoadStages();
-            
+
             if (_isEditMode)
             {
                 LoadMatchData();
@@ -77,14 +113,12 @@ namespace FootballTicketsSystem.AppForms
                 .OrderBy(t => t.TeamName)
                 .ToList();
 
-            // Домашняя команда
             comboBoxTeamHome.DataSource = teams.ToList();
             comboBoxTeamHome.DisplayMember = "TeamName";
             comboBoxTeamHome.ValueMember = "IdTeam";
             comboBoxTeamHome.SelectedIndex = -1;
             comboBoxTeamHome.Text = "Выберите команду...";
 
-            // Гостевая команда
             comboBoxTeamAway.DataSource = teams.ToList();
             comboBoxTeamAway.DisplayMember = "TeamName";
             comboBoxTeamAway.ValueMember = "IdTeam";
@@ -113,7 +147,7 @@ namespace FootballTicketsSystem.AppForms
         /// </summary>
         private void LoadStages()
         {
-            comboBoxStage.SelectedIndex = 0; // По умолчанию "Чемпионат"
+            comboBoxStage.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -121,69 +155,113 @@ namespace FootballTicketsSystem.AppForms
         /// </summary>
         private void LoadMatchData()
         {
-            // Команды
             if (_match.TeamHomeId.HasValue)
                 comboBoxTeamHome.SelectedValue = _match.TeamHomeId.Value;
 
             if (_match.TeamAwayId.HasValue)
                 comboBoxTeamAway.SelectedValue = _match.TeamAwayId.Value;
 
-            // Стадион
             if (_match.StadiumId.HasValue)
                 comboBoxStadium.SelectedValue = _match.StadiumId.Value;
 
-            // Счета (показываем только если есть)
-            if (_match.ScoreHome.HasValue)
-            {
-                numericUpDownScoreHome.Value = _match.ScoreHome.Value;
-                numericUpDownScoreHome.Visible = true; // Показываем поля счета
-            }
+            bool isMatchPlayed = _match.MatchDate.HasValue && _match.MatchDate.Value < DateTime.Now;
 
-            if (_match.ScoreAway.HasValue)
+            if (isMatchPlayed || _match.ScoreHome.HasValue || _match.ScoreAway.HasValue)
             {
-                numericUpDownScoreAway.Value = _match.ScoreAway.Value;
+                labelScoreTeamHome.Visible = true;
+                labelScoreTeamAway.Visible = true;
+                numericUpDownScoreHome.Visible = true;
                 numericUpDownScoreAway.Visible = true;
+
+                if (_match.ScoreHome.HasValue)
+                    numericUpDownScoreHome.Value = _match.ScoreHome.Value;
+
+                if (_match.ScoreAway.HasValue)
+                    numericUpDownScoreAway.Value = _match.ScoreAway.Value;
+            }
+            else
+            {
+                labelScoreTeamHome.Visible = false;
+                labelScoreTeamAway.Visible = false;
+                numericUpDownScoreHome.Visible = false;
+                numericUpDownScoreAway.Visible = false;
             }
 
-            // Дата
-            if (_match.MatchDate.HasValue)
-                dateTimePickerMatch.Value = _match.MatchDate.Value;
 
-            // Рейтинг
             if (_match.RatingMatch.HasValue)
                 numericUpDownRating.Value = (decimal)_match.RatingMatch.Value;
 
-            // Этап
             if (!string.IsNullOrEmpty(_match.Stage))
                 comboBoxStage.Text = _match.Stage;
+
+            dateTimePickerMatch_ValueChanged(null, EventArgs.Empty);
         }
+
+        /// <summary>
+        /// Проверяет, можно ли сохранить матч с выбранной датой
+        /// </summary>
+        private bool ValidateMatchDate()
+        {
+            DateTime selectedDate = dateTimePickerMatch.Value;
+            DateTime minAllowedDate = DateTime.Now.Date.AddDays(1).AddHours(21); 
+
+            if (_isEditMode && _match.MatchDate.HasValue && _match.MatchDate.Value < DateTime.Now)
+            {
+                return true;
+            }
+
+            if (selectedDate < minAllowedDate)
+            {
+                MessageBox.Show(
+                     $"❌ Нельзя создать матч ранее чем через 24 часа\n\n" +
+                     $"Минимальная дата: {minAllowedDate:dd.MM.yyyy HH:mm}\n" +
+                     $"Выбранная дата: {selectedDate:dd.MM.yyyy HH:mm}\n\n" +
+                     "Пожалуйста, выберите более позднюю дату.",
+                     "Ошибка валидации",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
 
         /// <summary>
         /// Сохраняет данные из формы в объект матча
         /// </summary>
         private void SaveMatchData()
         {
-            // Команды
+            if (comboBoxTeamHome.SelectedValue != null)
                 _match.TeamHomeId = (int)comboBoxTeamHome.SelectedValue;
+
+            if (comboBoxTeamAway.SelectedValue != null)
                 _match.TeamAwayId = (int)comboBoxTeamAway.SelectedValue;
 
-            // Стадион
+            if (comboBoxStadium.SelectedValue != null)
                 _match.StadiumId = (int)comboBoxStadium.SelectedValue;
 
-            // Счета (только если поля видимы - значит матч завершен)
-            if (numericUpDownScoreHome.Visible)
+            DateTime matchDate = dateTimePickerMatch.Value;
+            bool isMatchPlayed = matchDate < DateTime.Now;
+
+            if (isMatchPlayed)
+            {
                 _match.ScoreHome = (int)numericUpDownScoreHome.Value;
-
-            if (numericUpDownScoreAway.Visible)
                 _match.ScoreAway = (int)numericUpDownScoreAway.Value;
+            }
+            else
+            {
+                if (numericUpDownScoreHome.Visible)
+                    _match.ScoreHome = (int)numericUpDownScoreHome.Value;
 
-            // Дата
+                if (numericUpDownScoreAway.Visible)
+                    _match.ScoreAway = (int)numericUpDownScoreAway.Value;
+            }
+
             _match.MatchDate = dateTimePickerMatch.Value;
 
-            // Рейтинг
             _match.RatingMatch = numericUpDownRating.Value;
 
-            // Этап
             _match.Stage = comboBoxStage.Text;
         }
 
@@ -194,7 +272,42 @@ namespace FootballTicketsSystem.AppForms
 
         private void btnSaveMatch_Click(object sender, EventArgs e)
         {
-            // Подтверждение сохранения
+            if (comboBoxTeamHome.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите домашнюю команду!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxTeamHome.Focus();
+                return;
+            }
+
+            if (comboBoxTeamAway.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите гостевую команду!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxTeamAway.Focus();
+                return;
+            }
+
+            if (comboBoxTeamHome.SelectedValue?.Equals(comboBoxTeamAway.SelectedValue) == true)
+            {
+                MessageBox.Show("Команды не могут быть одинаковыми!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (comboBoxStadium.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите стадион!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxStadium.Focus();
+                return;
+            }
+
+            if (!ValidateMatchDate())
+            {
+                return;
+            }
+
             DialogResult agree = MessageBox.Show(
                 "Уверены, что хотите сохранить матч?",
                 "Запрос подтверждения",
@@ -207,6 +320,11 @@ namespace FootballTicketsSystem.AppForms
             try
             {
                 SaveMatchData();
+
+                if (!_isEditMode)
+                {
+                    Program.context.Matches.Add(_match);
+                }
                 Program.context.SaveChanges();
 
                 MessageBox.Show(
@@ -214,6 +332,8 @@ namespace FootballTicketsSystem.AppForms
                     "Успех",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                UpdateStatistics();
 
                 DialogResult = DialogResult.OK;
                 this.Close();
@@ -230,17 +350,15 @@ namespace FootballTicketsSystem.AppForms
 
         private void dateTimePickerMatch_ValueChanged(object sender, EventArgs e)
         {
-            // Если дата матча уже прошла — показываем поля для ввода счёта
             if (dateTimePickerMatch.Value < DateTime.Now)
             {
                 labelScoreTeamHome.Visible = true;
-                labelScoreTeamAway.Visible = true;  // 👈 Не забудь про второй label!
+                labelScoreTeamAway.Visible = true;
                 numericUpDownScoreHome.Visible = true;
                 numericUpDownScoreAway.Visible = true;
             }
             else
             {
-                // Если матч в будущем — скрываем поля счёта
                 labelScoreTeamHome.Visible = false;
                 labelScoreTeamAway.Visible = false;
                 numericUpDownScoreHome.Visible = false;
@@ -250,7 +368,6 @@ namespace FootballTicketsSystem.AppForms
 
         private void comboBoxTeamHome_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Проверяем, не выбрана ли та же команда
             if (comboBoxTeamHome.SelectedValue != null && comboBoxTeamAway.SelectedValue != null)
             {
                 if (comboBoxTeamHome.SelectedValue.Equals(comboBoxTeamAway.SelectedValue))
@@ -265,7 +382,6 @@ namespace FootballTicketsSystem.AppForms
 
         private void comboBoxTeamAway_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Проверяем, не выбрана ли та же команда
             if (comboBoxTeamHome.SelectedValue != null && comboBoxTeamAway.SelectedValue != null)
             {
                 if (comboBoxTeamHome.SelectedValue.Equals(comboBoxTeamAway.SelectedValue))
@@ -276,6 +392,24 @@ namespace FootballTicketsSystem.AppForms
                     return;
                 }
             }
+        }
+
+        /// <summary>
+        /// Обновляет статистику на форме
+        /// </summary>
+        private void UpdateStatistics()
+        {
+            int totalMatches = Program.context.Matches.Count();
+            labelCountMatches.Text = totalMatches.ToString();
+
+            int activeMatches = Program.context.Matches
+                .Count(m => m.MatchDate >= DateTime.Now ||
+                            (m.ScoreHome == null && m.ScoreAway == null));
+            labelActivMatches.Text = activeMatches.ToString();
+
+            int soldTickets = Program.context.Tickets
+                .Count(t => t.IsSold == true);
+            labelTicketsBuy.Text = soldTickets.ToString("### ###");
         }
     }
 }

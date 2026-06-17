@@ -75,9 +75,9 @@ namespace FootballTicketsSystem.AppControls
             this.Region = new Region(path);
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void btnDetails_Click(object sender, EventArgs e)
         {
-            TeamDetailsForm teamDetailsForm = new TeamDetailsForm();
+            TeamDetailsForm teamDetailsForm = new TeamDetailsForm(_teams);
             DialogResult dialogResult = teamDetailsForm.ShowDialog();
         }
     }

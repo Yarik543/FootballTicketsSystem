@@ -1,5 +1,6 @@
 ﻿using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.DBModels;
+using FootballTicketsSystem.Helpers;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QRCoder;
 
 namespace FootballTicketsSystem.AppForms
 {
@@ -29,6 +31,8 @@ namespace FootballTicketsSystem.AppForms
 
             _currentMatch = match;
             LoadMatchInfo();
+
+            this.FormClosed += TicketBuyForm_FormClosed;
         }
 
         /// <summary>
@@ -47,7 +51,6 @@ namespace FootballTicketsSystem.AppForms
 
         private void TicketBuyForm_Load(object sender, EventArgs e)
         {
-            // Проверка: если матч не передан — закрываем форму
             if (_currentMatch == null)
             {
                 MessageBox.Show("Ошибка: матч не указан!", "Ошибка",
@@ -56,23 +59,40 @@ namespace FootballTicketsSystem.AppForms
                 return;
             }
 
-            // ИСПРАВЛЕНО: Ballance с двумя "l"
             labelBalance.Text = $"Ваш баланс: {UserSession.CurrentUser.Ballance:N0} ₽";
             GenerateTestSeats();
-        }
 
+            CheckStadiumAvailability();
+        }
 
         /// <summary>
         /// Загружает информацию о матче
         /// </summary>
-        private void LoadMatchInfo()
+        private async void LoadMatchInfo()
         {
             if (_currentMatch == null) return;
 
             var homeTeam = Program.context.Teams.Find(_currentMatch.TeamHomeId);
             var awayTeam = Program.context.Teams.Find(_currentMatch.TeamAwayId);
+
             labelTeamHome.Text = homeTeam?.TeamName ?? "Команда 1";
             labelTeamAway.Text = awayTeam?.TeamName ?? "Команда 2";
+
+            if (homeTeam != null)
+            {
+                await ImageLoader.LoadToPictureBoxAsync(
+                    pictureBoxLogoFirstTeam,
+                    homeTeam.Logo,
+                    Properties.Resources.picture);
+            }
+
+            if (awayTeam != null)
+            {
+                await ImageLoader.LoadToPictureBoxAsync(
+                    pictureBoxTeamLogoAway,
+                    awayTeam.Logo,
+                    Properties.Resources.picture);
+            }
 
             var stadium = Program.context.Stadiums.Find(_currentMatch.StadiumId);
             labelStadiumName.Text = $"Стадион: {stadium?.NameStadium ?? "Не указан"}";
@@ -116,7 +136,6 @@ namespace FootballTicketsSystem.AppForms
             int seatsPerRow = 10;
             var purchasedSeats = GetPurchasedSeats();
 
-            // 👇 Получаем ВЫБРАННЫЙ сектор из ComboBox
             string currentSector = sectorComboBox.SelectedItem?.ToString() ?? "A";
 
             for (int row = 1; row <= totalRows; row++)
@@ -155,10 +174,9 @@ namespace FootballTicketsSystem.AppForms
                         BorderRadius = 5,
                         Font = new Font("Microsoft Sans Serif", 7),
                         Text = seat.ToString(),
-                        Tag = new { Sector = currentSector, Row = row, Seat = seat } // 👇 Добавляем сектор в Tag
+                        Tag = new { Sector = currentSector, Row = row, Seat = seat } // Добавляем сектор в Tag
                     };
 
-                    // 👇 ПРОВЕРЯЕМ: занято ли это место ИМЕННО в ЭТОМ секторе
                     bool isOccupied = purchasedSeats.Any(s =>
                         s.Sector == currentSector && s.Row == row && s.Seat == seat);
 
@@ -208,7 +226,6 @@ namespace FootballTicketsSystem.AppForms
             {
                 if (ticket.Row.HasValue && ticket.SeatNumber.HasValue)
                 {
-                    // 👇 Добавляем сектор (или "A" по умолчанию, если null)
                     string sector = ticket.Sector ?? "A";
                     purchasedSeats.Add((sector, ticket.Row.Value, ticket.SeatNumber.Value));
                 }
@@ -224,7 +241,7 @@ namespace FootballTicketsSystem.AppForms
             btn.FillColor = Color.FromArgb(255, 193, 7);
             _selectedSeat = btn.Tag as dynamic;
 
-            // 👇 Используем сектор из Tag кнопки (не из ComboBox!)
+            // Используем сектор из Tag кнопки
             string sector = _selectedSeat.Sector ?? "A";
             labelSectorName.Text = "Сектор " + sector;
             labelRowPlace.Text = $"Ряд {_selectedSeat.Row}";
@@ -254,7 +271,6 @@ namespace FootballTicketsSystem.AppForms
 
         private void sectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Если пользователь сменил сектор, пересчитываем цену для выбранного места
             if (_selectedSeat != null)
             {
                 string stage = _currentMatch?.Stage ?? "Чемпионат";
@@ -262,16 +278,17 @@ namespace FootballTicketsSystem.AppForms
                 labelPrice.Text = $"{_currentPrice:N0} ₽";
 
             }
-            // 👇 Перерисовываем места при смене сектора!
+            // Перерисовываем места при смене сектора
             GenerateTestSeats();
 
-            // Сбрасываем выбор
             ResetSelection();
             _selectedSeat = null;
             labelSectorName.Text = "-";
             labelRowPlace.Text = "-";
             labelNumberPlace.Text = "-";
             labelPrice.Text = "-";
+
+            CheckStadiumAvailability();
         }
 
         private void btnBuyTickets_Click(object sender, EventArgs e)
@@ -283,7 +300,6 @@ namespace FootballTicketsSystem.AppForms
                 return;
             }
 
-            // 👇 Ballance с двумя "l"
             if (!UserSession.CurrentUser.Ballance.HasValue || UserSession.CurrentUser.Ballance.Value < _currentPrice)
             {
                 MessageBox.Show(
@@ -309,29 +325,31 @@ namespace FootballTicketsSystem.AppForms
             {
                 string sector = labelSectorName.Text.Replace("Сектор ", "").Trim();
 
-                // 1️⃣ Создаём билет
+                string qrData = Guid.NewGuid().ToString();
+
                 var ticket = new Tickets
                 {
                     MatchId = _currentMatch.IdMatch,
-                    Sector = sector,              // 👇 Отдельное поле
-                    Row = _selectedSeat.Row,      // 👇 int?
-                    SeatNumber = _selectedSeat.Seat, // 👇 int? (не string!)
-                    Price = _currentPrice,        // decimal? → decimal (автоматически)
-                    IsSold = true                 // 👇 Помечаем как проданный
+                    Sector = sector,
+                    Row = _selectedSeat.Row,
+                    SeatNumber = _selectedSeat.Seat,
+                    Price = _currentPrice,
+                    IsSold = true,
+                    QrCodeData = qrData
                 };
 
                 Program.context.Tickets.Add(ticket);
-                Program.context.SaveChanges(); //  Сохраняем, чтобы получить IdTicket
+                Program.context.SaveChanges();
 
-                // 2️⃣ Создаём связь пользователь-билет (через UserTickets)
+                ShowQrCodeDialog(qrData, ticket);
+
                 var userTicket = new UserTickets
                 {
                     UserId = UserSession.CurrentUser.IdUser,
-                    TicketId = ticket.IdTicket // 👈 Берём сгенерированный ID
+                    TicketId = ticket.IdTicket
                 };
                 Program.context.UserTickets.Add(userTicket);
 
-                // 3️⃣ Списываем деньги
                 UserSession.CurrentUser.Ballance -= (int)_currentPrice;
 
                 Program.context.SaveChanges();
@@ -346,7 +364,9 @@ namespace FootballTicketsSystem.AppForms
                     MessageBoxIcon.Information);
 
                 labelBalance.Text = $"Ваш баланс: {UserSession.CurrentUser.Ballance:N0} ₽";
-                GenerateTestSeats(); // Перерисовываем места
+                GenerateTestSeats();
+                CheckStadiumAvailability();
+
                 ResetSelection();
                 _selectedSeat = null;
                 labelSectorName.Text = "-";
@@ -359,6 +379,133 @@ namespace FootballTicketsSystem.AppForms
                 MessageBox.Show($"Ошибка при покупке: {ex.Message}", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Показывает форму с QR-кодом билета
+        /// </summary>
+        private void ShowQrCodeDialog(string qrData, Tickets ticket)
+        {
+            var qrForm = new Form
+            {
+                Text = "Ваш билет",
+                Size = new Size(350, 500),
+                StartPosition = FormStartPosition.CenterParent,
+                FormBorderStyle = FormBorderStyle.FixedSingle,
+                MaximizeBox = false
+            };
+
+            var panel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20),
+                BackColor = Color.White
+            };
+            qrForm.Controls.Add(panel);
+
+            var lblTitle = new Label
+            {
+                Text = "Билет куплен!",
+                Font = new Font("Microsoft Sans Serif", 14, FontStyle.Bold),
+                ForeColor = Color.FromArgb(20, 184, 134),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Top,
+                Height = 40
+            };
+            panel.Controls.Add(lblTitle);
+
+            var qrPictureBox = new PictureBox
+            {
+                Size = new Size(250, 250),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Location = new Point(40, 60)
+            };
+
+            var qrGenerator = new QRCodeGenerator();
+            var qrCodeData = qrGenerator.CreateQrCode(qrData, QRCodeGenerator.ECCLevel.Q);
+            var qrCode = new QRCode(qrCodeData);
+            qrPictureBox.Image = qrCode.GetGraphic(20);
+
+            panel.Controls.Add(qrPictureBox);
+
+            var lblInfo = new Label
+            {
+                Text = $"Сектор: {ticket.Sector}\nРяд: {ticket.Row}\nМесто: {ticket.SeatNumber}\nЦена: {ticket.Price:N0} ₽",
+                Font = new Font("Microsoft Sans Serif", 10),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(40, 320),
+                Width = 250,
+                Height = 80,
+                AutoSize = false
+            };
+            panel.Controls.Add(lblInfo);
+
+            var btnClose = new Button
+            {
+                Text = "Закрыть",
+                Location = new Point(120, 420),
+                Width = 100,
+                DialogResult = DialogResult.OK
+            };
+            qrForm.AcceptButton = btnClose;
+            panel.Controls.Add(btnClose);
+
+            qrForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Проверяет, есть ли свободные места на стадионе
+        /// </summary>
+        private bool CheckStadiumAvailability()
+        {
+            if (_currentMatch?.StadiumId == null) return false;
+
+            var stadium = Program.context.Stadiums.Find(_currentMatch.StadiumId);
+            if (stadium == null || stadium.Capacity <= 0) return false;
+
+            int capacity = stadium.Capacity.Value;
+
+            int soldCount = Program.context.Tickets
+                .Count(t => t.MatchId == _currentMatch.IdMatch && t.IsSold == true);
+
+            if (soldCount >= capacity)
+            {
+                DisableBuyButton("Аншлаг! Все места распроданы");
+                return false;
+            }
+
+            EnableBuyButton();
+            return true;
+        }
+
+        /// <summary>
+        /// Отключает кнопку покупки с сообщением
+        /// </summary>
+        private void DisableBuyButton(string reason)
+        {
+            btnBuyTickets.Enabled = false;
+            btnBuyTickets.FillColor = Color.FromArgb(180, 180, 180);
+            btnBuyTickets.ForeColor = Color.Gray;
+            btnBuyTickets.Text = "Нет мест";
+            btnBuyTickets.Cursor = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Включает кнопку покупки
+        /// </summary>
+        private void EnableBuyButton()
+        {
+            btnBuyTickets.Enabled = true;
+            btnBuyTickets.FillColor = Color.FromArgb(20, 184, 134);
+            btnBuyTickets.ForeColor = Color.White;
+            btnBuyTickets.Text = "Купить билет";
+            btnBuyTickets.Cursor = Cursors.Hand;
+        }
+
+        private void TicketBuyForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ContextManager.calendarForm?.LoadDataMatch();
+            ContextManager.mainDashboardForm?.LoadMatchStatistics();
         }
     }
 }

@@ -41,10 +41,20 @@
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.btnCloseBack = new Guna.UI2.WinForms.Guna2Button();
             this.pictureLogoTeam = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.labelTeamName = new System.Windows.Forms.Label();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrev = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnNext = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lineCoach = new Guna.UI2.WinForms.Guna2Separator();
+            this.linePlayers = new Guna.UI2.WinForms.Guna2Separator();
+            this.labelCoach = new System.Windows.Forms.Label();
+            this.labelTeam = new System.Windows.Forms.Label();
+            this.flvPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.panelPlayers = new Guna.UI2.WinForms.Guna2Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,26 +75,16 @@
             this.labelNumberPlayer = new System.Windows.Forms.Label();
             this.picturePlayer = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelCoach = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelShceme = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.labelPost = new System.Windows.Forms.Label();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.labelDescriptionCoach = new System.Windows.Forms.Label();
             this.labelStageWork = new System.Windows.Forms.Label();
             this.labelAgeCoach = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.labelNationalityCoach = new System.Windows.Forms.Label();
             this.labelFullNameCoach = new System.Windows.Forms.Label();
             this.pictureCoach = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnNext = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lineCoach = new Guna.UI2.WinForms.Guna2Separator();
-            this.linePlayers = new Guna.UI2.WinForms.Guna2Separator();
-            this.labelCoach = new System.Windows.Forms.Label();
-            this.labelTeam = new System.Windows.Forms.Label();
-            this.flvPlayers = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelUserRole = new System.Windows.Forms.Label();
-            this.labelUserName = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -94,6 +94,9 @@
             this.gunaPanelHeaderForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogoTeam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).BeginInit();
+            this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             this.panelPlayers.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -104,9 +107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCoach)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -308,9 +308,9 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.guna2Panel2);
             this.splitContainer1.Panel2.Controls.Add(this.panelPlayers);
             this.splitContainer1.Panel2.Controls.Add(this.panelCoach);
-            this.splitContainer1.Panel2.Controls.Add(this.guna2Panel2);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
             this.splitContainer1.Size = new System.Drawing.Size(1063, 810);
             this.splitContainer1.SplitterDistance = 144;
@@ -331,6 +331,31 @@
             this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
             this.gunaPanelHeaderForm.Size = new System.Drawing.Size(1063, 144);
             this.gunaPanelHeaderForm.TabIndex = 19;
+            // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(857, 35);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 55;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(857, 74);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 61);
+            this.labelUserName.TabIndex = 54;
+            this.labelUserName.Text = "UserName";
             // 
             // btnCloseBack
             // 
@@ -384,6 +409,103 @@
             this.labelTeamName.TabIndex = 0;
             this.labelTeamName.Text = "Real Madrid";
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
+            this.guna2Panel2.Controls.Add(this.btnPrev);
+            this.guna2Panel2.Controls.Add(this.btnNext);
+            this.guna2Panel2.Controls.Add(this.lineCoach);
+            this.guna2Panel2.Controls.Add(this.linePlayers);
+            this.guna2Panel2.Controls.Add(this.labelCoach);
+            this.guna2Panel2.Controls.Add(this.labelTeam);
+            this.guna2Panel2.Controls.Add(this.flvPlayers);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 466);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(1063, 171);
+            this.guna2Panel2.TabIndex = 20;
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Image = global::FootballTicketsSystem.Properties.Resources.arrow_prev;
+            this.btnPrev.ImageRotate = 0F;
+            this.btnPrev.Location = new System.Drawing.Point(34, 92);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(35, 54);
+            this.btnPrev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPrev.TabIndex = 23;
+            this.btnPrev.TabStop = false;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Image = global::FootballTicketsSystem.Properties.Resources.arrow_right;
+            this.btnNext.ImageRotate = 0F;
+            this.btnNext.Location = new System.Drawing.Point(1005, 92);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(35, 54);
+            this.btnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnNext.TabIndex = 22;
+            this.btnNext.TabStop = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lineCoach
+            // 
+            this.lineCoach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lineCoach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.lineCoach.FillThickness = 2;
+            this.lineCoach.Location = new System.Drawing.Point(765, 44);
+            this.lineCoach.Name = "lineCoach";
+            this.lineCoach.Size = new System.Drawing.Size(83, 10);
+            this.lineCoach.TabIndex = 21;
+            this.lineCoach.Visible = false;
+            // 
+            // linePlayers
+            // 
+            this.linePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linePlayers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.linePlayers.FillThickness = 2;
+            this.linePlayers.Location = new System.Drawing.Point(330, 44);
+            this.linePlayers.Name = "linePlayers";
+            this.linePlayers.Size = new System.Drawing.Size(83, 10);
+            this.linePlayers.TabIndex = 15;
+            // 
+            // labelCoach
+            // 
+            this.labelCoach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCoach.AutoSize = true;
+            this.labelCoach.BackColor = System.Drawing.Color.Transparent;
+            this.labelCoach.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCoach.ForeColor = System.Drawing.Color.Black;
+            this.labelCoach.Location = new System.Drawing.Point(772, 21);
+            this.labelCoach.Name = "labelCoach";
+            this.labelCoach.Size = new System.Drawing.Size(71, 24);
+            this.labelCoach.TabIndex = 20;
+            this.labelCoach.Text = "Тренер";
+            this.labelCoach.Click += new System.EventHandler(this.labelCoach_Click);
+            // 
+            // labelTeam
+            // 
+            this.labelTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTeam.AutoSize = true;
+            this.labelTeam.BackColor = System.Drawing.Color.Transparent;
+            this.labelTeam.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTeam.ForeColor = System.Drawing.Color.Black;
+            this.labelTeam.Location = new System.Drawing.Point(333, 21);
+            this.labelTeam.Name = "labelTeam";
+            this.labelTeam.Size = new System.Drawing.Size(84, 24);
+            this.labelTeam.TabIndex = 19;
+            this.labelTeam.Text = "Команда";
+            this.labelTeam.Click += new System.EventHandler(this.labelTeam_Click);
+            // 
+            // flvPlayers
+            // 
+            this.flvPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flvPlayers.Location = new System.Drawing.Point(76, 68);
+            this.flvPlayers.Name = "flvPlayers";
+            this.flvPlayers.Size = new System.Drawing.Size(920, 100);
+            this.flvPlayers.TabIndex = 0;
+            // 
             // panelPlayers
             // 
             this.panelPlayers.Controls.Add(this.label7);
@@ -404,7 +526,7 @@
             this.panelPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPlayers.Location = new System.Drawing.Point(0, 0);
             this.panelPlayers.Name = "panelPlayers";
-            this.panelPlayers.Size = new System.Drawing.Size(1063, 466);
+            this.panelPlayers.Size = new System.Drawing.Size(1063, 637);
             this.panelPlayers.TabIndex = 21;
             // 
             // label7
@@ -573,11 +695,10 @@
             // labelPlayerName
             // 
             this.labelPlayerName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelPlayerName.AutoSize = true;
             this.labelPlayerName.Font = new System.Drawing.Font("Inter Medium", 20F, System.Drawing.FontStyle.Bold);
-            this.labelPlayerName.Location = new System.Drawing.Point(489, 88);
+            this.labelPlayerName.Location = new System.Drawing.Point(469, 88);
             this.labelPlayerName.Name = "labelPlayerName";
-            this.labelPlayerName.Size = new System.Drawing.Size(143, 98);
+            this.labelPlayerName.Size = new System.Drawing.Size(193, 98);
             this.labelPlayerName.TabIndex = 36;
             this.labelPlayerName.Text = "Имя \nИгрока";
             this.labelPlayerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -595,6 +716,7 @@
             this.pictureCaptain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureCaptain.TabIndex = 33;
             this.pictureCaptain.TabStop = false;
+            this.pictureCaptain.Visible = false;
             // 
             // labelNumberPlayer
             // 
@@ -620,33 +742,33 @@
             // 
             // panelCoach
             // 
-            this.panelCoach.Controls.Add(this.label1);
+            this.panelCoach.Controls.Add(this.labelShceme);
             this.panelCoach.Controls.Add(this.guna2PictureBox2);
             this.panelCoach.Controls.Add(this.labelPost);
             this.panelCoach.Controls.Add(this.guna2Panel8);
             this.panelCoach.Controls.Add(this.labelStageWork);
             this.panelCoach.Controls.Add(this.labelAgeCoach);
-            this.panelCoach.Controls.Add(this.label11);
+            this.panelCoach.Controls.Add(this.labelNationalityCoach);
             this.panelCoach.Controls.Add(this.labelFullNameCoach);
             this.panelCoach.Controls.Add(this.pictureCoach);
             this.panelCoach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCoach.Location = new System.Drawing.Point(0, 0);
             this.panelCoach.Name = "panelCoach";
-            this.panelCoach.Size = new System.Drawing.Size(1063, 466);
+            this.panelCoach.Size = new System.Drawing.Size(1063, 637);
             this.panelCoach.TabIndex = 46;
             // 
-            // label1
+            // labelShceme
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Inter", 10F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(782, 413);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 26);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Игровая схема: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelShceme.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelShceme.BackColor = System.Drawing.Color.Transparent;
+            this.labelShceme.Font = new System.Drawing.Font("Inter", 10F);
+            this.labelShceme.ForeColor = System.Drawing.Color.Black;
+            this.labelShceme.Location = new System.Drawing.Point(782, 413);
+            this.labelShceme.Name = "labelShceme";
+            this.labelShceme.Size = new System.Drawing.Size(249, 26);
+            this.labelShceme.TabIndex = 44;
+            this.labelShceme.Text = "Игровая схема: ";
+            this.labelShceme.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2PictureBox2
             // 
@@ -719,18 +841,18 @@
             this.labelAgeCoach.TabIndex = 38;
             this.labelAgeCoach.Text = "Возраст: ";
             // 
-            // label11
+            // labelNationalityCoach
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Inter", 12F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(445, 121);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(187, 28);
-            this.label11.TabIndex = 37;
-            this.label11.Text = "Национальность: ";
+            this.labelNationalityCoach.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelNationalityCoach.AutoSize = true;
+            this.labelNationalityCoach.BackColor = System.Drawing.Color.Transparent;
+            this.labelNationalityCoach.Font = new System.Drawing.Font("Inter", 12F);
+            this.labelNationalityCoach.ForeColor = System.Drawing.Color.Black;
+            this.labelNationalityCoach.Location = new System.Drawing.Point(445, 121);
+            this.labelNationalityCoach.Name = "labelNationalityCoach";
+            this.labelNationalityCoach.Size = new System.Drawing.Size(187, 28);
+            this.labelNationalityCoach.TabIndex = 37;
+            this.labelNationalityCoach.Text = "Национальность: ";
             // 
             // labelFullNameCoach
             // 
@@ -755,125 +877,6 @@
             this.pictureCoach.TabIndex = 35;
             this.pictureCoach.TabStop = false;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
-            this.guna2Panel2.Controls.Add(this.guna2PictureBox3);
-            this.guna2Panel2.Controls.Add(this.btnNext);
-            this.guna2Panel2.Controls.Add(this.lineCoach);
-            this.guna2Panel2.Controls.Add(this.linePlayers);
-            this.guna2Panel2.Controls.Add(this.labelCoach);
-            this.guna2Panel2.Controls.Add(this.labelTeam);
-            this.guna2Panel2.Controls.Add(this.flvPlayers);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 466);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1063, 171);
-            this.guna2Panel2.TabIndex = 20;
-            // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.Image = global::FootballTicketsSystem.Properties.Resources.arrow_prev;
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(34, 92);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(35, 54);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox3.TabIndex = 23;
-            this.guna2PictureBox3.TabStop = false;
-            // 
-            // btnNext
-            // 
-            this.btnNext.Image = global::FootballTicketsSystem.Properties.Resources.arrow_right;
-            this.btnNext.ImageRotate = 0F;
-            this.btnNext.Location = new System.Drawing.Point(1005, 92);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(35, 54);
-            this.btnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnNext.TabIndex = 22;
-            this.btnNext.TabStop = false;
-            // 
-            // lineCoach
-            // 
-            this.lineCoach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lineCoach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.lineCoach.FillThickness = 2;
-            this.lineCoach.Location = new System.Drawing.Point(765, 44);
-            this.lineCoach.Name = "lineCoach";
-            this.lineCoach.Size = new System.Drawing.Size(83, 10);
-            this.lineCoach.TabIndex = 21;
-            // 
-            // linePlayers
-            // 
-            this.linePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linePlayers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.linePlayers.FillThickness = 2;
-            this.linePlayers.Location = new System.Drawing.Point(330, 44);
-            this.linePlayers.Name = "linePlayers";
-            this.linePlayers.Size = new System.Drawing.Size(83, 10);
-            this.linePlayers.TabIndex = 15;
-            // 
-            // labelCoach
-            // 
-            this.labelCoach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelCoach.AutoSize = true;
-            this.labelCoach.BackColor = System.Drawing.Color.Transparent;
-            this.labelCoach.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCoach.ForeColor = System.Drawing.Color.Black;
-            this.labelCoach.Location = new System.Drawing.Point(772, 21);
-            this.labelCoach.Name = "labelCoach";
-            this.labelCoach.Size = new System.Drawing.Size(71, 24);
-            this.labelCoach.TabIndex = 20;
-            this.labelCoach.Text = "Тренер";
-            this.labelCoach.Click += new System.EventHandler(this.labelCoach_Click);
-            // 
-            // labelTeam
-            // 
-            this.labelTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTeam.AutoSize = true;
-            this.labelTeam.BackColor = System.Drawing.Color.Transparent;
-            this.labelTeam.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTeam.ForeColor = System.Drawing.Color.Black;
-            this.labelTeam.Location = new System.Drawing.Point(333, 21);
-            this.labelTeam.Name = "labelTeam";
-            this.labelTeam.Size = new System.Drawing.Size(84, 24);
-            this.labelTeam.TabIndex = 19;
-            this.labelTeam.Text = "Команда";
-            this.labelTeam.Click += new System.EventHandler(this.labelTeam_Click);
-            // 
-            // flvPlayers
-            // 
-            this.flvPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flvPlayers.Location = new System.Drawing.Point(76, 68);
-            this.flvPlayers.Name = "flvPlayers";
-            this.flvPlayers.Size = new System.Drawing.Size(920, 100);
-            this.flvPlayers.TabIndex = 0;
-            // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(857, 35);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 55;
-            this.labelUserRole.Text = "UserRole";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(857, 74);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(194, 61);
-            this.labelUserName.TabIndex = 54;
-            this.labelUserName.Text = "UserName";
-            // 
             // TeamDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -882,10 +885,12 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TeamDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Состав комнады";
+            this.Load += new System.EventHandler(this.TeamDetailsForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -896,6 +901,10 @@
             this.gunaPanelHeaderForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogoTeam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).EndInit();
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
             this.panelPlayers.ResumeLayout(false);
             this.panelPlayers.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
@@ -908,10 +917,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureCoach)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -941,7 +946,7 @@
         private Guna.UI2.WinForms.Guna2Separator lineCoach;
         private Guna.UI2.WinForms.Guna2Button btnCloseBack;
         private Guna.UI2.WinForms.Guna2PictureBox btnNext;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2PictureBox btnPrev;
         private Guna.UI2.WinForms.Guna2Panel panelPlayers;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -966,12 +971,12 @@
         private System.Windows.Forms.Label labelDescriptionCoach;
         private System.Windows.Forms.Label labelStageWork;
         private System.Windows.Forms.Label labelAgeCoach;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelNationalityCoach;
         private System.Windows.Forms.Label labelFullNameCoach;
         private Guna.UI2.WinForms.Guna2PictureBox pictureCoach;
         private System.Windows.Forms.Label labelPost;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelShceme;
         private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Label labelUserName;
     }

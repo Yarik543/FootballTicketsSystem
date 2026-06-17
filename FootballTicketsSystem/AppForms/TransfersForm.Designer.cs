@@ -41,7 +41,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAddMatch = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddTransfer = new Guna.UI2.WinForms.Guna2Button();
             this.gunaGroupBoxDate = new Guna.UI2.WinForms.Guna2GroupBox();
             this.radioBtnLater = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radioBtnNew = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -137,6 +137,7 @@
             this.btnCalendar.TabIndex = 11;
             this.btnCalendar.Text = "Календарь";
             this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // btnProfil
             // 
@@ -157,6 +158,7 @@
             this.btnProfil.Size = new System.Drawing.Size(226, 49);
             this.btnProfil.TabIndex = 10;
             this.btnProfil.Text = "Профиль";
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
             // 
             // btnTickets
             // 
@@ -178,6 +180,7 @@
             this.btnTickets.TabIndex = 9;
             this.btnTickets.Text = "Мои билеты";
             this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // btnTeams
             // 
@@ -198,6 +201,7 @@
             this.btnTeams.Size = new System.Drawing.Size(226, 49);
             this.btnTeams.TabIndex = 8;
             this.btnTeams.Text = "Команды";
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
             // 
             // guna2PictureBox1
             // 
@@ -275,7 +279,7 @@
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.gunaPanelHeaderForm.Controls.Add(this.btnAddMatch);
+            this.gunaPanelHeaderForm.Controls.Add(this.btnAddTransfer);
             this.gunaPanelHeaderForm.Controls.Add(this.gunaGroupBoxDate);
             this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
@@ -289,26 +293,27 @@
             this.gunaPanelHeaderForm.Size = new System.Drawing.Size(968, 179);
             this.gunaPanelHeaderForm.TabIndex = 21;
             // 
-            // btnAddMatch
+            // btnAddTransfer
             // 
-            this.btnAddMatch.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddMatch.BorderRadius = 5;
-            this.btnAddMatch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddMatch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddMatch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddMatch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddMatch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.btnAddMatch.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnAddMatch.ForeColor = System.Drawing.Color.White;
-            this.btnAddMatch.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddMatch.Location = new System.Drawing.Point(26, 116);
-            this.btnAddMatch.Name = "btnAddMatch";
-            this.btnAddMatch.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.btnAddMatch.Size = new System.Drawing.Size(260, 49);
-            this.btnAddMatch.TabIndex = 17;
-            this.btnAddMatch.Text = "Добавить трансфер";
-            this.btnAddMatch.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnAddMatch.Click += new System.EventHandler(this.btnAddMatch_Click);
+            this.btnAddTransfer.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddTransfer.BorderRadius = 5;
+            this.btnAddTransfer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddTransfer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddTransfer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddTransfer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddTransfer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnAddTransfer.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnAddTransfer.ForeColor = System.Drawing.Color.White;
+            this.btnAddTransfer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddTransfer.Location = new System.Drawing.Point(26, 116);
+            this.btnAddTransfer.Name = "btnAddTransfer";
+            this.btnAddTransfer.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.btnAddTransfer.Size = new System.Drawing.Size(260, 49);
+            this.btnAddTransfer.TabIndex = 17;
+            this.btnAddTransfer.Text = "Добавить трансфер";
+            this.btnAddTransfer.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnAddTransfer.Visible = false;
+            this.btnAddTransfer.Click += new System.EventHandler(this.btnAddTransfer_Click);
             // 
             // gunaGroupBoxDate
             // 
@@ -471,6 +476,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TransfersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -516,6 +522,6 @@
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTrnasfers;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button btnAddMatch;
+        private Guna.UI2.WinForms.Guna2Button btnAddTransfer;
     }
 }
