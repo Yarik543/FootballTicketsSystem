@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
 namespace FootballTicketsSystem.DBModels
 {
-    public partial class FootBallTicketsDB : DbContext
+    public partial class ContextDbFootBall : DbContext
     {
-        public FootBallTicketsDB()
-            : base("name=FootBallTicketsDB")
+        public ContextDbFootBall()
+            : base("name=ContextDbFootBall")
         {
         }
 
@@ -48,7 +48,8 @@ namespace FootballTicketsSystem.DBModels
             modelBuilder.Entity<Stadiums>()
                 .HasMany(e => e.Matches)
                 .WithOptional(e => e.Stadiums)
-                .HasForeignKey(e => e.StadiumId);
+                .HasForeignKey(e => e.StadiumId)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Stadiums>()
                 .HasMany(e => e.Teams)
@@ -69,7 +70,8 @@ namespace FootballTicketsSystem.DBModels
             modelBuilder.Entity<Teams>()
                 .HasMany(e => e.Matches1)
                 .WithOptional(e => e.Teams1)
-                .HasForeignKey(e => e.TeamAwayId);
+                .HasForeignKey(e => e.TeamAwayId)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Teams>()
                 .HasMany(e => e.Players)
@@ -88,7 +90,8 @@ namespace FootballTicketsSystem.DBModels
             modelBuilder.Entity<Tickets>()
                 .HasMany(e => e.UserTickets)
                 .WithOptional(e => e.Tickets)
-                .HasForeignKey(e => e.TicketId);
+                .HasForeignKey(e => e.TicketId)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Transfers>()
                 .Property(e => e.Price)
@@ -97,7 +100,8 @@ namespace FootballTicketsSystem.DBModels
             modelBuilder.Entity<Users>()
                 .HasMany(e => e.UserTickets)
                 .WithOptional(e => e.Users)
-                .HasForeignKey(e => e.UserId);
+                .HasForeignKey(e => e.UserId)
+                .WillCascadeOnDelete();
         }
     }
 }

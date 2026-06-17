@@ -30,25 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeamsForm));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.flowLayoutPanelTeamsShow = new System.Windows.Forms.FlowLayoutPanel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelUserRole = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tBoxSearchTeam = new Guna.UI2.WinForms.Guna2TextBox();
-            this.labelUserName = new System.Windows.Forms.Label();
-            this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.btnTransfers = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.btnCalendar = new Guna.UI2.WinForms.Guna2Button();
             this.btnProfil = new Guna.UI2.WinForms.Guna2Button();
             this.btnTickets = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanelTeamsShow = new System.Windows.Forms.FlowLayoutPanel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelUserRole = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tBoxSearchTeam = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,7 +57,6 @@
             this.gunaPanelHeaderForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -80,140 +80,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(284, 810);
             this.guna2Panel1.TabIndex = 17;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.guna2Separator1.FillThickness = 2;
-            this.guna2Separator1.Location = new System.Drawing.Point(29, 614);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(225, 10);
-            this.guna2Separator1.TabIndex = 7;
-            // 
-            // flowLayoutPanelTeamsShow
-            // 
-            this.flowLayoutPanelTeamsShow.AutoScroll = true;
-            this.flowLayoutPanelTeamsShow.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanelTeamsShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelTeamsShow.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanelTeamsShow.Name = "flowLayoutPanelTeamsShow";
-            this.flowLayoutPanelTeamsShow.Size = new System.Drawing.Size(995, 637);
-            this.flowLayoutPanelTeamsShow.TabIndex = 0;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(284, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.gunaPanelHeaderForm);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanelTeamsShow);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.splitContainer1.Size = new System.Drawing.Size(995, 810);
-            this.splitContainer1.SplitterDistance = 144;
-            this.splitContainer1.TabIndex = 19;
-            // 
-            // gunaPanelHeaderForm
-            // 
-            this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
-            this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
-            this.gunaPanelHeaderForm.Controls.Add(this.guna2PictureBox2);
-            this.gunaPanelHeaderForm.Controls.Add(this.label1);
-            this.gunaPanelHeaderForm.Controls.Add(this.tBoxSearchTeam);
-            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
-            this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
-            this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
-            this.gunaPanelHeaderForm.Size = new System.Drawing.Size(995, 144);
-            this.gunaPanelHeaderForm.TabIndex = 19;
-            // 
-            // labelUserRole
-            // 
-            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserRole.AutoSize = true;
-            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(796, 70);
-            this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 15;
-            this.labelUserRole.Text = "UserRole";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Inter Medium", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(19, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Список команд турнира";
-            // 
-            // tBoxSearchTeam
-            // 
-            this.tBoxSearchTeam.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tBoxSearchTeam.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tBoxSearchTeam.DefaultText = "";
-            this.tBoxSearchTeam.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tBoxSearchTeam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tBoxSearchTeam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxSearchTeam.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxSearchTeam.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tBoxSearchTeam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxSearchTeam.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tBoxSearchTeam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxSearchTeam.Location = new System.Drawing.Point(438, 52);
-            this.tBoxSearchTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tBoxSearchTeam.Name = "tBoxSearchTeam";
-            this.tBoxSearchTeam.PlaceholderText = "";
-            this.tBoxSearchTeam.SelectedText = "";
-            this.tBoxSearchTeam.Size = new System.Drawing.Size(212, 31);
-            this.tBoxSearchTeam.TabIndex = 1;
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(796, 33);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 14;
-            this.labelUserName.Text = "UserName";
-            // 
-            // pictureProfil
-            // 
-            this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureProfil.BackColor = System.Drawing.Color.Transparent;
-            this.pictureProfil.ImageRotate = 0F;
-            this.pictureProfil.Location = new System.Drawing.Point(708, 30);
-            this.pictureProfil.Name = "pictureProfil";
-            this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureProfil.Size = new System.Drawing.Size(75, 75);
-            this.pictureProfil.TabIndex = 16;
-            this.pictureProfil.TabStop = false;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::FootballTicketsSystem.Properties.Resources.search;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(407, 55);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 2;
-            this.guna2PictureBox2.TabStop = false;
             // 
             // guna2Button1
             // 
@@ -255,6 +121,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Выйти";
             this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnTransfers
             // 
@@ -276,6 +143,16 @@
             this.btnTransfers.TabIndex = 12;
             this.btnTransfers.Text = "Трансферы";
             this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.guna2Separator1.FillThickness = 2;
+            this.guna2Separator1.Location = new System.Drawing.Point(29, 614);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(225, 10);
+            this.guna2Separator1.TabIndex = 7;
             // 
             // btnCalendar
             // 
@@ -297,6 +174,7 @@
             this.btnCalendar.TabIndex = 11;
             this.btnCalendar.Text = "Календарь";
             this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // btnProfil
             // 
@@ -317,6 +195,7 @@
             this.btnProfil.Size = new System.Drawing.Size(226, 49);
             this.btnProfil.TabIndex = 10;
             this.btnProfil.Text = "Профиль";
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
             // 
             // btnTickets
             // 
@@ -338,6 +217,7 @@
             this.btnTickets.TabIndex = 9;
             this.btnTickets.Text = "Мои билеты";
             this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // guna2PictureBox1
             // 
@@ -371,6 +251,133 @@
             this.btnMain.Text = "Главная";
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
+            // flowLayoutPanelTeamsShow
+            // 
+            this.flowLayoutPanelTeamsShow.AutoScroll = true;
+            this.flowLayoutPanelTeamsShow.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanelTeamsShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelTeamsShow.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelTeamsShow.Name = "flowLayoutPanelTeamsShow";
+            this.flowLayoutPanelTeamsShow.Size = new System.Drawing.Size(995, 637);
+            this.flowLayoutPanelTeamsShow.TabIndex = 0;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(284, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.gunaPanelHeaderForm);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanelTeamsShow);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
+            this.splitContainer1.Size = new System.Drawing.Size(995, 810);
+            this.splitContainer1.SplitterDistance = 144;
+            this.splitContainer1.TabIndex = 19;
+            // 
+            // gunaPanelHeaderForm
+            // 
+            this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
+            this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
+            this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
+            this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
+            this.gunaPanelHeaderForm.Controls.Add(this.guna2PictureBox2);
+            this.gunaPanelHeaderForm.Controls.Add(this.label1);
+            this.gunaPanelHeaderForm.Controls.Add(this.tBoxSearchTeam);
+            this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
+            this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
+            this.gunaPanelHeaderForm.Size = new System.Drawing.Size(995, 144);
+            this.gunaPanelHeaderForm.TabIndex = 19;
+            // 
+            // labelUserRole
+            // 
+            this.labelUserRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserRole.AutoSize = true;
+            this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserRole.ForeColor = System.Drawing.Color.Black;
+            this.labelUserRole.Location = new System.Drawing.Point(789, 31);
+            this.labelUserRole.Name = "labelUserRole";
+            this.labelUserRole.Size = new System.Drawing.Size(83, 24);
+            this.labelUserRole.TabIndex = 22;
+            this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(789, 70);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 66);
+            this.labelUserName.TabIndex = 21;
+            this.labelUserName.Text = "UserName";
+            // 
+            // pictureProfil
+            // 
+            this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureProfil.BackColor = System.Drawing.Color.Transparent;
+            this.pictureProfil.ImageRotate = 0F;
+            this.pictureProfil.Location = new System.Drawing.Point(708, 30);
+            this.pictureProfil.Name = "pictureProfil";
+            this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureProfil.TabIndex = 16;
+            this.pictureProfil.TabStop = false;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::FootballTicketsSystem.Properties.Resources.search;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(407, 55);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 2;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Inter Medium", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(19, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(340, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Список команд турнира";
+            // 
+            // tBoxSearchTeam
+            // 
+            this.tBoxSearchTeam.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tBoxSearchTeam.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tBoxSearchTeam.DefaultText = "";
+            this.tBoxSearchTeam.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tBoxSearchTeam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tBoxSearchTeam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxSearchTeam.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxSearchTeam.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.tBoxSearchTeam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxSearchTeam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tBoxSearchTeam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxSearchTeam.Location = new System.Drawing.Point(438, 52);
+            this.tBoxSearchTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tBoxSearchTeam.Name = "tBoxSearchTeam";
+            this.tBoxSearchTeam.PlaceholderText = "";
+            this.tBoxSearchTeam.SelectedText = "";
+            this.tBoxSearchTeam.Size = new System.Drawing.Size(212, 31);
+            this.tBoxSearchTeam.TabIndex = 1;
+            this.tBoxSearchTeam.TextChanged += new System.EventHandler(this.tBoxSearchTeam_TextChanged);
+            // 
             // TeamsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -379,12 +386,14 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TeamsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Команды турнира";
             this.Load += new System.EventHandler(this.TeamsForm_Load);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -393,7 +402,6 @@
             this.gunaPanelHeaderForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -413,10 +421,10 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelHeaderForm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureProfil;
-        private System.Windows.Forms.Label labelUserRole;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox tBoxSearchTeam;
+        private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Label labelUserName;
     }
 }

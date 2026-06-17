@@ -47,7 +47,6 @@
             this.toolTipFullName = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipEmail = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipPassword = new System.Windows.Forms.ToolTip(this.components);
-            this.timerForm = new System.Windows.Forms.Timer(this.components);
             this.guna2AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconEmail)).BeginInit();
@@ -298,14 +297,9 @@
             this.toolTipPassword.ReshowDelay = 100;
             this.toolTipPassword.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // timerForm
-            // 
-            this.timerForm.Tick += new System.EventHandler(this.timerForm_Tick);
-            // 
             // guna2AnimateWindow
             // 
-            this.guna2AnimateWindow.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_SLIDE;
-            this.guna2AnimateWindow.Interval = 300;
+            this.guna2AnimateWindow.Interval = 100;
             this.guna2AnimateWindow.TargetForm = this;
             // 
             // RegistrationForm
@@ -324,7 +318,8 @@
             this.Controls.Add(this.tBoxPhone);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.pictureBoxLogo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -361,7 +356,6 @@
         private System.Windows.Forms.ToolTip toolTipFullName;
         private System.Windows.Forms.ToolTip toolTipEmail;
         private System.Windows.Forms.ToolTip toolTipPassword;
-        private System.Windows.Forms.Timer timerForm;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow;
     }
 }

@@ -2,16 +2,19 @@
 using FootballTicketsSystem.AppServices;
 using FootballTicketsSystem.DBModels;
 using FootballTicketsSystem.Helpers;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace FootballTicketsSystem
@@ -34,23 +37,52 @@ namespace FootballTicketsSystem
 
         private void btnLoginSystem_Click(object sender, EventArgs e)
         {
-            string email = tBoxEmail.Text.Trim();
-            string password = tBoxPassword.Text.Trim();
-            var user = Program.context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
-            if (user != null)
+            // Проверка пустых полей
+            if (string.IsNullOrWhiteSpace(tBoxEmail.Text) ||
+                string.IsNullOrWhiteSpace(tBoxPassword.Text))
             {
-                UserSession.CurrentUser = user; // user из БД
-                MainDashboardForm mainDashboardForm = new MainDashboardForm();
-                DialogResult MainForm = mainDashboardForm.ShowDialog();
-                this.Hide();
-                if (MainForm == DialogResult.OK)
-                {
-                    this.Show();
-                }
+                MessageBox.Show("Заполните все поля", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            else MessageBox.Show("Пользователь с такими данными не найден");
+            string email = tBoxEmail.Text.Trim();
+            string password = tBoxPassword.Text;
 
+            // 1. СНАЧАЛА ищем пользователя
+            var user = Program.context.Users
+                .Include(u => u.Roles)
+                .FirstOrDefault(u => u.Email == email);
+
+            // 2. Проверяем, найден ли пользователь
+            if (user == null)
+            {
+                MessageBox.Show("Пользователь не найден", "Ошибка входа",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 3. Только если пользователь найден, проверяем пароль
+            bool isValid = PasswordHelper.VerifyPassword(
+                password,
+                user.PasswordHash,
+                user.PasswordSalt);
+
+            if (!isValid)
+            {
+                MessageBox.Show("Неверный пароль", "Ошибка входа",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 4. Если всё верно — входим в систему
+            UserSession.CurrentUser = user;
+
+            // Открываем главную форму
+            MainDashboardForm mainForm = new MainDashboardForm();
+            this.Hide();
+            mainForm.ShowDialog();
+            this.Close();
 
         }
 

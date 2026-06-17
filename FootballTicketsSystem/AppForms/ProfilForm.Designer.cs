@@ -41,10 +41,10 @@
             this.btnMain = new Guna.UI2.WinForms.Guna2Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.labelUserRole = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
+            this.pictureProfil = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClients = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPanelDiagramProfil = new Guna.UI2.WinForms.Guna2Panel();
             this.label17 = new System.Windows.Forms.Label();
@@ -52,25 +52,25 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxEmailCheck = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxPasswordCheck = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxPhoneCheck = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxPhotoCheck = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxNameCheck = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.label7 = new System.Windows.Forms.Label();
+            this.progressBarProfile = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.labelProgressPercent = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSaveChanges = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPanelDataText = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBoxVisible = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureBoxInvisible = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tBoxPasword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tBoxPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,12 +90,12 @@
             this.gunaPanelHeaderForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).BeginInit();
             this.gunaPanelDiagramProfil.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.guna2CircleProgressBar1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEmailCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoneCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNameCheck)).BeginInit();
+            this.progressBarProfile.SuspendLayout();
             this.gunaPanelDataText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvisible)).BeginInit();
@@ -122,7 +122,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(284, 857);
+            this.guna2Panel1.Size = new System.Drawing.Size(284, 789);
             this.guna2Panel1.TabIndex = 1;
             // 
             // btnExit
@@ -145,6 +145,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Выйти";
             this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnTransfers
             // 
@@ -166,6 +167,7 @@
             this.btnTransfers.TabIndex = 12;
             this.btnTransfers.Text = "Трансферы";
             this.btnTransfers.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
             // 
             // guna2Separator1
             // 
@@ -196,6 +198,7 @@
             this.btnCalendar.TabIndex = 11;
             this.btnCalendar.Text = "Календарь";
             this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // btnProfil
             // 
@@ -237,6 +240,7 @@
             this.btnTickets.TabIndex = 9;
             this.btnTickets.Text = "Мои билеты";
             this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // btnTeams
             // 
@@ -257,6 +261,7 @@
             this.btnTeams.Size = new System.Drawing.Size(226, 49);
             this.btnTeams.TabIndex = 8;
             this.btnTeams.Text = "Команды";
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
             // 
             // guna2PictureBox1
             // 
@@ -291,6 +296,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(284, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -307,35 +313,24 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnSaveChanges);
             this.splitContainer1.Panel2.Controls.Add(this.gunaPanelDataText);
             this.splitContainer1.Panel2.Controls.Add(this.gunaPanelImage);
-            this.splitContainer1.Size = new System.Drawing.Size(986, 857);
-            this.splitContainer1.SplitterDistance = 126;
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.splitContainer1.Size = new System.Drawing.Size(986, 789);
+            this.splitContainer1.SplitterDistance = 137;
             this.splitContainer1.TabIndex = 2;
             // 
             // gunaPanelHeaderForm
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
-            this.gunaPanelHeaderForm.Controls.Add(this.label1);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
+            this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
+            this.gunaPanelHeaderForm.Controls.Add(this.label1);
             this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
             this.gunaPanelHeaderForm.Name = "gunaPanelHeaderForm";
-            this.gunaPanelHeaderForm.Size = new System.Drawing.Size(986, 126);
+            this.gunaPanelHeaderForm.Size = new System.Drawing.Size(986, 137);
             this.gunaPanelHeaderForm.TabIndex = 20;
-            // 
-            // pictureProfil
-            // 
-            this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureProfil.BackColor = System.Drawing.Color.Transparent;
-            this.pictureProfil.ImageRotate = 0F;
-            this.pictureProfil.Location = new System.Drawing.Point(699, 30);
-            this.pictureProfil.Name = "pictureProfil";
-            this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureProfil.Size = new System.Drawing.Size(75, 75);
-            this.pictureProfil.TabIndex = 16;
-            this.pictureProfil.TabStop = false;
             // 
             // labelUserRole
             // 
@@ -344,34 +339,46 @@
             this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
             this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(787, 70);
+            this.labelUserRole.Location = new System.Drawing.Point(782, 37);
             this.labelUserRole.Name = "labelUserRole";
             this.labelUserRole.Size = new System.Drawing.Size(83, 24);
-            this.labelUserRole.TabIndex = 15;
+            this.labelUserRole.TabIndex = 18;
             this.labelUserRole.Text = "UserRole";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelUserName.Location = new System.Drawing.Point(782, 76);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(194, 52);
+            this.labelUserName.TabIndex = 17;
+            this.labelUserName.Text = "UserName";
+            // 
+            // pictureProfil
+            // 
+            this.pictureProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureProfil.BackColor = System.Drawing.Color.Transparent;
+            this.pictureProfil.ImageRotate = 0F;
+            this.pictureProfil.Location = new System.Drawing.Point(699, 37);
+            this.pictureProfil.Name = "pictureProfil";
+            this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureProfil.TabIndex = 16;
+            this.pictureProfil.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Inter Medium", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(19, 46);
+            this.label1.Location = new System.Drawing.Point(20, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Настройки профиля";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(787, 33);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
-            this.labelUserName.TabIndex = 14;
-            this.labelUserName.Text = "UserName";
             // 
             // btnClients
             // 
@@ -385,11 +392,13 @@
             this.btnClients.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
             this.btnClients.Font = new System.Drawing.Font("Inter Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnClients.ForeColor = System.Drawing.Color.White;
-            this.btnClients.Location = new System.Drawing.Point(721, 599);
+            this.btnClients.Location = new System.Drawing.Point(721, 588);
             this.btnClients.Name = "btnClients";
             this.btnClients.Size = new System.Drawing.Size(237, 47);
             this.btnClients.TabIndex = 22;
             this.btnClients.Text = "Перейти к клиентам";
+            this.btnClients.Visible = false;
+            this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
             // 
             // gunaPanelDiagramProfil
             // 
@@ -403,21 +412,21 @@
             this.gunaPanelDiagramProfil.Controls.Add(this.label15);
             this.gunaPanelDiagramProfil.Controls.Add(this.label14);
             this.gunaPanelDiagramProfil.Controls.Add(this.label13);
-            this.gunaPanelDiagramProfil.Controls.Add(this.guna2PictureBox6);
-            this.gunaPanelDiagramProfil.Controls.Add(this.guna2PictureBox5);
-            this.gunaPanelDiagramProfil.Controls.Add(this.guna2PictureBox4);
-            this.gunaPanelDiagramProfil.Controls.Add(this.guna2PictureBox3);
-            this.gunaPanelDiagramProfil.Controls.Add(this.guna2PictureBox2);
+            this.gunaPanelDiagramProfil.Controls.Add(this.pictureBoxEmailCheck);
+            this.gunaPanelDiagramProfil.Controls.Add(this.pictureBoxPasswordCheck);
+            this.gunaPanelDiagramProfil.Controls.Add(this.pictureBoxPhoneCheck);
+            this.gunaPanelDiagramProfil.Controls.Add(this.pictureBoxPhotoCheck);
+            this.gunaPanelDiagramProfil.Controls.Add(this.pictureBoxNameCheck);
             this.gunaPanelDiagramProfil.Controls.Add(this.label12);
             this.gunaPanelDiagramProfil.Controls.Add(this.label11);
             this.gunaPanelDiagramProfil.Controls.Add(this.label10);
             this.gunaPanelDiagramProfil.Controls.Add(this.label9);
             this.gunaPanelDiagramProfil.Controls.Add(this.label8);
-            this.gunaPanelDiagramProfil.Controls.Add(this.guna2CircleProgressBar1);
+            this.gunaPanelDiagramProfil.Controls.Add(this.progressBarProfile);
             this.gunaPanelDiagramProfil.Controls.Add(this.label6);
             this.gunaPanelDiagramProfil.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
             this.gunaPanelDiagramProfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.gunaPanelDiagramProfil.Location = new System.Drawing.Point(647, 229);
+            this.gunaPanelDiagramProfil.Location = new System.Drawing.Point(647, 218);
             this.gunaPanelDiagramProfil.Name = "gunaPanelDiagramProfil";
             this.gunaPanelDiagramProfil.Size = new System.Drawing.Size(311, 359);
             this.gunaPanelDiagramProfil.TabIndex = 21;
@@ -477,70 +486,70 @@
             this.label13.TabIndex = 20;
             this.label13.Text = "20% ";
             // 
-            // guna2PictureBox6
+            // pictureBoxEmailCheck
             // 
-            this.guna2PictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox6.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
-            this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(17, 319);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(22, 19);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox6.TabIndex = 19;
-            this.guna2PictureBox6.TabStop = false;
+            this.pictureBoxEmailCheck.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxEmailCheck.FillColor = System.Drawing.Color.Transparent;
+            this.pictureBoxEmailCheck.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
+            this.pictureBoxEmailCheck.ImageRotate = 0F;
+            this.pictureBoxEmailCheck.Location = new System.Drawing.Point(17, 319);
+            this.pictureBoxEmailCheck.Name = "pictureBoxEmailCheck";
+            this.pictureBoxEmailCheck.Size = new System.Drawing.Size(22, 19);
+            this.pictureBoxEmailCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEmailCheck.TabIndex = 19;
+            this.pictureBoxEmailCheck.TabStop = false;
             // 
-            // guna2PictureBox5
+            // pictureBoxPasswordCheck
             // 
-            this.guna2PictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox5.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(17, 289);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(22, 19);
-            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox5.TabIndex = 18;
-            this.guna2PictureBox5.TabStop = false;
+            this.pictureBoxPasswordCheck.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPasswordCheck.FillColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPasswordCheck.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
+            this.pictureBoxPasswordCheck.ImageRotate = 0F;
+            this.pictureBoxPasswordCheck.Location = new System.Drawing.Point(17, 289);
+            this.pictureBoxPasswordCheck.Name = "pictureBoxPasswordCheck";
+            this.pictureBoxPasswordCheck.Size = new System.Drawing.Size(22, 19);
+            this.pictureBoxPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPasswordCheck.TabIndex = 18;
+            this.pictureBoxPasswordCheck.TabStop = false;
             // 
-            // guna2PictureBox4
+            // pictureBoxPhoneCheck
             // 
-            this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(17, 258);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(22, 19);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox4.TabIndex = 17;
-            this.guna2PictureBox4.TabStop = false;
+            this.pictureBoxPhoneCheck.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPhoneCheck.FillColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPhoneCheck.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
+            this.pictureBoxPhoneCheck.ImageRotate = 0F;
+            this.pictureBoxPhoneCheck.Location = new System.Drawing.Point(17, 258);
+            this.pictureBoxPhoneCheck.Name = "pictureBoxPhoneCheck";
+            this.pictureBoxPhoneCheck.Size = new System.Drawing.Size(22, 19);
+            this.pictureBoxPhoneCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPhoneCheck.TabIndex = 17;
+            this.pictureBoxPhoneCheck.TabStop = false;
             // 
-            // guna2PictureBox3
+            // pictureBoxPhotoCheck
             // 
-            this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox3.Image = global::FootballTicketsSystem.Properties.Resources.cross;
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(17, 227);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(22, 19);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox3.TabIndex = 16;
-            this.guna2PictureBox3.TabStop = false;
+            this.pictureBoxPhotoCheck.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPhotoCheck.FillColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPhotoCheck.Image = global::FootballTicketsSystem.Properties.Resources.cross;
+            this.pictureBoxPhotoCheck.ImageRotate = 0F;
+            this.pictureBoxPhotoCheck.Location = new System.Drawing.Point(17, 227);
+            this.pictureBoxPhotoCheck.Name = "pictureBoxPhotoCheck";
+            this.pictureBoxPhotoCheck.Size = new System.Drawing.Size(22, 19);
+            this.pictureBoxPhotoCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPhotoCheck.TabIndex = 16;
+            this.pictureBoxPhotoCheck.TabStop = false;
             // 
-            // guna2PictureBox2
+            // pictureBoxNameCheck
             // 
-            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(17, 196);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(22, 19);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 10;
-            this.guna2PictureBox2.TabStop = false;
+            this.pictureBoxNameCheck.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxNameCheck.FillColor = System.Drawing.Color.Transparent;
+            this.pictureBoxNameCheck.Image = global::FootballTicketsSystem.Properties.Resources.agree_galochka;
+            this.pictureBoxNameCheck.ImageRotate = 0F;
+            this.pictureBoxNameCheck.Location = new System.Drawing.Point(17, 196);
+            this.pictureBoxNameCheck.Name = "pictureBoxNameCheck";
+            this.pictureBoxNameCheck.Size = new System.Drawing.Size(22, 19);
+            this.pictureBoxNameCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxNameCheck.TabIndex = 10;
+            this.pictureBoxNameCheck.TabStop = false;
             // 
             // label12
             // 
@@ -592,36 +601,36 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Присутствует фото";
             // 
-            // guna2CircleProgressBar1
+            // progressBarProfile
             // 
-            this.guna2CircleProgressBar1.Controls.Add(this.label7);
-            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.Silver;
-            this.guna2CircleProgressBar1.FillThickness = 18;
-            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(100, 64);
-            this.guna2CircleProgressBar1.Minimum = 0;
-            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
-            this.guna2CircleProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.guna2CircleProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.guna2CircleProgressBar1.ProgressThickness = 18;
-            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(114, 114);
-            this.guna2CircleProgressBar1.TabIndex = 11;
-            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.Value = 80;
+            this.progressBarProfile.Controls.Add(this.labelProgressPercent);
+            this.progressBarProfile.FillColor = System.Drawing.Color.Silver;
+            this.progressBarProfile.FillThickness = 18;
+            this.progressBarProfile.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.progressBarProfile.ForeColor = System.Drawing.Color.White;
+            this.progressBarProfile.Location = new System.Drawing.Point(100, 64);
+            this.progressBarProfile.Minimum = 0;
+            this.progressBarProfile.Name = "progressBarProfile";
+            this.progressBarProfile.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
+            this.progressBarProfile.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.progressBarProfile.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.progressBarProfile.ProgressThickness = 18;
+            this.progressBarProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.progressBarProfile.Size = new System.Drawing.Size(114, 114);
+            this.progressBarProfile.TabIndex = 11;
+            this.progressBarProfile.Text = "guna2CircleProgressBar1";
+            this.progressBarProfile.Value = 80;
             // 
-            // label7
+            // labelProgressPercent
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Inter Medium", 15F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(30, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 36);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "80%";
+            this.labelProgressPercent.AutoSize = true;
+            this.labelProgressPercent.Font = new System.Drawing.Font("Inter Medium", 15F, System.Drawing.FontStyle.Bold);
+            this.labelProgressPercent.ForeColor = System.Drawing.Color.Black;
+            this.labelProgressPercent.Location = new System.Drawing.Point(30, 42);
+            this.labelProgressPercent.Name = "labelProgressPercent";
+            this.labelProgressPercent.Size = new System.Drawing.Size(72, 36);
+            this.labelProgressPercent.TabIndex = 10;
+            this.labelProgressPercent.Text = "80%";
             // 
             // label6
             // 
@@ -645,11 +654,12 @@
             this.btnSaveChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
             this.btnSaveChanges.Font = new System.Drawing.Font("Inter Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnSaveChanges.ForeColor = System.Drawing.Color.White;
-            this.btnSaveChanges.Location = new System.Drawing.Point(26, 599);
+            this.btnSaveChanges.Location = new System.Drawing.Point(26, 588);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(237, 47);
             this.btnSaveChanges.TabIndex = 18;
             this.btnSaveChanges.Text = "Сохранить изменения";
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // gunaPanelDataText
             // 
@@ -661,7 +671,7 @@
             this.gunaPanelDataText.Controls.Add(this.pictureBoxVisible);
             this.gunaPanelDataText.Controls.Add(this.pictureBoxInvisible);
             this.gunaPanelDataText.Controls.Add(this.label5);
-            this.gunaPanelDataText.Controls.Add(this.tBoxPasword);
+            this.gunaPanelDataText.Controls.Add(this.tBoxPassword);
             this.gunaPanelDataText.Controls.Add(this.label4);
             this.gunaPanelDataText.Controls.Add(this.tBoxPhone);
             this.gunaPanelDataText.Controls.Add(this.label3);
@@ -670,7 +680,7 @@
             this.gunaPanelDataText.Controls.Add(this.tBoxFullName);
             this.gunaPanelDataText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
             this.gunaPanelDataText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.gunaPanelDataText.Location = new System.Drawing.Point(27, 229);
+            this.gunaPanelDataText.Location = new System.Drawing.Point(27, 218);
             this.gunaPanelDataText.Name = "gunaPanelDataText";
             this.gunaPanelDataText.Size = new System.Drawing.Size(598, 359);
             this.gunaPanelDataText.TabIndex = 20;
@@ -686,6 +696,7 @@
             this.pictureBoxVisible.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVisible.TabIndex = 9;
             this.pictureBoxVisible.TabStop = false;
+            this.pictureBoxVisible.Click += new System.EventHandler(this.pictureBoxVisible_Click);
             // 
             // pictureBoxInvisible
             // 
@@ -698,6 +709,7 @@
             this.pictureBoxInvisible.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxInvisible.TabIndex = 8;
             this.pictureBoxInvisible.TabStop = false;
+            this.pictureBoxInvisible.Click += new System.EventHandler(this.pictureBoxInvisible_Click);
             // 
             // label5
             // 
@@ -709,27 +721,27 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Пароль";
             // 
-            // tBoxPasword
+            // tBoxPassword
             // 
-            this.tBoxPasword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tBoxPasword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tBoxPasword.DefaultText = "";
-            this.tBoxPasword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tBoxPasword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tBoxPasword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxPasword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxPasword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxPasword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tBoxPasword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxPasword.Location = new System.Drawing.Point(325, 239);
-            this.tBoxPasword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tBoxPasword.Name = "tBoxPasword";
-            this.tBoxPasword.PasswordChar = '*';
-            this.tBoxPasword.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.tBoxPasword.PlaceholderText = "Введите новый пароль";
-            this.tBoxPasword.SelectedText = "";
-            this.tBoxPasword.Size = new System.Drawing.Size(246, 48);
-            this.tBoxPasword.TabIndex = 6;
+            this.tBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tBoxPassword.DefaultText = "";
+            this.tBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxPassword.Location = new System.Drawing.Point(325, 239);
+            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tBoxPassword.Name = "tBoxPassword";
+            this.tBoxPassword.PasswordChar = '*';
+            this.tBoxPassword.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.tBoxPassword.PlaceholderText = "Введите новый пароль";
+            this.tBoxPassword.SelectedText = "";
+            this.tBoxPassword.Size = new System.Drawing.Size(246, 48);
+            this.tBoxPassword.TabIndex = 6;
             // 
             // label4
             // 
@@ -836,7 +848,7 @@
             this.gunaPanelImage.Controls.Add(this.pictureBoxProfilEdit);
             this.gunaPanelImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
             this.gunaPanelImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.gunaPanelImage.Location = new System.Drawing.Point(27, 28);
+            this.gunaPanelImage.Location = new System.Drawing.Point(27, 17);
             this.gunaPanelImage.Name = "gunaPanelImage";
             this.gunaPanelImage.Size = new System.Drawing.Size(931, 178);
             this.gunaPanelImage.TabIndex = 11;
@@ -867,6 +879,7 @@
             this.btnEditImage.Size = new System.Drawing.Size(296, 52);
             this.btnEditImage.TabIndex = 18;
             this.btnEditImage.Text = "Редактировать изображение";
+            this.btnEditImage.Click += new System.EventHandler(this.btnEditImage_Click);
             // 
             // pictureBoxProfilEdit
             // 
@@ -877,19 +890,22 @@
             this.pictureBoxProfilEdit.Name = "pictureBoxProfilEdit";
             this.pictureBoxProfilEdit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureBoxProfilEdit.Size = new System.Drawing.Size(130, 130);
+            this.pictureBoxProfilEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfilEdit.TabIndex = 17;
             this.pictureBoxProfilEdit.TabStop = false;
             // 
             // ProfilForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1270, 857);
+            this.ClientSize = new System.Drawing.Size(1270, 789);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfilForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Профиль";
+            this.Load += new System.EventHandler(this.ProfilForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -901,13 +917,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfil)).EndInit();
             this.gunaPanelDiagramProfil.ResumeLayout(false);
             this.gunaPanelDiagramProfil.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.guna2CircleProgressBar1.ResumeLayout(false);
-            this.guna2CircleProgressBar1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEmailCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoneCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNameCheck)).EndInit();
+            this.progressBarProfile.ResumeLayout(false);
+            this.progressBarProfile.PerformLayout();
             this.gunaPanelDataText.ResumeLayout(false);
             this.gunaPanelDataText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisible)).EndInit();
@@ -933,9 +949,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelHeaderForm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureProfil;
-        private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2Panel gunaPanelImage;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxProfilEdit;
         private Guna.UI2.WinForms.Guna2Button btnEditImage;
@@ -947,7 +961,7 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox tBoxFullName;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox tBoxPasword;
+        private Guna.UI2.WinForms.Guna2TextBox tBoxPassword;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox tBoxPhone;
         private System.Windows.Forms.Label label3;
@@ -955,22 +969,24 @@
         private Guna.UI2.WinForms.Guna2PictureBox pictureBoxInvisible;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBoxVisible;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
-        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar progressBarProfile;
+        private System.Windows.Forms.Label labelProgressPercent;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxNameCheck;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxPhoneCheck;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxPhotoCheck;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxPasswordCheck;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxEmailCheck;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelUserRole;
+        private System.Windows.Forms.Label labelUserName;
     }
 }

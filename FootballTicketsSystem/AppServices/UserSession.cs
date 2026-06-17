@@ -10,5 +10,6 @@ namespace FootballTicketsSystem.AppServices
     public static class UserSession
     {
         public static Users CurrentUser { get; set; }
+        public static bool HasSeenTomorrowNotification { get; set; } = false;
     }
 }

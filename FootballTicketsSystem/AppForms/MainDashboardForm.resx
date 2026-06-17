@@ -157,7 +157,7 @@
         wUMJKoLA8za/4PrEveAv+k25cB0u10UAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaPictureBoxLogoSecondTeam.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBoxLogoSecondTeam.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAE0IAABOICAYAAAAyBRmjAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA68AAAOvAGVvHJJAAD/hklE
@@ -10276,7 +10276,7 @@
         rkJggg==
 </value>
   </data>
-  <data name="gunaPictureBoxLogoFirstTeam.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBoxLogoFirstTeam.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABQAAAAUACAYAAAAY5P/3AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKEWlDQ1BpY20AAEjHtVZnVFPZGj333vRC
@@ -15272,6 +15272,9 @@
         /P8gvS+chgNGeQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="timerMatchStats.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEA4OQAAAEAIAAYNwMAFgAAACgAAADgAAAAyAEAAAEAIAAAAAAAAB4DACUWAAAlFgAAAAAAAAAA

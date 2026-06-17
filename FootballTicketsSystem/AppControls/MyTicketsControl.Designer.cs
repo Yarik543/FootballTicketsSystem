@@ -30,34 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyTicketsControl));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelScore = new System.Windows.Forms.Label();
+            this.labelPlaceSeat = new System.Windows.Forms.Label();
+            this.labelRow = new System.Windows.Forms.Label();
+            this.labelSector = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox4 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.gunaButtonShowOr = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBoxActive = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnShowOr = new Guna.UI2.WinForms.Guna2Button();
             this.labelStadiumName = new System.Windows.Forms.Label();
             this.labelTimeMatch = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.labelTeamNameSecond = new System.Windows.Forms.Label();
             this.labelDataMatch = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.gunaPictureBoxTeamLogoAway = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.gunaPictureBoxLogoFirstTeam = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pictureBoxTeamLogoAway = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxLogoFirstTeam = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBoxVs = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.labelTeamNameFirst = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox5 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pictureBoxDisab = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTeamLogoAway)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoFirstTeam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTeamLogoAway)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoFirstTeam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisab)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -66,26 +67,27 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.White;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.label6);
-            this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.label4);
+            this.guna2Panel1.Controls.Add(this.labelScore);
+            this.guna2Panel1.Controls.Add(this.labelPlaceSeat);
+            this.guna2Panel1.Controls.Add(this.labelRow);
+            this.guna2Panel1.Controls.Add(this.labelSector);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.labelStatus);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox4);
-            this.guna2Panel1.Controls.Add(this.gunaButtonShowOr);
+            this.guna2Panel1.Controls.Add(this.pictureBoxActive);
+            this.guna2Panel1.Controls.Add(this.btnShowOr);
             this.guna2Panel1.Controls.Add(this.labelStadiumName);
             this.guna2Panel1.Controls.Add(this.labelTimeMatch);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox3);
             this.guna2Panel1.Controls.Add(this.labelTeamNameSecond);
             this.guna2Panel1.Controls.Add(this.labelDataMatch);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox2);
-            this.guna2Panel1.Controls.Add(this.gunaPictureBoxTeamLogoAway);
-            this.guna2Panel1.Controls.Add(this.gunaPictureBoxLogoFirstTeam);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel1.Controls.Add(this.pictureBoxTeamLogoAway);
+            this.guna2Panel1.Controls.Add(this.pictureBoxLogoFirstTeam);
+            this.guna2Panel1.Controls.Add(this.pictureBoxVs);
             this.guna2Panel1.Controls.Add(this.labelTeamNameFirst);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox5);
+            this.guna2Panel1.Controls.Add(this.pictureBoxDisab);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
@@ -94,35 +96,46 @@
             this.guna2Panel1.Size = new System.Drawing.Size(595, 283);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // label6
+            // labelScore
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(99, 242);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 22);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "65";
+            this.labelScore.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelScore.Location = new System.Drawing.Point(252, 50);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(82, 28);
+            this.labelScore.TabIndex = 44;
+            this.labelScore.Text = "0 : 0";
+            this.labelScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelScore.Visible = false;
             // 
-            // label5
+            // labelPlaceSeat
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(83, 211);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 22);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "12";
+            this.labelPlaceSeat.AutoSize = true;
+            this.labelPlaceSeat.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPlaceSeat.Location = new System.Drawing.Point(99, 242);
+            this.labelPlaceSeat.Name = "labelPlaceSeat";
+            this.labelPlaceSeat.Size = new System.Drawing.Size(29, 22);
+            this.labelPlaceSeat.TabIndex = 43;
+            this.labelPlaceSeat.Text = "65";
             // 
-            // label4
+            // labelRow
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(107, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 22);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "A";
+            this.labelRow.AutoSize = true;
+            this.labelRow.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRow.Location = new System.Drawing.Point(83, 211);
+            this.labelRow.Name = "labelRow";
+            this.labelRow.Size = new System.Drawing.Size(25, 22);
+            this.labelRow.TabIndex = 42;
+            this.labelRow.Text = "12";
+            // 
+            // labelSector
+            // 
+            this.labelSector.AutoSize = true;
+            this.labelSector.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSector.Location = new System.Drawing.Point(107, 179);
+            this.labelSector.Name = "labelSector";
+            this.labelSector.Size = new System.Drawing.Size(21, 22);
+            this.labelSector.TabIndex = 41;
+            this.labelSector.Text = "A";
             // 
             // label3
             // 
@@ -158,58 +171,58 @@
             // 
             this.labelStatus.AutoSize = true;
             this.labelStatus.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStatus.Location = new System.Drawing.Point(467, 211);
+            this.labelStatus.Location = new System.Drawing.Point(467, 212);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(70, 22);
             this.labelStatus.TabIndex = 36;
             this.labelStatus.Text = "Активен";
             // 
-            // guna2CirclePictureBox4
+            // pictureBoxActive
             // 
-            this.guna2CirclePictureBox4.Image = global::FootballTicketsSystem.Properties.Resources.Ellipse_2;
-            this.guna2CirclePictureBox4.ImageRotate = 0F;
-            this.guna2CirclePictureBox4.Location = new System.Drawing.Point(449, 218);
-            this.guna2CirclePictureBox4.Name = "guna2CirclePictureBox4";
-            this.guna2CirclePictureBox4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox4.Size = new System.Drawing.Size(10, 10);
-            this.guna2CirclePictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox4.TabIndex = 35;
-            this.guna2CirclePictureBox4.TabStop = false;
+            this.pictureBoxActive.Image = global::FootballTicketsSystem.Properties.Resources.Ellipse_2;
+            this.pictureBoxActive.ImageRotate = 0F;
+            this.pictureBoxActive.Location = new System.Drawing.Point(449, 218);
+            this.pictureBoxActive.Name = "pictureBoxActive";
+            this.pictureBoxActive.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxActive.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxActive.TabIndex = 35;
+            this.pictureBoxActive.TabStop = false;
             // 
-            // gunaButtonShowOr
+            // btnShowOr
             // 
-            this.gunaButtonShowOr.BorderColor = System.Drawing.Color.White;
-            this.gunaButtonShowOr.BorderRadius = 5;
-            this.gunaButtonShowOr.BorderThickness = 2;
-            this.gunaButtonShowOr.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.gunaButtonShowOr.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.gunaButtonShowOr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.gunaButtonShowOr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.gunaButtonShowOr.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.gunaButtonShowOr.Font = new System.Drawing.Font("Inter Medium", 9.2F, System.Drawing.FontStyle.Bold);
-            this.gunaButtonShowOr.ForeColor = System.Drawing.Color.White;
-            this.gunaButtonShowOr.Location = new System.Drawing.Point(230, 199);
-            this.gunaButtonShowOr.Name = "gunaButtonShowOr";
-            this.gunaButtonShowOr.Size = new System.Drawing.Size(184, 46);
-            this.gunaButtonShowOr.TabIndex = 34;
-            this.gunaButtonShowOr.Text = "Показать QR";
+            this.btnShowOr.BorderColor = System.Drawing.Color.White;
+            this.btnShowOr.BorderRadius = 5;
+            this.btnShowOr.BorderThickness = 2;
+            this.btnShowOr.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowOr.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowOr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowOr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowOr.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnShowOr.Font = new System.Drawing.Font("Inter Medium", 9.2F, System.Drawing.FontStyle.Bold);
+            this.btnShowOr.ForeColor = System.Drawing.Color.White;
+            this.btnShowOr.Location = new System.Drawing.Point(230, 199);
+            this.btnShowOr.Name = "btnShowOr";
+            this.btnShowOr.Size = new System.Drawing.Size(184, 46);
+            this.btnShowOr.TabIndex = 34;
+            this.btnShowOr.Text = "Показать QR";
+            this.btnShowOr.Click += new System.EventHandler(this.btnShowOr_Click);
             // 
             // labelStadiumName
             // 
-            this.labelStadiumName.AutoSize = true;
             this.labelStadiumName.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelStadiumName.Location = new System.Drawing.Point(181, 147);
             this.labelStadiumName.Name = "labelStadiumName";
             this.labelStadiumName.Size = new System.Drawing.Size(215, 22);
             this.labelStadiumName.TabIndex = 33;
-            this.labelStadiumName.Text = "Стадион: Santiago Bernabeu";
+            this.labelStadiumName.Text = "Стадион: ";
             this.labelStadiumName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTimeMatch
             // 
             this.labelTimeMatch.AutoSize = true;
             this.labelTimeMatch.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTimeMatch.Location = new System.Drawing.Point(349, 110);
+            this.labelTimeMatch.Location = new System.Drawing.Point(373, 110);
             this.labelTimeMatch.Name = "labelTimeMatch";
             this.labelTimeMatch.Size = new System.Drawing.Size(47, 22);
             this.labelTimeMatch.TabIndex = 32;
@@ -222,7 +235,7 @@
             this.guna2CirclePictureBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox3.Image = global::FootballTicketsSystem.Properties.Resources.mingcute_time_fill;
             this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(311, 107);
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(335, 107);
             this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox3.Size = new System.Drawing.Size(28, 28);
@@ -234,7 +247,7 @@
             // labelTeamNameSecond
             // 
             this.labelTeamNameSecond.Font = new System.Drawing.Font("Inter Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.labelTeamNameSecond.Location = new System.Drawing.Point(379, 50);
+            this.labelTeamNameSecond.Location = new System.Drawing.Point(408, 50);
             this.labelTeamNameSecond.Name = "labelTeamNameSecond";
             this.labelTeamNameSecond.Size = new System.Drawing.Size(166, 22);
             this.labelTeamNameSecond.TabIndex = 30;
@@ -267,68 +280,68 @@
             this.guna2CirclePictureBox2.TabStop = false;
             this.guna2CirclePictureBox2.UseTransparentBackground = true;
             // 
-            // gunaPictureBoxTeamLogoAway
+            // pictureBoxTeamLogoAway
             // 
-            this.gunaPictureBoxTeamLogoAway.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
-            this.gunaPictureBoxTeamLogoAway.BorderRadius = 5;
-            this.gunaPictureBoxTeamLogoAway.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBoxTeamLogoAway.Image")));
-            this.gunaPictureBoxTeamLogoAway.ImageRotate = 0F;
-            this.gunaPictureBoxTeamLogoAway.Location = new System.Drawing.Point(316, 38);
-            this.gunaPictureBoxTeamLogoAway.Name = "gunaPictureBoxTeamLogoAway";
-            this.gunaPictureBoxTeamLogoAway.Size = new System.Drawing.Size(45, 45);
-            this.gunaPictureBoxTeamLogoAway.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBoxTeamLogoAway.TabIndex = 27;
-            this.gunaPictureBoxTeamLogoAway.TabStop = false;
+            this.pictureBoxTeamLogoAway.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(234)))));
+            this.pictureBoxTeamLogoAway.BorderRadius = 5;
+            this.pictureBoxTeamLogoAway.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTeamLogoAway.Image")));
+            this.pictureBoxTeamLogoAway.ImageRotate = 0F;
+            this.pictureBoxTeamLogoAway.Location = new System.Drawing.Point(345, 38);
+            this.pictureBoxTeamLogoAway.Name = "pictureBoxTeamLogoAway";
+            this.pictureBoxTeamLogoAway.Size = new System.Drawing.Size(50, 45);
+            this.pictureBoxTeamLogoAway.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxTeamLogoAway.TabIndex = 27;
+            this.pictureBoxTeamLogoAway.TabStop = false;
             // 
-            // gunaPictureBoxLogoFirstTeam
+            // pictureBoxLogoFirstTeam
             // 
-            this.gunaPictureBoxLogoFirstTeam.BorderRadius = 5;
-            this.gunaPictureBoxLogoFirstTeam.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBoxLogoFirstTeam.Image")));
-            this.gunaPictureBoxLogoFirstTeam.ImageRotate = 0F;
-            this.gunaPictureBoxLogoFirstTeam.Location = new System.Drawing.Point(212, 38);
-            this.gunaPictureBoxLogoFirstTeam.Name = "gunaPictureBoxLogoFirstTeam";
-            this.gunaPictureBoxLogoFirstTeam.Size = new System.Drawing.Size(45, 45);
-            this.gunaPictureBoxLogoFirstTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBoxLogoFirstTeam.TabIndex = 26;
-            this.gunaPictureBoxLogoFirstTeam.TabStop = false;
+            this.pictureBoxLogoFirstTeam.BorderRadius = 5;
+            this.pictureBoxLogoFirstTeam.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogoFirstTeam.Image")));
+            this.pictureBoxLogoFirstTeam.ImageRotate = 0F;
+            this.pictureBoxLogoFirstTeam.Location = new System.Drawing.Point(192, 38);
+            this.pictureBoxLogoFirstTeam.Name = "pictureBoxLogoFirstTeam";
+            this.pictureBoxLogoFirstTeam.Size = new System.Drawing.Size(48, 45);
+            this.pictureBoxLogoFirstTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogoFirstTeam.TabIndex = 26;
+            this.pictureBoxLogoFirstTeam.TabStop = false;
             // 
-            // guna2CirclePictureBox1
+            // pictureBoxVs
             // 
-            this.guna2CirclePictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = global::FootballTicketsSystem.Properties.Resources.vs;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(272, 50);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 25;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.UseTransparentBackground = true;
+            this.pictureBoxVs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxVs.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxVs.FillColor = System.Drawing.Color.Transparent;
+            this.pictureBoxVs.Image = global::FootballTicketsSystem.Properties.Resources.vs;
+            this.pictureBoxVs.ImageRotate = 0F;
+            this.pictureBoxVs.Location = new System.Drawing.Point(272, 50);
+            this.pictureBoxVs.Name = "pictureBoxVs";
+            this.pictureBoxVs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxVs.Size = new System.Drawing.Size(28, 28);
+            this.pictureBoxVs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxVs.TabIndex = 25;
+            this.pictureBoxVs.TabStop = false;
+            this.pictureBoxVs.UseTransparentBackground = true;
             // 
             // labelTeamNameFirst
             // 
             this.labelTeamNameFirst.Font = new System.Drawing.Font("Inter Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.labelTeamNameFirst.Location = new System.Drawing.Point(40, 50);
+            this.labelTeamNameFirst.Location = new System.Drawing.Point(19, 50);
             this.labelTeamNameFirst.Name = "labelTeamNameFirst";
             this.labelTeamNameFirst.Size = new System.Drawing.Size(166, 22);
             this.labelTeamNameFirst.TabIndex = 23;
             this.labelTeamNameFirst.Text = "Real";
             this.labelTeamNameFirst.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2CirclePictureBox5
+            // pictureBoxDisab
             // 
-            this.guna2CirclePictureBox5.Image = global::FootballTicketsSystem.Properties.Resources.Ellipse_2_1;
-            this.guna2CirclePictureBox5.ImageRotate = 0F;
-            this.guna2CirclePictureBox5.Location = new System.Drawing.Point(449, 218);
-            this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
-            this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox5.Size = new System.Drawing.Size(10, 10);
-            this.guna2CirclePictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox5.TabIndex = 37;
-            this.guna2CirclePictureBox5.TabStop = false;
+            this.pictureBoxDisab.Image = global::FootballTicketsSystem.Properties.Resources.Ellipse_2_1;
+            this.pictureBoxDisab.ImageRotate = 0F;
+            this.pictureBoxDisab.Location = new System.Drawing.Point(449, 218);
+            this.pictureBoxDisab.Name = "pictureBoxDisab";
+            this.pictureBoxDisab.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxDisab.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxDisab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDisab.TabIndex = 37;
+            this.pictureBoxDisab.TabStop = false;
             // 
             // MyTicketsControl
             // 
@@ -340,13 +353,13 @@
             this.Size = new System.Drawing.Size(595, 283);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTeamLogoAway)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxLogoFirstTeam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTeamLogoAway)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoFirstTeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisab)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,9 +367,9 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2PictureBox gunaPictureBoxTeamLogoAway;
-        private Guna.UI2.WinForms.Guna2PictureBox gunaPictureBoxLogoFirstTeam;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxTeamLogoAway;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxLogoFirstTeam;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxVs;
         private System.Windows.Forms.Label labelTeamNameFirst;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
         private System.Windows.Forms.Label labelDataMatch;
@@ -364,15 +377,16 @@
         private System.Windows.Forms.Label labelTimeMatch;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
         private System.Windows.Forms.Label labelStadiumName;
-        private Guna.UI2.WinForms.Guna2Button gunaButtonShowOr;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox4;
+        private Guna.UI2.WinForms.Guna2Button btnShowOr;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxActive;
         private System.Windows.Forms.Label labelStatus;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox5;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxDisab;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelSector;
+        private System.Windows.Forms.Label labelRow;
+        private System.Windows.Forms.Label labelPlaceSeat;
+        private System.Windows.Forms.Label labelScore;
     }
 }

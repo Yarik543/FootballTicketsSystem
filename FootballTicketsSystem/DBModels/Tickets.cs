@@ -30,6 +30,8 @@ namespace FootballTicketsSystem.DBModels
 
         public bool? IsSold { get; set; }
 
+        public string QrCodeData { get; set; }
+
         public virtual Matches Matches { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

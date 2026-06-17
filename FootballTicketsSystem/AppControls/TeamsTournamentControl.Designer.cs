@@ -30,7 +30,7 @@
         {
             this.gunaPanelControl = new Guna.UI2.WinForms.Guna2Panel();
             this.labelCityName = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDetails = new Guna.UI2.WinForms.Guna2Button();
             this.labelStadiumTeam = new System.Windows.Forms.Label();
             this.labelTeamName = new System.Windows.Forms.Label();
             this.gunaPictureBoxLogoTeam = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -45,7 +45,7 @@
             this.gunaPanelControl.BorderRadius = 10;
             this.gunaPanelControl.BorderThickness = 2;
             this.gunaPanelControl.Controls.Add(this.labelCityName);
-            this.gunaPanelControl.Controls.Add(this.guna2Button2);
+            this.gunaPanelControl.Controls.Add(this.btnDetails);
             this.gunaPanelControl.Controls.Add(this.labelStadiumTeam);
             this.gunaPanelControl.Controls.Add(this.labelTeamName);
             this.gunaPanelControl.Controls.Add(this.gunaPictureBoxLogoTeam);
@@ -65,23 +65,24 @@
             this.labelCityName.TabIndex = 4;
             this.labelCityName.Text = "label1";
             // 
-            // guna2Button2
+            // btnDetails
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.White;
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(239, 137);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(254, 45);
-            this.guna2Button2.TabIndex = 3;
-            this.guna2Button2.Text = "Подробнее";
+            this.btnDetails.BorderColor = System.Drawing.Color.White;
+            this.btnDetails.BorderRadius = 5;
+            this.btnDetails.BorderThickness = 2;
+            this.btnDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnDetails.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnDetails.ForeColor = System.Drawing.Color.White;
+            this.btnDetails.Location = new System.Drawing.Point(239, 137);
+            this.btnDetails.Name = "btnDetails";
+            this.btnDetails.Size = new System.Drawing.Size(254, 45);
+            this.btnDetails.TabIndex = 3;
+            this.btnDetails.Text = "Подробнее";
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // labelStadiumTeam
             // 
@@ -135,7 +136,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox gunaPictureBoxLogoTeam;
         private System.Windows.Forms.Label labelTeamName;
         private System.Windows.Forms.Label labelStadiumTeam;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnDetails;
         private System.Windows.Forms.Label labelCityName;
     }
 }

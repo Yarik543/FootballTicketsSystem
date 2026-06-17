@@ -1,4 +1,4 @@
-namespace FootballTicketsSystem.DBModels
+﻿namespace FootballTicketsSystem.DBModels
 {
     using System;
     using System.Collections.Generic;
@@ -14,6 +14,11 @@ namespace FootballTicketsSystem.DBModels
             UserTickets = new HashSet<UserTickets>();
         }
 
+        public bool IsAdmin()
+        {
+            return this.Roles.RoleName == "Администратор";
+        }
+
         [Key]
         public int IdUser { get; set; }
 
@@ -24,9 +29,11 @@ namespace FootballTicketsSystem.DBModels
         [StringLength(255)]
         public string Email { get; set; }
 
-        [Required]
         [StringLength(255)]
-        public string Password { get; set; }
+        public string PasswordSalt { get; set; }
+
+        [StringLength(255)]
+        public string PasswordHash { get; set; }
 
         [StringLength(255)]
         public string Phone { get; set; }
@@ -35,6 +42,8 @@ namespace FootballTicketsSystem.DBModels
 
         [StringLength(255)]
         public string PhotoProfil { get; set; }
+
+        public int? Ballance { get; set; }
 
         public virtual Roles Roles { get; set; }
 

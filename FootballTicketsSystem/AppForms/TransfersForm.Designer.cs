@@ -41,7 +41,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gunaPanelHeaderForm = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAddMatch = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddTransfer = new Guna.UI2.WinForms.Guna2Button();
             this.gunaGroupBoxDate = new Guna.UI2.WinForms.Guna2GroupBox();
             this.radioBtnLater = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radioBtnNew = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -49,7 +49,7 @@
             this.labelUserRole = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tBoxSearchMatch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tBoxSearchTransfer = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelUserName = new System.Windows.Forms.Label();
             this.flowLayoutPanelTrnasfers = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
@@ -106,6 +106,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Выйти";
             this.btnExit.TextOffset = new System.Drawing.Point(-10, 0);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // guna2Separator1
             // 
@@ -136,6 +137,7 @@
             this.btnCalendar.TabIndex = 11;
             this.btnCalendar.Text = "Календарь";
             this.btnCalendar.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // btnProfil
             // 
@@ -156,6 +158,7 @@
             this.btnProfil.Size = new System.Drawing.Size(226, 49);
             this.btnProfil.TabIndex = 10;
             this.btnProfil.Text = "Профиль";
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
             // 
             // btnTickets
             // 
@@ -177,6 +180,7 @@
             this.btnTickets.TabIndex = 9;
             this.btnTickets.Text = "Мои билеты";
             this.btnTickets.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // btnTeams
             // 
@@ -197,6 +201,7 @@
             this.btnTeams.Size = new System.Drawing.Size(226, 49);
             this.btnTeams.TabIndex = 8;
             this.btnTeams.Text = "Команды";
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
             // 
             // guna2PictureBox1
             // 
@@ -252,6 +257,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(284, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -273,13 +279,13 @@
             // 
             this.gunaPanelHeaderForm.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanelHeaderForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.gunaPanelHeaderForm.Controls.Add(this.btnAddMatch);
+            this.gunaPanelHeaderForm.Controls.Add(this.btnAddTransfer);
             this.gunaPanelHeaderForm.Controls.Add(this.gunaGroupBoxDate);
             this.gunaPanelHeaderForm.Controls.Add(this.pictureProfil);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserRole);
             this.gunaPanelHeaderForm.Controls.Add(this.guna2PictureBox2);
             this.gunaPanelHeaderForm.Controls.Add(this.label1);
-            this.gunaPanelHeaderForm.Controls.Add(this.tBoxSearchMatch);
+            this.gunaPanelHeaderForm.Controls.Add(this.tBoxSearchTransfer);
             this.gunaPanelHeaderForm.Controls.Add(this.labelUserName);
             this.gunaPanelHeaderForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanelHeaderForm.Location = new System.Drawing.Point(0, 0);
@@ -287,26 +293,27 @@
             this.gunaPanelHeaderForm.Size = new System.Drawing.Size(968, 179);
             this.gunaPanelHeaderForm.TabIndex = 21;
             // 
-            // btnAddMatch
+            // btnAddTransfer
             // 
-            this.btnAddMatch.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddMatch.BorderRadius = 5;
-            this.btnAddMatch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddMatch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddMatch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddMatch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddMatch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.btnAddMatch.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnAddMatch.ForeColor = System.Drawing.Color.White;
-            this.btnAddMatch.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddMatch.Location = new System.Drawing.Point(26, 119);
-            this.btnAddMatch.Name = "btnAddMatch";
-            this.btnAddMatch.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.btnAddMatch.Size = new System.Drawing.Size(260, 49);
-            this.btnAddMatch.TabIndex = 17;
-            this.btnAddMatch.Text = "Добавить трансфер";
-            this.btnAddMatch.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnAddMatch.Click += new System.EventHandler(this.btnAddMatch_Click);
+            this.btnAddTransfer.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddTransfer.BorderRadius = 5;
+            this.btnAddTransfer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddTransfer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddTransfer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddTransfer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddTransfer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnAddTransfer.Font = new System.Drawing.Font("Inter SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnAddTransfer.ForeColor = System.Drawing.Color.White;
+            this.btnAddTransfer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddTransfer.Location = new System.Drawing.Point(26, 116);
+            this.btnAddTransfer.Name = "btnAddTransfer";
+            this.btnAddTransfer.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.btnAddTransfer.Size = new System.Drawing.Size(260, 49);
+            this.btnAddTransfer.TabIndex = 17;
+            this.btnAddTransfer.Text = "Добавить трансфер";
+            this.btnAddTransfer.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnAddTransfer.Visible = false;
+            this.btnAddTransfer.Click += new System.EventHandler(this.btnAddTransfer_Click);
             // 
             // gunaGroupBoxDate
             // 
@@ -334,7 +341,7 @@
             this.radioBtnLater.CheckedState.InnerOffset = -4;
             this.radioBtnLater.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioBtnLater.Font = new System.Drawing.Font("Inter", 8.5F);
-            this.radioBtnLater.Location = new System.Drawing.Point(96, 36);
+            this.radioBtnLater.Location = new System.Drawing.Point(12, 36);
             this.radioBtnLater.Name = "radioBtnLater";
             this.radioBtnLater.Size = new System.Drawing.Size(103, 27);
             this.radioBtnLater.TabIndex = 3;
@@ -345,6 +352,7 @@
             this.radioBtnLater.UncheckedState.BorderThickness = 1;
             this.radioBtnLater.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radioBtnLater.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioBtnLater.CheckedChanged += new System.EventHandler(this.radioBtnLater_CheckedChanged);
             // 
             // radioBtnNew
             // 
@@ -357,7 +365,7 @@
             this.radioBtnNew.CheckedState.InnerOffset = -4;
             this.radioBtnNew.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioBtnNew.Font = new System.Drawing.Font("Inter", 8.5F);
-            this.radioBtnNew.Location = new System.Drawing.Point(12, 36);
+            this.radioBtnNew.Location = new System.Drawing.Point(121, 36);
             this.radioBtnNew.Name = "radioBtnNew";
             this.radioBtnNew.Size = new System.Drawing.Size(88, 27);
             this.radioBtnNew.TabIndex = 2;
@@ -367,6 +375,7 @@
             this.radioBtnNew.UncheckedState.BorderThickness = 1;
             this.radioBtnNew.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radioBtnNew.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioBtnNew.CheckedChanged += new System.EventHandler(this.radioBtnNew_CheckedChanged);
             // 
             // pictureProfil
             // 
@@ -377,6 +386,7 @@
             this.pictureProfil.Name = "pictureProfil";
             this.pictureProfil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureProfil.Size = new System.Drawing.Size(75, 75);
+            this.pictureProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProfil.TabIndex = 16;
             this.pictureProfil.TabStop = false;
             // 
@@ -387,7 +397,7 @@
             this.labelUserRole.BackColor = System.Drawing.Color.Transparent;
             this.labelUserRole.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelUserRole.ForeColor = System.Drawing.Color.Black;
-            this.labelUserRole.Location = new System.Drawing.Point(769, 85);
+            this.labelUserRole.Location = new System.Drawing.Point(769, 46);
             this.labelUserRole.Name = "labelUserRole";
             this.labelUserRole.Size = new System.Drawing.Size(83, 24);
             this.labelUserRole.TabIndex = 15;
@@ -414,37 +424,37 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Трансферы";
             // 
-            // tBoxSearchMatch
+            // tBoxSearchTransfer
             // 
-            this.tBoxSearchMatch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tBoxSearchMatch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tBoxSearchMatch.DefaultText = "";
-            this.tBoxSearchMatch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tBoxSearchMatch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tBoxSearchMatch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxSearchMatch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tBoxSearchMatch.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tBoxSearchMatch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxSearchMatch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tBoxSearchMatch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tBoxSearchMatch.Location = new System.Drawing.Point(438, 52);
-            this.tBoxSearchMatch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tBoxSearchMatch.Name = "tBoxSearchMatch";
-            this.tBoxSearchMatch.PlaceholderText = "";
-            this.tBoxSearchMatch.SelectedText = "";
-            this.tBoxSearchMatch.Size = new System.Drawing.Size(212, 31);
-            this.tBoxSearchMatch.TabIndex = 1;
+            this.tBoxSearchTransfer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tBoxSearchTransfer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tBoxSearchTransfer.DefaultText = "";
+            this.tBoxSearchTransfer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tBoxSearchTransfer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tBoxSearchTransfer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxSearchTransfer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tBoxSearchTransfer.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.tBoxSearchTransfer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxSearchTransfer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tBoxSearchTransfer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tBoxSearchTransfer.Location = new System.Drawing.Point(438, 52);
+            this.tBoxSearchTransfer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tBoxSearchTransfer.Name = "tBoxSearchTransfer";
+            this.tBoxSearchTransfer.PlaceholderText = "";
+            this.tBoxSearchTransfer.SelectedText = "";
+            this.tBoxSearchTransfer.Size = new System.Drawing.Size(212, 31);
+            this.tBoxSearchTransfer.TabIndex = 1;
+            this.tBoxSearchTransfer.TextChanged += new System.EventHandler(this.tBoxSearchTransfer_TextChanged);
             // 
             // labelUserName
             // 
             this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.AutoSize = true;
             this.labelUserName.BackColor = System.Drawing.Color.Transparent;
             this.labelUserName.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelUserName.Location = new System.Drawing.Point(769, 48);
+            this.labelUserName.Location = new System.Drawing.Point(769, 85);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(96, 24);
+            this.labelUserName.Size = new System.Drawing.Size(194, 66);
             this.labelUserName.TabIndex = 14;
             this.labelUserName.Text = "UserName";
             // 
@@ -466,6 +476,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Inter", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TransfersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -507,10 +518,10 @@
         private System.Windows.Forms.Label labelUserRole;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox tBoxSearchMatch;
+        private Guna.UI2.WinForms.Guna2TextBox tBoxSearchTransfer;
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTrnasfers;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button btnAddMatch;
+        private Guna.UI2.WinForms.Guna2Button btnAddTransfer;
     }
 }
